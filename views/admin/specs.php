@@ -9,11 +9,14 @@
 
   $showmodal = false;
   $modalshow = false;
+  $showmessage = false;
   
  
   switch ($accion) {
 
     case 'btnupd':
+
+          $showmessage = true;
 
           $save_spec = array(
 
@@ -24,11 +27,79 @@
 
           $spec = $specs_controller->set($save_spec);
 
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="specs" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');
+
     break;
 
     case 'btndel':
+
+          $showmessage = true;
             
           $spec = $specs_controller->del($_POST['txtid']);
+
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="users" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');
 
     break;
 
@@ -43,10 +114,10 @@
 ?>
 
 
-
 <!-- central section -->
 <div class="content-wrapper">
     
+
   <!-- content header (page header) -->
   <section class="content-header text-center">
     <div class="row">
@@ -54,10 +125,10 @@
     </div>
   </section>
 
+
   <!-- main content -->
   <section class="content">
   
-
 
     <!-- Inicio modal edicion spec -->
     <div class="row">
@@ -121,7 +192,7 @@
                  <div class="box-body">
                     <form method="post">
                         <input type="hidden" name="r" value="spec-add">
-                        <input class="button btn btn-warning" type="submit" value="NEW Spec">
+                        <input class="button btn btn-warning" type="submit" value="New Spec">
                     </form>
                   </div>
               </div>
@@ -162,7 +233,6 @@
             <!-- /.box -->
           </div>
     </div>
-    
     <!-- fin tabla Especialidades --> 
 
   

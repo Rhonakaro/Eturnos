@@ -16,7 +16,7 @@
               <span class="pull-right-container"></span></a>
           </li>
           <li >
-            <a href="journal"><i class="glyphicon glyphicon-calendar"></i> <span>Agenda</span>
+            <a href="journals"><i class="glyphicon glyphicon-calendar"></i> <span>Agenda</span>
               <span class="pull-right-container"></span></a>
           </li>
           <li >

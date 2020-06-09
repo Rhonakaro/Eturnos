@@ -8,6 +8,7 @@
 
   $showmodal = false;
   $modalshow = false;
+  $showmessage = false;
 
 ?>
 
@@ -32,6 +33,7 @@
     <link rel="stylesheet" href="http://localhost/eturnos/public/plugins/fonts/font_google.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/materialdesignicons.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="http://localhost/eturnos/public/css/select2.min.css">
     <link rel="shortcut icon" type="image/png" href="./public/img/logo.png">
   </head>
   

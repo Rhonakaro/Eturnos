@@ -1,5 +1,8 @@
 
 <?php
+	$showmodal = 0;
+	$modalshow = 0;
+	$modaljournal = 0;
 
   $doctors_controller = new DoctorsController();
 

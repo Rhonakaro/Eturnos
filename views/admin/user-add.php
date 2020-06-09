@@ -1,40 +1,5 @@
 <?php
 
-$accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
-
-if ( $_POST['r'] == 'user-add' && $accion == 'new' && $_POST['roll'] == 'doc' ) {
-
-	$users_controller = new UsersController();
-
-	$users_count = $users_controller->get('doc');
-
-	foreach ($users_count as $key => $value) {
-		$$key = $value;
-	}
-
-	$reverse_array = array_reverse($$key);
-
-	foreach ($reverse_array as $key => $value) {
-		$$key = $value;
-	}
-	
-	$idus = intval($$key); //ultimo ID roll DOC insertado
-
-	$doctors_controller = new DoctorsController();
-	
-        $new_doctor = array(
-
-            'idoc' => 0,
-            'idus' => $idus,
-            'idspec' => intval($_POST['idspec'])
-        );
-        
-    print_r($new_doctor);
-
-    $new_doctor = $doctors_controller->set($new_doctor);
-
-}
-
 $showmodal = 0;
 $modalshow = 0;
 
@@ -53,7 +18,7 @@ $modalshow = 0;
 					            <div class="text-center box-header with-border">
 					              <h3 class="box-title">Nuevo Usuario</h3>
 					            </div>
-					            <form method="post" class="form-horizontal" enctype="multipart/from-data">
+					            <form method="post" class="form-horizontal">
 					            	<div class="box-body">
 						                <div class="form-group">
 						                	<label for="inputlname" class="col-sm-2 control-label">Apellido</label>
@@ -96,18 +61,17 @@ $modalshow = 0;
 												<?php for ($n=0; $n < count($specs); $n++) { ?>
 												<option> <?php echo ($specs[$n]['idspec'].' . '.$specs[$n]['spec']) ?> </option>
 												<?php } ?>
-												
 											</select>
 										</div>
 									</div>
 					            	<div class="box-footer">
 					            		<div class="pull-left">
-							                <button type="submit" name="accion" value="new" class="btn btn-default">Agegar</button>
+							                <button type="submit" class="btn btn-default">New User</button>
 							                <input type="hidden" name="r" value="user-add">
 											<input type="hidden" name="crud" value="set">
 										</div>
 										<div class="pull-right">
-											<a class="btn btn-default" href="users">back</a>
+											<a class="btn btn-default" href="users">Back</a>
 										</div>
 									</div>
 					            </form>
@@ -124,6 +88,8 @@ $modalshow = 0;
 
 		$users_controller = new UsersController();
 
+		
+
 		$new_user = array(
 			'idus' => 0,
 			'lname' => $_POST['lname'],
@@ -135,35 +101,87 @@ $modalshow = 0;
 		
 		$user = $users_controller->set($new_user);
 
-		print('
+		
+
+		if ( $_POST['roll'] == 'doc' ) {
+
+			
+			$users_count = $users_controller->get('doc');
+
+			foreach ($users_count as $key => $value) {
+				$$key = $value;
+			}
+
+			$reverse_array = array_reverse($$key);
+
+			foreach ($reverse_array as $key => $value) {
+				$$key = $value;
+			}
+			
+			$idus = intval($$key); //ultimo ID roll DOC insertado
+
+			$doctors_controller = new DoctorsController();
+			
+		        $new_doctor = array(
+
+		            'idoc' => 0,
+		            'idus' => $idus,
+		            'idspec' => intval($_POST['idspec'])
+		        );
+		        
+		    print_r($new_doctor);
+
+		    $new_doctor = $doctors_controller->set($new_doctor);
+
+			print('
 				<div class="content-wrapper">
 					<section class="content">
 						<div class="container">
 							<div class="row">
-								<div class="row mb-5 mt-5">
-						 			<div class="">
-				    					<div class="alert alert-success" role="alert">
-						       				<div class="text-center">
-						           				<h4 class="alert-heading"> Usuario Guardado!</h4>
-						            		</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="text-center">
-											<a href="users" class="btn btn-default">Back</a>
-										</div>	
-									</div>
-								</div>
+								<div class="alert alert-success" role="alert">
+						       		<div class="text-center">
+						        		<h4 class="alert-heading"> Usuario Guardado!</h4>
+						           	</div>
+						        </div>
+						    </div>
+							<div class="row">
+								<div class="text-center">
+									<a href="users" class="btn btn-default">Back</a>
+								</div>	
 							</div>
 						</div>
 					</section>
 				</div>   
 			');
-		
+
+		} else {
+
+			print('
+				<div class="content-wrapper">
+					<section class="content">
+						<div class="container">
+							<div class="row">
+								<div class="alert alert-success" role="alert">
+						       		<div class="text-center">
+						           		<h4 class="alert-heading"> Usuario Guardado!</h4>
+						            </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="text-center">
+									<a href="users" class="btn btn-default">Back</a>
+								</div>
+							</div>	
+						</div>
+					</section>
+				</div>   
+			');
+
+		}
+
 	} else {
 
 		$controller = new ViewsController();
 		$controller->load_view('error401');
 	}
 ?>
-	

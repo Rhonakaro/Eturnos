@@ -8,11 +8,14 @@
 
   $showmodal = false;
   $modalshow = false;
+  $showmessage = false;
   
 
   switch ($accion) {
 
     case 'btnupd':
+
+          $showmessage = true;
 
           $save_user = array(
 
@@ -25,11 +28,79 @@
 
           $user = $users_controller->profile($save_user);
 
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="users" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');         
+
     break;
 
     case 'btndel':
-            
+
+          $showmessage = true;
+           
           $user = $users_controller->del($_POST['txtID']);
+
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="users" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');
 
     break;
 
@@ -55,6 +126,41 @@
             
           $user = $users_controller->password($pass_user);
 
+          $showmessage = true;
+
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="users" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');
+
     break;
     
   }
@@ -63,13 +169,15 @@
 
 <!-- central section -->
 <div class="content-wrapper">
+
     
-  <!-- content header (page header) -->
+  <!-- content header -->
   <section class="content-header text-center">
     <div class="row">
       <h3><strong>Gestión de Usuarios</strong></h3>
     </div>
   </section>
+  <!-- fin content header -->
 
 
   <!-- main content -->
@@ -110,7 +218,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label for="">Roll</label>
-                      <select class="form-control col-md-3"name="txtROLL" required>
+                      <select class="form-control col-md-3" name="txtROLL" required>
                         <option value="<?php echo $_POST['txtROLL']; ?>"> <?php echo $_POST['txtROLL']; ?> </option>
                         <option value="dba">dba</option>
                         <option value="doc">doc</option>
@@ -123,7 +231,6 @@
                       <br>
                     </div>
                   </div>
-                  
                 </div>
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
@@ -220,7 +327,7 @@
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 200px;"><h4><strong>Nombre</strong></h4></th>
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 300px;"><h4><strong>Correo</strong></h4></th>
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 200px;"><h4><strong>Roll</strong></h4></th>
-                        <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 150px;"><h4><strong>Action</strong></h4></th>
+                        <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 150px;"><h4><strong>Actions</strong></h4></th>
                       </tr>
                     </thead>
                     <tbody>  
@@ -267,12 +374,10 @@
     <!-- fin tabla Usuarios -->
     
 
-    <!-- /.col -->
+  
   </section>
-  <!-- /.content -->
+  <!-- fin main content -->
+
+
 </div>
-
-
-
- 
-
+<!-- fin central section -->

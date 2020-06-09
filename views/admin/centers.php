@@ -9,11 +9,14 @@
 
   $showmodal = false;
   $modalshow = false;
+  $showmessage = false;
   
  
   switch ($accion) {
 
     case 'btnupd':
+
+          $showmessage = true;
 
           $save_center = array(
 
@@ -24,11 +27,79 @@
 
           $center = $centers_controller->set($save_center);
 
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="users" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');
+
     break;
 
     case 'btndel':
+
+          $showmessage = true;
             
           $center = $centers_controller->del($_POST['txtid']);
+
+          print ('
+                  <!-- modal message-->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <form action="" method="post" >
+                        <!-- Modal -->
+                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="text-center">
+                                  <h4 class="alert-heading"> Successful Action</h4>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="form-group col-md-12">
+                                  <div class="row">
+                                    <div class="text-center">
+                                      <a href="users" class="btn btn-default">Back</a>
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                      </form>
+                    </div>
+                  </div>
+                  <!-- fin modal message-->
+                ');
 
     break;
 
@@ -134,7 +205,7 @@
                  <div class="box-body">
                     <form method="post">
                         <input type="hidden" name="r" value="center-add">
-                        <input class="button btn btn-danger" type="submit" value="NEW Center">
+                        <input class="button btn btn-danger" type="submit" value="New Center">
                     </form>
                   </div>
               </div>

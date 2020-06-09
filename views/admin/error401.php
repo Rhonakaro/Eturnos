@@ -13,7 +13,7 @@
           <h3><i class="fa fa-warning text-yellow"></i> Oops! wrong...</h3>
 
           <p>
-            Acces to this resource in denied... <a href="./"><h3>Back to Home</h3></a>
+            Access to this resource in denied... <a href="./"><h3>Back to Home</h3></a>
           </p>
 
           

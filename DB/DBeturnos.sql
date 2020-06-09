@@ -117,10 +117,11 @@ USE DBeturnos;
 		hour_in CHAR (2) NOT NULL,
 		hour_out CHAR (2) NOT NULL,
 		state CHAR (4) NOT NULL,
-		FOREIGN KEY (idoc) REFERENCES doctors(idoc) 
+		FOREIGN KEY (idoc) REFERENCES doctors(idoc)
 			ON DELETE CASCADE ON UPDATE CASCADE,
-		FOREIGN KEY (idce) REFERENCES centers(idce) 
+		FOREIGN KEY (idce) REFERENCES centers(idce)
 			ON DELETE CASCADE ON UPDATE CASCADE
+		
 	);
 
 	INSERT INTO journals (idjou, idoc, day, idce, hour_in, hour_out, state) VALUES

@@ -1,7 +1,8 @@
 <?php
 
-$showmodal = 0;
-$modalshow = 0;
+	$showmodal = 0;
+	$modalshow = 0;
+	$modaljournal = 0;
 
 	if( $_POST['r'] == 'center-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) { ?>
 

@@ -34,17 +34,39 @@
     <script src="http://localhost/eturnos/public/bower_components/fastclick/lib/fastclick.js"></script>
     <script src="http://localhost/eturnos/public/dist/js/adminlte.min.js"></script>
     <script src="http://localhost/eturnos/public/js/jquery.dataTables.min.js"></script>
+    <script src="http://localhost/eturnos/public/js/select2.min.js"></script>
+
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+                $('#search1').select2();
+                $('#search2').select2();
+                $('#search3').select2();
+                $('#search4').select2();
+                $('#search5').select2();
+                $('#search6').select2();
+                $('#search7').select2();
+        });
+    </script>
 
 
     <script>
         $(document).ready( function () {
           $('#datatable').DataTable({
-            lengthMenu: [ [8, 16, 24, 32, -1], [8, 16, 24, 32, "All"] ],
+            lengthMenu: [ [8, 10, 12, 14, 16, 20, 24, 32, -1], [8, 10, 12, 14, 16, 20, 24, 32, "All"] ],
           });
             
         } );
     </script>
 
+
+    <?php if ( $modaljournal ) {  ?>
+        <script type="text/javascript"> 
+                 
+             $('#journalmodal').modal('show');
+              
+        </script>
+    <?php } ?>
 
 
     <?php if ( $modalshow ) {  ?>
@@ -64,11 +86,21 @@
         </script>
     <?php } ?>
 
+
+    <?php if ( $showmessage ) {  ?>
+        <script type="text/javascript"> 
+    
+             $('#message').modal('show');
+                 
+        </script>
+    <?php } ?>
+
     
     <script>
         $.widget.bridge('uibutton', $.ui.button);
     </script>
-   
+
+
     <script type="text/javascript">
         function showContent() {
             element = document.getElementById("content");
@@ -82,6 +114,7 @@
         }
     </script>
 
+
     <script>
         $(".reveal").on('click',function() {
             var $pwd = $(".pwd");
@@ -92,6 +125,7 @@
             }
         });
     </script>
+
 
   </body>
 </html>

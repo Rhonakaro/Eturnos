@@ -1,15 +1,15 @@
 <?php 
 
-class DoccensController
+class JournalsController
 {
 	private $model;
 
 	public function __construct() {
-		$this->model = new DoccensModel();
+		$this->model = new JournalsModel();
 	}
 
-	public function set( $doccen_data = array() ) {
-		return $this->model->set($center_data);
+	public function set( $journals_data = array() ) {
+		return $this->model->set($journals_data);
 	}
 
 	public function get( $search= '' ) {

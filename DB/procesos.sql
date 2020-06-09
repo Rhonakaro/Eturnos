@@ -213,6 +213,14 @@
 		INNER JOIN centers AS ce ON dc.idce = ce.idce WHERE dc.day = 'Lunes' ORDER BY sp.spec;
 
 
+	SELECT js.idjou, us.lname, us.name, sp.spec, js.day, ce.cname, js.hour_in, js.hour_out, js.state
+		FROM journals AS js
+		INNER JOIN doctors AS do ON js.idoc = do.idoc
+		INNER JOIN users AS us ON do.idus = us.idus
+		INNER JOIN specs AS sp ON do.idspec = sp.idspec
+		INNER JOIN centers AS ce ON js.idce = ce.idce;
+
+
 		/* SE PUEDE AGREGAR CUALQUIER OTRA CONSULTA*/
 
 /*---------------------------------------------------------------------------------------------------------*/

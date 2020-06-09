@@ -124,7 +124,6 @@
         <!-- fin small boxes: cantidad de centros -->
       </div>
     </div>
-    
 
     <div class="row">
       <div align="center">

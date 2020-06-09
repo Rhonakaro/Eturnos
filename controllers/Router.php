@@ -35,6 +35,7 @@ class Router {
 						case 'users':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('users');
 							else if( $_POST['r'] == 'user-add' )  $controller->load_view('user-add');
+							//else if( $_POST['r'] == 'doctor-add' )  $controller->load_view('doctor-add');
 							break;
 
 						case 'centers':
@@ -44,19 +45,17 @@ class Router {
 
 						case 'journals':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('journals');
-							else if( $_POST['r'] == 'journals-add' )  $controller->load_view('journals-add');
+							else if( $_POST['r'] == 'journal-add' )  $controller->load_view('journal-add');
 							break;
 
 						case 'specs':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('specs');
 							else if( $_POST['r'] == 'spec-add' )  $controller->load_view('spec-add');
-								break;
+							break;
 
 						case 'doctors':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors');
-							else if( $_POST['r'] == 'docotors-add' )  $controller->load_view('doctors-add');
-							else if( $_POST['r'] == 'doc-edit' )  $controller->load_view('doc-edit');
-							else if( $_POST['r'] == 'doc-del' )  $controller->load_view('doc-del');
+							else if( $_POST['r'] == 'doctor-add' )  $controller->load_view('doctor-add');
 							break;
 
 
