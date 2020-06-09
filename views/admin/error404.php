@@ -1,7 +1,8 @@
 <?php
-  $showmodal = 0;
-  $modalshow = 0;
-  $modaljournal = 0;
+
+  $showmodal = false;
+  $modalshow = false;
+  $modaljournal = false;
 
 
 ?>

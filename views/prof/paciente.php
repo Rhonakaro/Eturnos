@@ -1,1 +1,0 @@
-<h2>soy el paciente</h2>

@@ -11,7 +11,7 @@
     			<div class="container">
     				<div class="row">
 		    		    <div class="col-sm-offset-3 col-sm-6">
-							<div class="box box-warning">
+							<div class="box box-danger">
 					            <div class="text-center box-header with-border">
 					              <h3 class="box-title">Nuevo Centro</h3>
 					            </div>

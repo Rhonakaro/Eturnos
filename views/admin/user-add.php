@@ -1,7 +1,8 @@
 <?php
 
-$showmodal = 0;
-$modalshow = 0;
+$modaljournal = false;
+$showmodal = false;
+$modalshow = false;
 
 	if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
 		
@@ -41,15 +42,15 @@ $modalshow = 0;
 					                	<div class="form-group">
 					                		<label for="inputpass" class="col-sm-2 control-label">Contraseña</label>
 					                		<div class="col-sm-8">
-					                    		<input type="password" class="form-control" id="inputpass" name="pass" placeholder="pass" required>
-					                  		</div>
+					                    		<input type="password" class="form-control" id="inputpass"  onmouseover="this.type='text'" name="pass" onmouseout="this.type='password'" placeholder="pass" required/>
+					                    	</div>
 					                	</div>
 					                	<div class="form-group">
 											<div class="container col-sm-offset-4">
 												<input type="radio" name="roll" id="dba" value="dba" required>
 													<label for="dba">dba</label>
-												<input type="radio" name="roll" id="doc" value="doc" onchange="javascript:showContent()" required>
-													<label for="doc">doc</label>
+												<input type="radio" name="roll" id="doc" value="prof" onchange="javascript:showContent()" required>
+													<label for="prof">prof</label>
 												<input type="radio" name="roll" id="aux" value="aux" required>
 													<label for="aux">aux</label>
 											</div>	
@@ -103,10 +104,10 @@ $modalshow = 0;
 
 		
 
-		if ( $_POST['roll'] == 'doc' ) {
+		if ( $_POST['roll'] == 'prof' ) {
 
 			
-			$users_count = $users_controller->get('doc');
+			$users_count = $users_controller->get('prof');
 
 			foreach ($users_count as $key => $value) {
 				$$key = $value;
@@ -131,7 +132,7 @@ $modalshow = 0;
 		        
 		    print_r($new_doctor);
 
-		    $new_doctor = $doctors_controller->set($new_doctor);
+		    $save_doctor = $doctors_controller->set($new_doctor);
 
 			print('
 				<div class="content-wrapper">

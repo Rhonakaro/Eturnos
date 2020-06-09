@@ -11,9 +11,9 @@ class ViewsController
 
 		if ( !isset($_SESSION['roll']) ) {
 
-			//require_once( self::$view_path . 'header.php' );
+			require_once( self::$view_path . 'headerLo.php' );
 			require_once( self::$view_path . $view . '.php' );
-			//require_once( self::$view_path . 'footer.php' );
+			require_once( self::$view_path . 'footerLo.php' );
 
 		} else {
 

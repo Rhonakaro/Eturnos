@@ -59,7 +59,7 @@ USE DBeturnos;
 		name VARCHAR (30) NOT NULL,
 		mail VARCHAR (30) UNIQUE NOT NULL,
 		pass CHAR (32) NOT NULL,
-		roll CHAR (3) NOT NULL /*dba doc aux*/
+		roll CHAR (4) NOT NULL /*dba doc aux*/
 		
 
 		/*photo VARCHAR (100)*/
@@ -67,21 +67,21 @@ USE DBeturnos;
 
 	INSERT INTO users (idus, lname, name, mail, pass, roll) VALUES
 		(1, 'Pocosgnich', 'Marcos', 'mpocosgnich@gmail.com', MD5('pocos2020'), 'dba'),
-		(2, 'López', 'Catia', 'lópezc@hotmail', MD5('ceci29'), 'doc'),
-		(3, 'Reboir', 'Irina', 'reboiri@gmail.com', MD5('irina82'), 'doc'),
-		(4, 'Volpi Grassi', 'Lorena', 'lorevg81@gmail.com', MD5('luismi315'), 'doc'),
+		(2, 'López', 'Catia', 'lopezc@hotmail.com', MD5('ceci29'), 'prof'),
+		(3, 'Reboir', 'Irina', 'reboiri@gmail.com', MD5('irina82'), 'prof'),
+		(4, 'Volpi Grassi', 'Lorena', 'lorevg81@gmail.com', MD5('luismi315'), 'prof'),
 		(5, 'García', 'Misael', 'gmisael91@gmail.com', MD5('misa12345'), 'aux'),
-		(6, 'Ayos', 'Mónica',  'mayos63@hotmail.com', MD5('moni28039'), 'doc'),
-		(7, 'Robles', 'Paula', 'paulita1983@yahoo.com.ar', MD5('fonoes15'), 'doc'),
-		(8, 'Enjuto', 'Ariel', 'enjuto@hotmail.com', MD5('ajuntox'), 'doc'),
+		(6, 'Ayos', 'Mónica',  'mayos63@hotmail.com', MD5('moni28039'), 'prof'),
+		(7, 'Robles', 'Paula', 'paulita1983@yahoo.com.ar', MD5('fonoes15'), 'prof'),
+		(8, 'Enjuto', 'Ariel', 'enjuto@hotmail.com', MD5('ajuntox'), 'prof'),
 		(9, 'Lopez', 'Betiana', 'blopez@hotmail.com', MD5('betilop01'), 'aux'),
-		(10, 'Benitez', 'Cecilia', 'lachechu@mimail.com', MD5('acciardce'), 'doc'),
-		(11, 'Toretto', 'Carla', 'carlyto@yahoo.com.ar', MD5('123456'), 'doc'),
-		(12, 'Barlongo', 'Analía', 'barcelona320@gmail.com', MD5('leomateoli'), 'doc'),
-		(13, 'Simbionti', 'Federico', 'micorreo@micorreo.com', MD5('eldibujante'), 'doc'),
-		(14, 'Katz', 'Patricia', 'kantzpato@yahoo.com.ar', MD5('joungcarl'), 'doc'),
+		(10, 'Benitez', 'Cecilia', 'lachechu@mimail.com', MD5('acciardce'), 'prof'),
+		(11, 'Toretto', 'Carla', 'carlyto@yahoo.com.ar', MD5('123456'), 'prof'),
+		(12, 'Barlongo', 'Analía', 'barcelona320@gmail.com', MD5('leomateoli'), 'prof'),
+		(13, 'Simbionti', 'Federico', 'micorreo@micorreo.com', MD5('eldibujante'), 'prof'),
+		(14, 'Katz', 'Patricia', 'kantzpato@yahoo.com.ar', MD5('joungcarl'), 'prof'),
 		(15, 'Branca', 'Avril', 'brapril@gmail.com', MD5('capril4'), 'aux'),
-		(16, 'Marquez', 'Julio', 'eljoyta69@hotmail.com', MD5('eldiegote'), 'doc');
+		(16, 'Marquez', 'Julio', 'eljoyta69@hotmail.com', MD5('eldiegote'), 'prof');
 
 
 	CREATE TABLE doctors(

@@ -1,3 +1,18 @@
+<?php 
+
+  $users_controller = new UsersController();
+
+  $users = $users_controller->get();
+
+  $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
+
+  $showmodal = false;
+  $modalshow = false;
+  $showmessage = false;
+
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,7 +31,10 @@
     <link rel="stylesheet" href="http://localhost/eturnos/public/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/plugins/fonts/font_google.css">
-    <link rel="shortcut icon" type="image/png" href="./public/img/logo.png">
+    <link rel="stylesheet" href="http://localhost/eturnos/public/materialdesignicons.css">
+    <link rel="stylesheet" href="http://localhost/eturnos/public/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="http://localhost/eturnos/public/css/select2.min.css">
+    <link rel="shortcut icon" type="image/png" href="http://localhost/eturnos/public/plugins/assets/img/logo.png">
   </head>
   
 
@@ -27,19 +45,21 @@
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-center" id="ModalLabel">Cambiar Foto y Password</h5>
+        <h5 class="modal-title text-center" id="ModalLabel">Change Password for <strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></h5>
       </div>
       <div class="modal-body">
         <form action="" method="post">
           <div class="form-group">
-            <label for="inputpass" class="">New Password</label>
-            <div class="col-6">
-              <input type="text" class="form-control" id="inputpass" placeholder="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="InputFile">Cambiar Foto</label>
-              <input type="file" id="InputFile" style='display: none';>
+            <div class="form-group col-6">
+              <label for="" class="">New Password</label> 
+                <div class="input-group">
+                  <input type="hidden" name="txtID" value=" <?php echo ($_SESSION['idus']); ?> ">
+                  <input type="password" class="form-control pwd" name="txtPASS" value=" <?php echo ($_SESSION['pass']); ?> ">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+                  </span>          
+                </div>
+            </div>   
           </div>
         </form>
       </div>
@@ -76,7 +96,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">
-                    <img src="http://localhost/eturnos/public/img/photo.png" class="img-circle">
+                    <img src="http://localhost/eturnos/public/plugins/assets/img/comonuser.png" class="img-circle">
                     <p><strong><?php
                         if ( $_SESSION['roll'] == 'dba' ) {
                               echo "Administrador";

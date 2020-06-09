@@ -25,6 +25,7 @@
   $rows_centers = count($centers);
  
   $showmodal = false;
+  $modaljournal = false;
   $modalshow = false;
 
 ?>

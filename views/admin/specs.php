@@ -7,6 +7,7 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
+  $modaljournal = false;
   $showmodal = false;
   $modalshow = false;
   $showmessage = false;

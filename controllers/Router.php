@@ -69,7 +69,7 @@ class Router {
 							$controller->load_view('error404');
 						break;
 					}
-				} elseif ( $_SESSION['roll'] == 'doc' ) {
+				} elseif ( $_SESSION['roll'] == 'prof' ) {
 
 					switch ($this->route) {
 					
@@ -99,7 +99,7 @@ class Router {
 							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
 							break;
 
-						case 'salir':
+						case 'out':
 							$user_session = new SessionsController();
 							$user_session->logout();
 							break;

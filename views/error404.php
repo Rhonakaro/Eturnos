@@ -1,4 +1,11 @@
+<?php
 
+  $showmodal = false;
+  $modalshow = false;
+  $modaljournal = false;
+
+
+?>
 
 <div class="content-wrapper" style="min-height: 1136px;">
     <!-- Content Header (Page header) -->
@@ -14,7 +21,7 @@
 
           <p>
             We could not find the page you were looking for.
-            Meanwhile, you may <a href="."><h3>Back to Home</h3></a>
+            Meanwhile, you may <a href="./"><h3>Back to Home</h3></a>
           </p>
 
           

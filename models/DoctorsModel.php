@@ -2,9 +2,9 @@
 
 class DoctorsModel extends Model
 {
-	public function set( $doc_data = array() ) {
+	public function set( $doctor_data = array() ) {
 
-		foreach ($doc_data as $key => $value) {
+		foreach ( $doctor_data as $key => $value ) {
 				$$key = $value;
 		}
 

@@ -1,4 +1,10 @@
+<?php
 
+  $showmodal = false;
+  $modalshow = false;
+  $modaljournal = false;
+
+?>
 
 <div class="content-wrapper" style="min-height: 1136px;">
     <!-- Content Header (Page header) -->

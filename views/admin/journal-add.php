@@ -23,7 +23,7 @@
     			<div class="col-md-10 col-md-offset-1">
     				<div class="row">
 		    		    <div class="">
-							<div class="box box-primary">
+							<div class="box box-default">
 					            <div class="text-center box-header with-border">
 					              <h3 class="box-title">Nuevo Registro de Agenda</h3>
 					            </div>
@@ -103,12 +103,12 @@
 						                </div>
 						            </div>
 					            	<div class="box-footer">
-					            		<div class="pull-left">
-							                <button type="submit" class="btn btn-default">Add</button>
+					            		<div class="pull-right">
+					            		    <button type="submit" class="btn btn-default">Add</button>
 							                <input type="hidden" name="r" value="journal-add">
 											<input type="hidden" name="crud" value="set">
 										</div>
-										<div class="pull-right">
+										<div class="pull-left">
 											<a class="btn btn-default" href="journals">Back</a>
 										</div>
 									</div>

@@ -8,8 +8,8 @@ class DoctorsController
 		$this->model = new DoctorsModel();
 	}
 
-	public function set( $doc_data = array() ) {
-		return $this->model->set($doc_data);
+	public function set( $doctor_data = array() ) {
+		return $this->model->set($doctor_data);
 	}
 
 	public function get( $search= '' ) {

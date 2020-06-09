@@ -1,7 +1,7 @@
 <?php
-
-$showmodal = 0;
-$modalshow = 0;
+$modaljournal = false;
+$showmodal = false;
+$modalshow = false;
 
 	if( $_POST['r'] == 'spec-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) { ?>
 

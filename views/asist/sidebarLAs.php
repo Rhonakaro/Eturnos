@@ -4,7 +4,7 @@
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header text-white">MENU</li>
           <li >
-            <a href="shifts"><i class="glyphicon glyphicon-list-alt"></i> <span>Turnos</span>
+            <a href="users"><i class="glyphicon glyphicon-list-alt"></i> <span>Users</span>
             <span class="pull-right-container"></span></a>
           </li>
           <li >
@@ -16,7 +16,7 @@
               <span class="pull-right-container"></span></a>
           </li>
           <li >
-            <a href="journal"><i class="glyphicon glyphicon-calendar"></i> <span>Agenda</span>
+            <a href="journals"><i class="glyphicon glyphicon-calendar"></i> <span>Agenda</span>
               <span class="pull-right-container"></span></a>
           </li>
           <li >

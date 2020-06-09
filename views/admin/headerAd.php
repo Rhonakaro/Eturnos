@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="http://localhost/eturnos/public/materialdesignicons.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/css/select2.min.css">
-    <link rel="shortcut icon" type="image/png" href="./public/img/logo.png">
+    <link rel="shortcut icon" type="image/png" href="http://localhost/eturnos/public/plugins/assets/img/logo.png">
   </head>
   
 
@@ -96,7 +96,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">
-                    <img src="http://localhost/eturnos/public/img/photo.png" class="img-circle">
+                    <img src="http://localhost/eturnos/public/plugins/assets/img/dba_user.png" class="img-circle">
                     <p><strong><?php
                         if ( $_SESSION['roll'] == 'dba' ) {
                               echo "Administrador";
