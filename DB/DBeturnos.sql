@@ -175,21 +175,26 @@ USE DBeturnos;
 		dni CHAR (8) NOT NULL UNIQUE,
 		lname VARCHAR (30) NOT NULL,
 		name VARCHAR (30) NOT NULL,
+		age CHAR (2) NOT NULL,
 		mail VARCHAR (30) NOT NULL UNIQUE,
+		direction VARCHAR (30),
+		city VARCHAR (30) NOT NULL,
 		telphone VARCHAR (15),
 		sex CHAR (1),
 		blood CHAR (4)
 	);
 
-	INSERT INTO patients (idpa, dni, lname, name, mail, telphone, sex, blood)
+	INSERT INTO patients (idpa, dni, lname, name, age, mail, direction, city, telphone, sex, blood)
 		VALUES
-		(1, '28164718', 'Paciente', 'CERO', 'elvago@hotmail.com', '03489 15150262', 'M', 'A+'),
-		(2, '29143343', 'Tepacien', 'UNO', 'loreley@gmail.com', '', 'F', 'RH0+');
+		(1, '28164718', 'Paciente', 'CERO', 39, 'elvago@hotmail.com', 'Viale N° 51', 'Valle de Catamarca', '03489 15150262', 'M', 'A+'),
+		(2, '29143343', 'Tepacien', 'UNO', 38, 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Campana', '', 'F', '0+'),
+		(3, '94524177', 'El paciente', 'Yopo', 55, 'correio@gmail.com', 'Juan marini 417', 'Zarate', '', 'M', 'B+'),
+		(4, '47155495', 'Calabacin', 'Brian', 13, 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Lujan', '', 'M', 'AB+');
 
 
 	CREATE TABLE shifts(
 		idsf INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-		registry DATETIME NOT NULL,
+		registry DATETIME,
 		idpa INTEGER NOT NULL,
 		idoc INTEGER NOT NULL,
 		idce INTEGER (2) NOT NULL,
@@ -209,7 +214,6 @@ USE DBeturnos;
 		mdate DATE NOT NULL,
 		idpa INTEGER NOT NULL,
 		idoc INTEGER NOT NULL,
-		age CHAR (2),
 		query TEXT NOT NULL,
 		background TEXT,
 		diagnosis TEXT,
@@ -220,6 +224,6 @@ USE DBeturnos;
 			ON DELETE RESTRICT ON UPDATE CASCADE
 	);
 
-	INSERT INTO medrecord (idmr, mdate, idpa, idoc, age, query, background, diagnosis, treatment)
+	INSERT INTO medrecord (idmr, mdate, idpa, idoc, query, background, diagnosis, treatment)
 		 VALUES
-		(1, '2020-04-12', 1, 3, '39', 'problemas de sueño', 'crisis de ansiedad', 'Ansiedad generalizada', 'Psicoterapia');
+		(1, '2020-04-12', 1, 3, 'problemas de sueño', 'crisis de ansiedad', 'Ansiedad generalizada', 'Psicoterapia');

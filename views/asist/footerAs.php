@@ -1,3 +1,10 @@
+<?php 
+    
+    $showmessage = false;
+
+?>
+
+
      <!-- Footer -->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
@@ -37,6 +44,13 @@
     <script src="http://localhost/eturnos/public/js/select2.min.js"></script>
 
     
+    <script>
+       $('#search').on('click', function(){
+          $('#theForm').show();
+        })
+    </script>
+
+
     <script type="text/javascript">
         $(document).ready(function(){
                 $('#search1').select2();
@@ -54,6 +68,15 @@
         $(document).ready( function () {
           $('#datatable').DataTable({
             lengthMenu: [ [8, 10, 12, 14, 16, 20, 24, 32, -1], [8, 10, 12, 14, 16, 20, 24, 32, "All"] ],
+          });
+            
+        } );
+    </script>
+
+    <script>
+        $(document).ready( function () {
+          $('#datatablepa').DataTable({
+            lengthMenu: [ [1, 5, 10, 20, 50, -1], [1, 5, 10, 20, 50, "All"] ],
           });
             
         } );

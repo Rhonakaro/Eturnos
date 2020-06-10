@@ -85,7 +85,7 @@
          <span class="logo-lg"><font color="black"><b>eturnos</b></font></span>
         </a>
         <nav class="navbar navbar-static-top">
-          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="color:black">
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="color: black">
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
