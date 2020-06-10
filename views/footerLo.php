@@ -9,7 +9,7 @@
     <script src="http://localhost/eturnos/public/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/moment/min/moment.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="http://localhost/eturnos/public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!--<script src="http://localhost/eturnos/public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>-->
     <script src="http://localhost/eturnos/public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/fastclick/lib/fastclick.js"></script>
@@ -18,21 +18,6 @@
     <script src="http://localhost/eturnos/public/js/select2.min.js"></script>
 
     
-    <script>
-            $.widget.bridge('uibutton', $.ui.button);
-    </script>
-
-     <script>
-            $(function () {
-                $('input').iCheck({
-                  checkboxClass: 'icheckbox_square-blue',
-                  radioClass: 'iradio_square-blue',
-                  increaseArea: '20%' /* optional */
-                });
-            });
-    </script>
-
-  
     <script>
         function myFunction() {
           var x = document.getElementById("mypassword");

@@ -6,7 +6,6 @@
       <div class="login-box-body">
         <p class="login-box-msg">Start your session</p>
         <form class="login" method="post">
-
           <div class="form-group has-feedback">
             <input type="email" class="form-control" name="mail" placeholder="Email" required>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -18,9 +17,9 @@
           <div class="form-group ">
             <div class="row">
               <div class="col-xs-7 col-xs-offset-1">
-                <div class="checkbox icheck">
+                <!--<div class="checkbox icheck">
                   <input type="checkbox" onclick="myFunction()">Show Password
-                </div>
+                </div>-->
               </div>
               <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
@@ -28,7 +27,7 @@
             </div>
           </div>
         </form>
-  </div>
+      </div>
     </div>
   </body>
 

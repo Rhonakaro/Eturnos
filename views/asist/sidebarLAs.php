@@ -4,11 +4,11 @@
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header text-white">MENU</li>
           <li >
-            <a href="users"><i class="glyphicon glyphicon-list-alt"></i> <span>Users</span>
+            <a href="patients"><i class="glyphicon glyphicon-list-alt"></i> <span>Pacientes</span> 
             <span class="pull-right-container"></span></a>
           </li>
           <li >
-            <a href="doctors"><i class="glyphicon glyphicon-user"></i> <span>Doctors</span>
+            <a href="doctors"><i class="glyphicon glyphicon-user"></i> <span>Profesionales</span>
               <span class="pull-right-container"></span></a>
           </li>
           <li >

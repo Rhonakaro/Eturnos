@@ -116,12 +116,9 @@ class Router {
 							$controller->load_view('homeAs');
 							break;
 
-						case 'turnos':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts');
-							else if( $_POST['r'] == 'movieserie-add' )  $controller->load_view('movieserie-add');
-							else if( $_POST['r'] == 'movieserie-edit' )  $controller->load_view('movieserie-edit');
-							else if( $_POST['r'] == 'movieserie-delete' )  $controller->load_view('movieserie-delete');
-							else if( $_POST['r'] == 'movieserie-show' )  $controller->load_view('movieserie-show');
+						case 'patients':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('patients');
+							else if( $_POST['r'] == 'patient-add' )  $controller->load_view('patient-add');
 							break;
 
 						case 'centros':

@@ -77,27 +77,27 @@
   <!-- fin Modal Profile -->
 
 
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-yellow sidebar-mini">
     <div class="wrapper">
       <header class="main-header">
         <a href="./" class="logo">
-         <span class="logo-mini"><b>E</b></span>
-         <span class="logo-lg"><b>eturnos</b></span>
+         <span class="logo-mini"><font color="black"><b>E</b></font></span>
+         <span class="logo-lg"><font color="black"><b>eturnos</b></font></span>
         </a>
         <nav class="navbar navbar-static-top">
-          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="color:black">
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                  <span><strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></span>
+                  <span><strong><font color="black"><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></font></strong></span>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">
                     <img src="http://localhost/eturnos/public/plugins/assets/img/comonuser.png" class="img-circle">
-                    <p><strong><?php
+                    <p><strong><font color="black"><?php
                         if ( $_SESSION['roll'] == 'dba' ) {
                               echo "Administrador";
                         } elseif ( $_SESSION['roll'] == "prof" ) {
@@ -105,26 +105,26 @@
                         } else {
                               echo "Auxiliar Administrativo";
                         }
-                      ?></strong></p>
+                      ?></font></strong></p>
                   </li>
                   <li class="user-footer">
                     <div class="pull-left">
                       <div class="box-body">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#profile_user">
-                          Profile
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#profile_user"><font color="black">
+                          Profile</font>
                         </button>
                       </div>
                     </div>
                     <div class="pull-right">
                       <div class="box-body">
-                        <a href="out" class="btn btn-default btn-flat">Sign out</a>
+                        <a href="out" type="button" class="btn btn-warning btn-flat"><font color="black">Sign out</font></a>
                       </div>
                     </div>
                   </li>
                 </ul>
                 <li>
-                  <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                  <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears" style="color:black"></i></a>
                 </li>
               </li>
             </ul>
