@@ -203,24 +203,24 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="">Id</label>
-                      <input type="text" class="form-control" name="txtID" placeholder="" id="txtID" value=" <?php echo $_POST['txtID']; ?> " disabled >
+                      <input type="text" class="form-control" name="txtID" placeholder="" id="txtID" value="<?php echo $_POST['txtID']; ?>" disabled >
                       <input type="hidden" name="txtID" value="<?php echo $_POST['txtID']; ?>">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="">Apellido</label>
-                      <input type="text" class="form-control" name="txtLNAME" placeholder="" id="txtLNAME" value=" <?php echo $_POST['txtLNAME']; ?> " required>
+                      <input type="text" class="form-control" name="txtLNAME" placeholder="" id="txtLNAME" value="<?php echo $_POST['txtLNAME']; ?>" required>
                       <br>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="">Nombre</label>
-                      <input type="text" class="form-control" name="txtNAME" placeholder="" id="txtNAME" value=" <?php echo $_POST['txtNAME']; ?> " required>
+                      <input type="text" class="form-control" name="txtNAME" placeholder="" id="txtNAME" value="<?php echo $_POST['txtNAME']; ?>" required>
                       <br>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="">Roll</label>
                       <select class="form-control col-md-3" name="txtROLL" required>
-                        <option value="<?php echo $_POST['txtROLL']; ?>"> <?php echo $_POST['txtROLL']; ?> </option>
+                        <option value="<?php echo $_POST['txtROLL']; ?>"><?php echo $_POST['txtROLL']; ?></option>
                         <option value="dba">dba</option>
                         <option value="prof">prof</option>
                         <option value="aux">aux</option>
@@ -228,7 +228,7 @@
                     </div>
                     <div class="form-group col-md-9">
                       <label for="">Email</label>
-                      <input type="email" class="form-control" name="txtMAIL" placeholder="" id="txtMAIL"  value=" <?php echo $_POST['txtMAIL']; ?> " required>
+                      <input type="email" class="form-control" name="txtMAIL" placeholder="" id="txtMAIL"  value="<?php echo $_POST['txtMAIL']; ?>" required>
                       <br>
                     </div>
                   </div>
@@ -269,8 +269,8 @@
                     <div class="form-group col-6">
                       <label for="" class="">New Password</label> 
                         <div class="input-group">
-                          <input type="hidden" name="txtID" value=" <?php echo ($_POST['txtID']); ?> ">
-                          <input type="password" class="form-control pwd" name="txtPASS" value=" <?php echo ($_POST['txtPASS']); ?> ">
+                          <input type="hidden" name="txtID" value="<?php echo ($_POST['txtID']); ?>">
+                          <input type="password" class="form-control pwd" name="txtPASS" value="<?php echo ($_POST['txtPASS']); ?>">
                           <span class="input-group-btn">
                             <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
                           </span>          
@@ -341,12 +341,12 @@
                           <td class="text-center"><h4> <?php echo $users[$n]['roll'] ?> </h4></td>
                           <td class="text-center">
                             <form action="" method="post">
-                                <input type="hidden" name="txtID" value=" <?php echo $users[$n]['idus']; ?> " >
-                                <input type="hidden" name="txtLNAME" value=" <?php echo $users[$n]['lname']; ?> " >
-                                <input type="hidden" name="txtNAME" value=" <?php echo $users[$n]['name']; ?> " >
-                                <input type="hidden" name="txtMAIL" value=" <?php echo $users[$n]['mail']; ?> " >
-                                <input type="hidden" name="txtPASS" value=" <?php echo $users[$n]['pass']; ?> " >
-                                <input type="hidden" name="txtROLL" value=" <?php echo $users[$n]['roll']; ?> " >
+                                <input type="hidden" name="txtID" value="<?php echo $users[$n]['idus']; ?>" >
+                                <input type="hidden" name="txtLNAME" value="<?php echo $users[$n]['lname']; ?>" >
+                                <input type="hidden" name="txtNAME" value="<?php echo $users[$n]['name']; ?>" >
+                                <input type="hidden" name="txtMAIL" value="<?php echo $users[$n]['mail']; ?>" >
+                                <input type="hidden" name="txtPASS" value="<?php echo $users[$n]['pass']; ?>" >
+                                <input type="hidden" name="txtROLL" value="<?php echo $users[$n]['roll']; ?>" >
                                 <div class="pull-left">
                                   <input type="submit" class="btn btn-default" name="accion" value="Select">
                                 </div>

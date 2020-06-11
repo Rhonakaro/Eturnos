@@ -226,10 +226,11 @@
 /*---------------------------------------------------------------------------------------------------------*/
 
 /*Crear pacientes*/
-	INSERT INTO patients (idpa, dni, lname, name, mail, tel, sex) VALUES 
-		(0, '12441573', 'Cruz', 'Juan', 'jcruz@hotmail.com', '', 'M'),
-		(0, '95442153', 'Gonzales', 'Bonifacio', 'elboni58@yahoo.com.ar', '', 'M'),
-		(0, '39155423', 'Britos', 'Braian', 'elbrayan2000@gmail.com', '', 'M');
+
+	INSERT INTO patients (idpa, dni, lname, name, age, mail, direction, city, telphone, sex, blood) VALUES	
+		(0, '12441573', 'Cruz', 'Juan', 55, 'jcruz@hotmail.com', '', '', '', 'M', 'A+'),
+		(0, '95442153', 'Gonzales', 'Bonifacio', 61, 'elboni58@yahoo.com.ar', '', 'Asuncion', '2231144575', 'M', '0--'),
+		(0, '39155423', 'Britos', 'Braian', 19, 'elbrayan2000@gmail.com', '', '', '', 'M', '0+');
 
 /*Actualizar pacientes */
 	UPDATE patients SET sex = 'F' WHERE dni = '39155423';

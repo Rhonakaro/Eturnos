@@ -35,7 +35,6 @@ class Router {
 						case 'users':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('users');
 							else if( $_POST['r'] == 'user-add' )  $controller->load_view('user-add');
-							//else if( $_POST['r'] == 'doctor-add' )  $controller->load_view('doctor-add');
 							break;
 
 						case 'centers':
@@ -58,8 +57,6 @@ class Router {
 							else if( $_POST['r'] == 'doctor-add' )  $controller->load_view('doctor-add');
 							break;
 
-
-
 						case 'out':
 							$user_session = new SessionsController();
 							$user_session->logout();
@@ -67,8 +64,9 @@ class Router {
 								
 						default:
 							$controller->load_view('error404');
-						break;
+							break;
 					}
+
 				} elseif ( $_SESSION['roll'] == 'prof' ) {
 
 					switch ($this->route) {
@@ -77,26 +75,9 @@ class Router {
 							$controller->load_view('homePr');
 							break;
 
-						case 'paciente':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('paciente');
-							else if( $_POST['r'] == 'movieserie-add' )  $controller->load_view('movieserie-add');
-							else if( $_POST['r'] == 'movieserie-edit' )  $controller->load_view('movieserie-edit');
-							else if( $_POST['r'] == 'movieserie-delete' )  $controller->load_view('movieserie-delete');
-							else if( $_POST['r'] == 'movieserie-show' )  $controller->load_view('movieserie-show');
-							break;
-
-						case 'historia':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('medicalrecord');
-							else if( $_POST['r'] == 'user-add' )  $controller->load_view('user-add');
-							else if( $_POST['r'] == 'user-edit' )  $controller->load_view('user-edit');
-							else if( $_POST['r'] == 'user-delete' )  $controller->load_view('user-delete');
-							break;
-
-						case 'turnos':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts');
-							else if( $_POST['r'] == 'status-add' )  $controller->load_view('status-add');
-							else if( $_POST['r'] == 'status-edit' )  $controller->load_view('status-edit');
-							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
+						case 'patients':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('patients');
+							else if( $_POST['r'] == 'patient-add' )  $controller->load_view('patient-add');
 							break;
 
 						case 'out':
@@ -106,8 +87,9 @@ class Router {
 								
 						default:
 							$controller->load_view('error404');
-						break;
+							break;
 					}
+
 				} else {
 
 					switch ($this->route) {
@@ -116,16 +98,17 @@ class Router {
 							$controller->load_view('homeAs');
 							break;
 
+						case 'shifts':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts');
+							else if( $_POST['r'] == 'movieserie-add' )  $controller->load_view('movieserie-add');
+							else if( $_POST['r'] == 'movieserie-edit' )  $controller->load_view('movieserie-edit');
+							else if( $_POST['r'] == 'movieserie-delete' )  $controller->load_view('movieserie-delete');
+							else if( $_POST['r'] == 'movieserie-show' )  $controller->load_view('movieserie-show');
+							break;
+
 						case 'patients':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('patients');
 							else if( $_POST['r'] == 'patient-add' )  $controller->load_view('patient-add');
-							break;
-
-						case 'centros':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('centers');
-							else if( $_POST['r'] == 'user-add' )  $controller->load_view('user-add');
-							else if( $_POST['r'] == 'user-edit' )  $controller->load_view('user-edit');
-							else if( $_POST['r'] == 'user-delete' )  $controller->load_view('user-delete');
 							break;
 
 						case 'agenda':
@@ -156,7 +139,7 @@ class Router {
 								
 						default:
 							$controller->load_view('error404');
-						break;
+							break;
 					}	
 				}
 		} 

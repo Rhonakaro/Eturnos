@@ -46,7 +46,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users" class="btn btn-default">Back</a>
+                                      <a href="centers" class="btn btn-default">Back</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -87,7 +87,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users" class="btn btn-default">Back</a>
+                                      <a href="centers" class="btn btn-default">Back</a>
                                     </div>
                                   </div>
                                 </div>               

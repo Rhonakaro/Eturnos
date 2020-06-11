@@ -2,14 +2,14 @@
 
 class PatientsModel extends Model
 {
-	public function set( $patients_data = array() ) {
+	public function set( $patient_data = array() ) {
 
-		foreach ($patients_data as $key => $value) {
+		foreach ($patient_data as $key => $value) {
 			$$key = $value;
 		}
 
-		$this->query = "REPLACE INTO patients ( idpa, dni, lname, name, mail, telphone, sex, blood ) 
-						VALUES ($idpa, '$dni', '$lname', '$name', '$mail', '$telphone', '$sex', '$blood')";
+		$this->query = "REPLACE INTO patients ( idpa, dni, lname, name, age, mail, direction, city, telphone, sex, blood ) 
+						VALUES ($idpa, '$dni', '$lname', '$name', '$age', '$mail', '$direction', '$city', '$telphone', '$sex', '$blood')";
 		
 		$this->set_query();
 	}

@@ -1,18 +1,3 @@
-<?php 
-
-  $users_controller = new UsersController();
-
-  $users = $users_controller->get();
-
-  $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
-
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
-
-?>
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,4 +20,4 @@
     <link rel="stylesheet" href="http://localhost/eturnos/public/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/css/select2.min.css">
     <link rel="shortcut icon" type="image/png" href="http://localhost/eturnos/public/plugins/assets/img/logo.png">
-  </head> 
+  </head>

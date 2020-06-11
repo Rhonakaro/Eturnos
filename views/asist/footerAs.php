@@ -44,10 +44,22 @@
     <script src="http://localhost/eturnos/public/js/select2.min.js"></script>
 
     
-    <script>
-       $('#search').on('click', function(){
-          $('#theForm').show();
-        })
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('form input[id="submit"]').prop("disabled", true);
+        $('form select[id="submit"]').prop("disabled", true);
+        
+        $(".chkAgree").click(function(){
+          if($(this).prop("checked") == true){
+              $('form input[id="submit"]').prop("disabled", false);
+              $('form select[id="submit"]').prop("disabled", false);
+          }
+          else if($(this).prop("checked") == false){
+              $('form input[id="submit"]').prop("disabled", true);
+              $('form select[id="submit"]').prop("disabled", true);
+          }
+        });
+      });
     </script>
 
 
@@ -81,6 +93,15 @@
             
         } );
     </script>
+
+
+    <?php if ( $modalpatient ) {  ?>
+        <script type="text/javascript"> 
+                 
+             $('#patient').modal('show');
+              
+        </script>
+    <?php } ?>
 
 
     <?php if ( $modaljournal ) {  ?>

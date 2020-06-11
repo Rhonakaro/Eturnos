@@ -36,12 +36,17 @@
 </html>
 
 <?php 
-  if( isset($_GET['error']) ) {
-    $template = '
-      <div class="col-3 container text-center p-1 mt-5 bg-primary  text-white">
-        <h5 class="item  error">%s</h5>
-      </div>
-    ';
-    printf($template, $_GET['error']);
-  }
-?>
+    if( isset($_GET['error']) ) {
+      $template = '
+        <div class="col-3 container text-center p-1 mt-5 bg-primary  text-white">
+          <h5 class="item  error">%s</h5>
+        </div>
+      ';
+      printf($template, $_GET['error']);
+    }
+
+    $showmodal = false;
+    $modalshow = false;
+    $showmessage = false;
+
+ ?> 

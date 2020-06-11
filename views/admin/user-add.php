@@ -60,7 +60,7 @@ $modalshow = false;
 										<div id="content" style="display: none;">
 											<select text-center name="idspec" placeholder="especialidad" required>
 												<?php for ($n=0; $n < count($specs); $n++) { ?>
-												<option> <?php echo ($specs[$n]['idspec'].' . '.$specs[$n]['spec']) ?> </option>
+												<option><?php echo ($specs[$n]['idspec'].' . '.$specs[$n]['spec']) ?></option>
 												<?php } ?>
 											</select>
 										</div>

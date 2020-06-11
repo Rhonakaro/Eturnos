@@ -11,9 +11,9 @@ class ViewsController
 
 		if ( !isset($_SESSION['roll']) ) {
 
-			require_once( self::$view_path . 'headerLo.php' );
+			//require_once( self::$view_path . 'headerLo.php' );
 			require_once( self::$view_path . $view . '.php' );
-			require_once( self::$view_path . 'footerLo.php' );
+			//require_once( self::$view_path . 'footerLo.php' );
 
 		} else {
 
@@ -27,7 +27,7 @@ class ViewsController
 						require_once( self::$viewad_path . 'footerAd.php' );
 						break;
 
-				case 'doc':
+				case 'prof':
 						require_once( self::$viewpr_path . 'headerPr.php' );
 						require_once( self::$viewpr_path . 'sidebarLPr.php' );
 						require_once( self::$viewpr_path . 'sidebarRPr.php' );
