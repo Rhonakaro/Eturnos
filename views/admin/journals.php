@@ -197,8 +197,8 @@
       <form action="" method="post">
           <!-- Modal -->
           <div class="modal fade" id="journalmodal" tabindex="-1" role="dialog" aria-labelledby="user_modalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
+            
+              
                 <div class="modal-header">
                   <h5 class="modal-title text-center" id="user_modalLabel">Edición de Agenda</h5>
                   <div class="pull-right">
@@ -249,8 +249,8 @@
                     </div>
                   </div>               
                 </div>
-              </div>
-            </div>
+              
+            
           </div>
           <!-- Button trigger modal -->
       </form>

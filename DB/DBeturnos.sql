@@ -176,23 +176,24 @@ USE DBeturnos;
 		lname VARCHAR (50) NOT NULL,
 		name VARCHAR (50) NOT NULL,
 		age INTEGER (2) NOT NULL,
+		sex VARCHAR (1) NOT NULL,
+		blood VARCHAR (4),
 		mail VARCHAR (50) NOT NULL UNIQUE,
 		direction VARCHAR (50),
 		city VARCHAR (50) NOT NULL,
-		telphone VARCHAR (15),
-		sex VARCHAR (1) NOT NULL,
-		blood VARCHAR (4) NOT NULL
+		telphone VARCHAR (15)
+		
 	);
 
-	INSERT INTO patients (idpa, dni, lname, name, age, mail, direction, city, telphone, sex, blood)
+	INSERT INTO patients (idpa, dni, lname, name, age, sex, blood, mail, direction, city, telphone)
 		VALUES
-		(1, '28164718', 'Paciente', 'CERO', 39, 'elvago@hotmail.com', 'Viale N° 51', 'Valle de Catamarca', '03489 15150262', 'M', 'A+'),
-		(2, '29143343', 'Tepacien', 'UNO', 38, 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Campana', '', 'F', '0+'),
-		(3, '94524177', 'El paciente', 'Yopo', 55, 'correio@gmail.com', 'Juan marini 417', 'Zarate', '', 'M', 'B+'),
-		(4, '47155495', 'Calabacin', 'Brian', 13, 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Lujan', '', 'M', 'AB+'),
-		(5, '12441573', 'Cruz', 'Juan', 55, 'jcruz@hotmail.com', '', 'Lima', '', 'M', 'A+'),
-		(6, '95442153', 'Gonzales', 'Bonifacio', 61, 'elboni58@yahoo.com.ar', '', 'Asuncion', '2231144575', 'M', '0-'),
-		(7, '39155423', 'Britos', 'Braian', 19, 'elbrayan2000@gmail.com', '', 'Escobar', '', 'M', '0+');
+		(1, '28164718', 'Paciente', 'CERO', 39, 'M', 'A+', 'elvago@hotmail.com', 'Viale N° 51', 'Valle de Catamarca', '03489 15150262')
+		(2, '29143343', 'Tepacien', 'UNO', 38, 'F', '0+', 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Campana', ''),
+		(3, '94524177', 'El paciente', 'Yopo', 55, 'M', 'B+', 'correio@gmail.com', 'Juan marini 417', 'Zarate', ''),
+		(4, '47155495', 'Calabacin', 'Brian', 13, 'M', 'AB+', 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Lujan', ''),
+		(5, '12441573', 'Cruz', 'Juan', 55, 'M', 'A+', 'jcruz@hotmail.com', '', 'Lima', ''),
+		(6, '95442153', 'Gonzales', 'Bonifacio', 61, 'M', '0-', 'elboni58@yahoo.com.ar', '', 'Asuncion', '2231144575'),
+		(7, '39155423', 'Britos', 'Braian', 19, 'M', '0+', 'elbrayan2000@gmail.com', '', 'Escobar', '');
 
 
 	CREATE TABLE shifts(

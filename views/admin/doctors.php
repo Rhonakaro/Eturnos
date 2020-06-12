@@ -162,7 +162,7 @@
                       <label for="">Spec</label>
                       <select class="form-control" id="search4" name="txtIDCE" style=""  required>
                           <option value="<?php echo $_POST['txtSPEC']; ?>"> <?php echo $_POST['txtSPEC']; ?> </option>
-                          <?php for ($n=1; $n < count($specs); $n++) { ?>
+                          <?php for ($n=0; $n < count($specs); $n++) { ?>
                           <option> <?php echo ($specs[$n]['idspec'] .'_'.$specs[$n]['spec']) ?> </option>
                           <?php } ?> 
                       </select>

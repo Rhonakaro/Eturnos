@@ -1,6 +1,6 @@
 <?php 
     
-    $showmessage = false;
+    $showmodal = $modalshow = $modaljournal = $modalpatient = false;
 
 ?>
 
@@ -22,10 +22,7 @@
 
     
     <script src="http://localhost/eturnos/public/bower_components/jquery/dist/jquery.min.js"></script>
-    
-    
     <script src="http://localhost/eturnos/public/bower_components/jquery-ui/jquery-ui.min.js"></script>
-        
     <script src="http://localhost/eturnos/public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/raphael/raphael.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/morris.js/morris.min.js"></script>
@@ -34,6 +31,7 @@
     <script src="http://localhost/eturnos/public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/moment/min/moment.min.js"></script>
+    <script src="http://localhost/eturnos/public/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="http://localhost/eturnos/public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="http://localhost/eturnos/public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
@@ -42,6 +40,13 @@
     <script src="http://localhost/eturnos/public/dist/js/adminlte.min.js"></script>
     <script src="http://localhost/eturnos/public/js/jquery.dataTables.min.js"></script>
     <script src="http://localhost/eturnos/public/js/select2.min.js"></script>
+
+    
+    <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker1').datetimepicker();
+              });
+    </script>
 
     
     <script type="text/javascript">
@@ -85,16 +90,7 @@
         } );
     </script>
 
-    <script>
-        $(document).ready( function () {
-          $('#datatablepa').DataTable({
-            lengthMenu: [ [1, 5, 10, 20, 50, -1], [1, 5, 10, 20, 50, "All"] ],
-          });
-            
-        } );
-    </script>
-
-
+    
     <?php if ( $modalpatient ) {  ?>
         <script type="text/javascript"> 
                  

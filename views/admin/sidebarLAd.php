@@ -31,14 +31,14 @@
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Patient Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Shift Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Calendar Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Medical Records Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Working on It</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Working on It</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
           </ul>
         </li>
         </li>

@@ -189,14 +189,14 @@
     <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <div class="box">
-              <div class="box-header with-border">
+              
                  <div class="box-body">
                     <form method="post">
                         <input type="hidden" name="r" value="spec-add">
                         <input class="button btn btn-warning" type="submit" value="New Spec">
                     </form>
                   </div>
-              </div>
+              
               <!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-bordered" id="datatable">

@@ -90,9 +90,13 @@
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+              <li>
+                  <h5 style="margin-top: 18px;"><strong><font color="black"><?php echo  ( ' Hola!,  Bienvenid@: ' ); ?></font></strong></h5>
+              </li>
               <li class="dropdown user user-menu">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                  <span><strong><font color="black"><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></font></strong></span>
+                  <span><strong><font color="black"><?php echo  ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></font></strong></span>
+                  <img src="http://localhost/eturnos/public/plugins/assets/img/comonuser.png" class="user-image" alt="User Image">
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">

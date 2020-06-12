@@ -92,6 +92,7 @@
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="http://localhost/eturnos/public/plugins/assets/img/dba_user.png" class="user-image" alt="User Image">
                   <span><strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></span>
                 </a>
                 <ul class="dropdown-menu">

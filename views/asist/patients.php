@@ -96,8 +96,10 @@
 
 
     <div class="row">
-          <div class="col-md-6">
-            <div class="box">
+          <div class="col-md-12">
+
+
+            <div class="box box-info">
               <div class="box-header with-border">
                   <div class="box-body">
                     <h3 class="box-title">Busqueda de Paciente</h3>
@@ -109,23 +111,37 @@
                     </div>
                   </div>
                   <div class="box-body">
-                    <table class="table table-bordered" id="datatablepa">
+                    <table class="table table-bordered" id="datatable">
                       <thead>
                         <tr role="row">
-                            <th class="text-center" colspan="1" style="width: 30px"><h4><strong>Dni</strong></h4></th>
-                            <th class="text-center" colspan="1" style="width: 100px"><h4><strong>Apellido</strong></h4></th>
-                            <th class="text-center" colspan="1" style="width: 50px"><h4><strong>Nombres</strong></h4></th>
-                            <th class="text-center" colspan="1" style="width: 50px"><h4><strong>Paciente N°</strong></h4></th>
-                            <th class="text-center" colspan="1" style="width: 30px"><h4><strong>Action</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Paciente N°</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Dni</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Apellido</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Nombres</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Edad</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Sexo</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Gr. Sanguineo</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Correo</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Dirección</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Ciudad</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Teléfono</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h4><strong>Action</strong></h4></th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php for ($n=0; $n < count($patients); $n++) { ?>
                         <tr role="row">
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['idpa']; ?> </h5></td>
                           <td class="text-center" ><h5> <?php echo $patients[$n]['dni']; ?> </h5></td>
                           <td class="text-center" ><h5> <?php echo $patients[$n]['lname']; ?> </h5></td> 
                           <td class="text-center" ><h5> <?php echo $patients[$n]['name']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['idpa']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['age']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['sex']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['blood']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['mail']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['direction']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['city']; ?> </h5></td>
+                          <td class="text-center" ><h5> <?php echo $patients[$n]['telphone']; ?> </h5></td>
                           <td class="text-center">
                             <form action="" method="post">
                               <input type="hidden" name="txtidpa" value="<?php echo $patients[$n]['idpa']; ?>" >
@@ -139,7 +155,6 @@
                               <input type="hidden" name="txttelphone" value="<?php echo $patients[$n]['telphone']; ?>" >
                               <input type="hidden" name="txtsex" value="<?php echo $patients[$n]['sex']; ?>" >
                               <input type="hidden" name="txtblood" value="<?php echo $patients[$n]['blood']; ?>" >
-
                               <div>
                                 <input type="submit" class="btn btn-default" name="accion" value="Select" id="search">
                               </div>
@@ -152,97 +167,18 @@
                   </div>
               </div>
             </div>
+
+
+            
+
+
           </div>
     </div>
 
-
-    <div class="row">
-      <div class="col-md-6">
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <div class="box-body">
-              <h3 class="box-title">Datos del Paciente</h3>
-            </div>
-            <form role="form" id="myForm"  method="post">
-              <div class="box-body">
-                <div class="form-group col-md-10 col-md-offset-1">
-                  <label for="idpa">N° de Paciente</label>
-                  <input type="text" class="form-control" name="idpa" value="<?php echo ( (isset($_POST['txtidpa'])) ? $_POST['txtidpa'] : "" ); ?>" required disabled >
-                  <input type="hidden" class="form-control" name="idpa" value="<?php echo ( (isset($_POST['txtidpa'])) ? $_POST['txtidpa'] : "" ); ?>">
-
-                </div>
-                <div class="form-group col-md-4 col-md-offset-1">
-                  <label for="lname">Apellido</label>
-                  <input type="text" class="form-control" id="submit" name="lname" value="<?php echo ( (isset($_POST['txtlname'])) ? $_POST['txtlname'] : "" ); ?>" required disabled >
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="exampleInputFile">Nombres</label>
-                  <input type="text" class="form-control" id="submit" name="name" value="<?php echo ( (isset($_POST['txtname'])) ? $_POST['txtname'] : "" ); ?>" required disabled >
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="dni">Dni</label>
-                  <input type="text" class="form-control" id="submit" name="dni" value="<?php echo ( (isset($_POST['txtdni'])) ? $_POST['txtdni'] : "" ); ?>" required disabled >
-                </div>
-                <div class="form-group col-md-2 col-md-offset-1">
-                  <label for="age">Edad</label>
-                  <input type="text" class="form-control" id="submit" name="age" value="<?php echo ( (isset($_POST['txtage'])) ? $_POST['txtage'] : "" ); ?>" required disabled >
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="sex">Sexo</label>
-                  <select class="form-control" name="sex" style="" id="submit" required disabled>
-                      <option value="<?php echo ( (isset($_POST['txtsex'])) ? $_POST['txtsex'] : "" ); ?>"><?php echo ( (isset($_POST['txtsex'])) ? $_POST['txtsex'] : "" ); ?></option>
-                      <option value="F">F</option>
-                      <option value="M">M</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="blood">Factor</label>
-                  <select class="form-control" name="blood" style="" id="submit" required disabled>
-                      <option value="<?php echo ( (isset($_POST['txtblood'])) ? $_POST['txtblood'] : "" ); ?>"><?php echo ( (isset($_POST['txtblood'])) ? $_POST['txtblood'] : "" ); ?></option>
-                      <option value="0-">0-</option>
-                      <option value="0+">0+</option>
-                      <option value="A-">A-</option>
-                      <option value="A+">A+</option>
-                      <option value="B-">B-</option>
-                      <option value="B+">B+</option>
-                      <option value="AB-">AB-</option>
-                      <option value="AB+">AB+</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="telphone">Teléfono</label>
-                  <input type="text" class="form-control" id="submit" name="telphone" value="<?php echo ( (isset($_POST['txttelphone'])) ? $_POST['txttelphone'] : "" ); ?>" required disabled >
-                </div>
-                <div class="form-group col-md-3 col-md-offset-1">
-                  <label for="direction">Dirección</label>
-                  <input type="text" class="form-control" id="submit" name="direction" value="<?php echo ( (isset($_POST['txtdirection'])) ? $_POST['txtdirection'] : "" ); ?>" required disabled>
-                </div>
-                <div class="form-group col-md-3">
-                  <label for="city">Ciudad</label>
-                  <input type="text" class="form-control" id="submit" name="city" value="<?php echo ( (isset($_POST['txtcity'])) ? $_POST['txtcity'] : "" ); ?>" required disabled>
-                </div>
-                <div class="form-group col-md-4 ">
-                  <label for="mail">Correo</label>
-                  <input type="mail" class="form-control" id="submit" name="mail" value="<?php echo ( (isset($_POST['txtmail'])) ? $_POST['txtmail'] : "" ); ?>" required disabled>
-                </div>
-              </div>
-              <div class="box-footer">
-                <input type="checkbox" name="checkbox" id="checkbox" class="chkAgree"><strong> &nbsp; &nbsp; Desea editar Paciente?</strong>
-                <div class="pull-right">
-                  <a href="patients" class="btn btn-default">Cancelar</a>
-                  <!--<input type="reset" href="patients" class="btn btn-default" name="accion" value="Cancelar">-->
-                  <input value="Guardar" type="submit" class="btn btn-success" name="accion" id="submit" disabled>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-    </div>
-
-  
+    
   
     
-
+  
   
   </section>
   <!-- fin main content -->
