@@ -171,11 +171,11 @@
                 </div>
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
-                    <div class="pull-left">
-                      <button value="btnupd" type="submit" class="btn btn-default" name="accion">Update</button>
-                    </div>
                     <div class="pull-right">
-                      <button value="btndel" type="submit" class="btn btn-default" name="accion">Delete</button>
+                      <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                    </div>
+                    <div class="pull-left">
+                      <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
                     </div>
                   </div>               
                 </div>
@@ -193,7 +193,7 @@
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <!-- /.box -->
-        <div class="box">
+        <div class="box box-success">
           <!-- /.box-header -->
           <div class="box-body">
             <div id="tusers_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -203,7 +203,7 @@
                     <div class="box-body">
                       <form method="post">
                         <input type="hidden" name="r" value="user-add">
-                        <input class="button btn btn-success" type="submit" value="New User">
+                        <input class="button btn btn-info" type="submit" value="New User">
                       </form>
                     </div>
                   </div>
@@ -233,7 +233,7 @@
                                 <input type="hidden" name="txtNAME" value=" <?php echo $doctors[$n]['name']; ?> " >
                                 <input type="hidden" name="txtSPEC" value=" <?php echo $doctors[$n]['spec']; ?> " >
                                 <div class="">
-                                  <input type="submit" class="btn btn-default" name="accion" value="Select">
+                                  <input type="submit" class="btn btn-warning" name="accion" value="Select">
                                 </div>
                             </form>
                             

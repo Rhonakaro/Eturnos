@@ -65,10 +65,10 @@
       </div>
       <div class="modal-footer">
         <div class="pull-left">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
         </div>
         <div class="pull-right">
-          <button type="button" class="btn btn-default">Save changes</button>
+          <button type="button" class="btn btn-success">SAVE CHANGES</button>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@
                     <img src="http://localhost/eturnos/public/plugins/assets/img/dba_user.png" class="img-circle">
                     <p><strong><?php
                         if ( $_SESSION['roll'] == 'dba' ) {
-                              echo "Administrador";
+                              echo "System Administrator";
                         } elseif ( $_SESSION['roll'] == "prof" ) {
                               echo "Profesional de la Salud";
                         } else {
@@ -112,14 +112,14 @@
                     <div class="pull-left">
                       <div class="box-body">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#profile_user">
-                          Profile
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile_user">
+                          <strong>PROFILE</strong>
                         </button>
                       </div>
                     </div>
                     <div class="pull-right">
                       <div class="box-body">
-                        <a href="out" class="btn btn-default btn-flat">Sign out</a>
+                        <a href="out_admin" class="btn bg-yellow"><font color="black"><strong>SING OUT</strong></font></a>
                       </div>
                     </div>
                   </li>

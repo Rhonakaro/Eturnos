@@ -4,7 +4,7 @@ $modaljournal = false;
 $showmodal = false;
 $modalshow = false;
 
-	if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
+	if( $_POST['r'] == 'user_admin-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
 		
 		$specs_controller = new SpecsController();
 
@@ -15,7 +15,7 @@ $modalshow = false;
     			<div class="container">
     				<div class="row">
 		    		    <div class="col-sm-offset-3 col-sm-6">
-							<div class="box box-primary">
+							<div class="box box-info">
 					            <div class="text-center box-header with-border">
 					              <h3 class="box-title">Nuevo Usuario</h3>
 					            </div>
@@ -46,13 +46,13 @@ $modalshow = false;
 					                    	</div>
 					                	</div>
 					                	<div class="form-group">
-											<div class="container col-sm-offset-4">
+											<div class="container col-sm-offset-2">
 												<input type="radio" name="roll" id="dba" value="dba" required>
-													<label for="dba">dba</label>
+													<label for="dba">Administrator &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
 												<input type="radio" name="roll" id="doc" value="prof" onchange="javascript:showContent()" required>
-													<label for="prof">prof</label>
+													<label for="prof">Professional &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
 												<input type="radio" name="roll" id="aux" value="aux" required>
-													<label for="aux">aux</label>
+													<label for="aux">Assistant</label>
 											</div>	
 										</div>
 					                </div>
@@ -67,12 +67,12 @@ $modalshow = false;
 									</div>
 					            	<div class="box-footer">
 					            		<div class="pull-left">
-							                <button type="submit" class="btn btn-default">New User</button>
-							                <input type="hidden" name="r" value="user-add">
+							                <button type="submit" class="btn btn-info">CREATE</button>
+							                <input type="hidden" name="r" value="user_admin-add">
 											<input type="hidden" name="crud" value="set">
 										</div>
 										<div class="pull-right">
-											<a class="btn btn-default" href="users">Back</a>
+											<a class="btn btn-default" href="users_admin">BACK</a>
 										</div>
 									</div>
 					            </form>
@@ -85,7 +85,7 @@ $modalshow = false;
 		
 	<?php
 
-	} else if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
+	} else if( $_POST['r'] == 'user_admin-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
 
 		$users_controller = new UsersController();
 
@@ -147,7 +147,7 @@ $modalshow = false;
 						    </div>
 							<div class="row">
 								<div class="text-center">
-									<a href="users" class="btn btn-default">Back</a>
+									<a href="users_admin" class="btn btn-default">Back</a>
 								</div>	
 							</div>
 						</div>
@@ -170,7 +170,7 @@ $modalshow = false;
 							</div>
 							<div class="row">
 								<div class="text-center">
-									<a href="users" class="btn btn-default">Back</a>
+									<a href="users_admin" class="btn btn-default">Back</a>
 								</div>
 							</div>	
 						</div>
@@ -183,6 +183,6 @@ $modalshow = false;
 	} else {
 
 		$controller = new ViewsController();
-		$controller->load_view('error401');
+		$controller->load_view('error401_admin');
 	}
 ?>

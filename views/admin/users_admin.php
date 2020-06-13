@@ -6,11 +6,8 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
-  $modaljournal = false;
-  
+  $showmodal = $modalshow = $showmessage = $modaljournal = false;
+    
 
   switch ($accion) {
 
@@ -47,7 +44,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users" class="btn btn-default">Back</a>
+                                      <a href="users_admin" class="btn btn-default">Back</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -88,7 +85,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users" class="btn btn-default">Back</a>
+                                      <a href="users_admin" class="btn btn-default">Back</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -147,7 +144,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users" class="btn btn-default">Back</a>
+                                      <a href="users_admin" class="btn btn-default">Back</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -235,11 +232,11 @@
                 </div>
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
-                    <div class="pull-left">
-                      <button value="btnupd" type="submit" class="btn btn-default" name="accion">Update</button>
-                    </div>
                     <div class="pull-right">
-                      <button value="btndel" type="submit" class="btn btn-default" name="accion">Delete</button>
+                      <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                    </div>
+                    <div class="pull-left">
+                      <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
                     </div>
                   </div>               
                 </div>
@@ -281,10 +278,10 @@
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
                     <div class="pull-right">
-                      <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
+                      <button value="pass" type="submit" class="btn btn-success" name="accion">Save</button>
                     </div>
                     <div class="pull-left">
-                      <button value="pass" type="submit" class="btn btn-default" name="accion">Save</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
                     </div>
                   </div>               
                 </div>
@@ -302,7 +299,7 @@
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <!-- /.box -->
-        <div class="box">
+        <div class="box box-info">
           <!-- /.box-header -->
           <div class="box-body">
             <div id="tusers_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -311,8 +308,8 @@
                   <div class="dataTables_length" id="tusers_length">
                     <div class="box-body">
                       <form method="post">
-                        <input type="hidden" name="r" value="user-add">
-                        <input class="button btn btn-primary" type="submit" value="New User">
+                        <input type="hidden" name="r" value="user_admin-add">
+                        <input class="button btn btn-info" type="submit" value="New User">
                       </form>
                     </div>
                   </div>
@@ -348,10 +345,10 @@
                                 <input type="hidden" name="txtPASS" value="<?php echo $users[$n]['pass']; ?>" >
                                 <input type="hidden" name="txtROLL" value="<?php echo $users[$n]['roll']; ?>" >
                                 <div class="pull-left">
-                                  <input type="submit" class="btn btn-default" name="accion" value="Select">
+                                  <input type="submit" class="btn bg-orange" name="accion" value="Select" textarea="black" >
                                 </div>
                                 <div class="pull-right">
-                                  <input type="submit" class="btn btn-default" name="accion" value="Password">
+                                  <input type="submit" class="btn bg-teal" name="accion" value="Password" style="color:black">
                                 </div>
                             </form>
                             

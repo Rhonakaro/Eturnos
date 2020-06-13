@@ -20,27 +20,27 @@ class ViewsController
 			switch ( $_SESSION['roll'] ) {
 
 				case 'dba':
-						require_once( self::$viewad_path . 'headerAd.php' );
-						require_once( self::$viewad_path . 'sidebarLAd.php' );
-						require_once( self::$viewad_path . 'sidebarRAd.php' );
+						require_once( self::$viewad_path . 'header_admin.php' );
+						require_once( self::$viewad_path . 'sidebarL_admin.php' );
+						require_once( self::$viewad_path . 'sidebarR_admin.php' );
 						require_once( self::$viewad_path . $view . '.php' );
-						require_once( self::$viewad_path . 'footerAd.php' );
+						require_once( self::$viewad_path . 'footer_admin.php' );
 						break;
 
 				case 'prof':
-						require_once( self::$viewpr_path . 'headerPr.php' );
-						require_once( self::$viewpr_path . 'sidebarLPr.php' );
-						require_once( self::$viewpr_path . 'sidebarRPr.php' );
+						require_once( self::$viewpr_path . 'header_professional.php' );
+						require_once( self::$viewpr_path . 'sidebarL_professional.php' );
+						require_once( self::$viewpr_path . 'sidebarR_professional.php' );
 						require_once( self::$viewpr_path . $view . '.php' );
-						require_once( self::$viewpr_path . 'footerPr.php' );
+						require_once( self::$viewpr_path . 'footer_professional.php' );
 						break;
 							
 				case 'aux':
-						require_once( self::$viewas_path . 'headerAs.php' );
-						require_once( self::$viewas_path . 'sidebarLAs.php' );
-						require_once( self::$viewas_path . 'sidebarRAs.php' );
+						require_once( self::$viewas_path . 'header_assistant.php' );
+						require_once( self::$viewas_path . 'sidebarL_assistant.php' );
+						require_once( self::$viewas_path . 'sidebarR_assistant.php' );
 						require_once( self::$viewas_path . $view . '.php' );
-						require_once( self::$viewas_path . 'footerAs.php' );
+						require_once( self::$viewas_path . 'footer_assistant.php' );
 						break;
 			}
 		}

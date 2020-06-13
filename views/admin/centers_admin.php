@@ -1,9 +1,9 @@
 <?php
   
 
-  $specs_controller = new SpecsController();
+  $centers_controller = new CentersController();
 
-  $specs = $specs_controller->get();
+  $centers = $centers_controller->get();
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
@@ -19,14 +19,14 @@
 
           $showmessage = true;
 
-          $save_spec = array(
+          $save_center = array(
 
             'idspec' => $_POST['txtid'],
             'spec' => $_POST['txtspec'],
             'sptime' => $_POST['txtsptime']
           );
 
-          $spec = $specs_controller->set($save_spec);
+          $center = $centers_controller->set($save_center);
 
           print ('
                   <!-- modal message-->
@@ -46,7 +46,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="specs" class="btn btn-default">Back</a>
+                                      <a href="centers_admin" class="btn btn-default">BACK</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -67,7 +67,7 @@
 
           $showmessage = true;
             
-          $spec = $specs_controller->del($_POST['txtid']);
+          $center = $centers_controller->del($_POST['txtid']);
 
           print ('
                   <!-- modal message-->
@@ -87,7 +87,7 @@
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="specs" class="btn btn-default">Back</a>
+                                      <a href="centers_admin" class="btn btn-default">BACK</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -115,21 +115,21 @@
 ?>
 
 
+
 <!-- central section -->
 <div class="content-wrapper">
     
-
   <!-- content header (page header) -->
   <section class="content-header text-center">
     <div class="row">
-      <h3><strong>Gestión de Especialidades</strong></h3>
+      <h3><strong>Gestión de Centros</strong></h3>
     </div>
   </section>
-
 
   <!-- main content -->
   <section class="content">
   
+
 
     <!-- Inicio modal edicion spec -->
     <div class="row">
@@ -140,7 +140,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title text-center" id="modalLabel">Edición de Especialidad</h5>
+                  <h5 class="modal-title text-center" id="modalLabel">Edición de Centros</h5>
                   <div class="pull-right">
                     <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
                   </div>
@@ -153,24 +153,37 @@
                       <input type="hidden" name="txtid" id="txtid" value=" <?php echo $_POST['txtid']; ?> ">
                       <br>
                     </div>
-                    <div class="form-group col-md-10">
-                      <label for="">Especialidad</label>
-                      <input type="text" class="form-control" name="txtspec" placeholder="" id="txtspec" value=" <?php echo $_POST['txtspec']; ?> " required >
+                    <div class="form-group col-md-6">
+                      <label for="">Nombre</label>
+                      <input type="text" class="form-control" name="txtcname" placeholder="" id="txtcname" value=" <?php echo $_POST['txtcname']; ?> " required >
                       <br>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label for="">Tiempo</label>
-                      <input type="text" class="form-control" name="txtsptime" placeholder="" id="txtsptime" value=" <?php echo $_POST['txtsptime']; ?> " required >
+                    <div class="form-group col-md-6">
+                      <label for="">Dirección</label>
+                      <input type="text" class="form-control" name="txtdirection" placeholder="" id="txtdirection" value=" <?php echo $_POST['txtdirection']; ?> " required >
                       <br>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">Teléfono</label>
+                      <input type="text" class="form-control" name="txttelphone" placeholder="" id="txttelphone" value=" <?php echo $_POST['txttelphone']; ?> " required >
+                      <br>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="">Tipo</label>
+                      <select class="form-control col-md-3" name="txttype" required>
+                        <option value="<?php echo $_POST['txttype']; ?>"> <?php echo $_POST['txttype']; ?> </option>
+                        <option value="cic">cic</option>
+                        <option value="cap">cap</option>
+                      </select>
                     </div>
                   </div>
                   <div class="modal-footer">
                     <div class="form-group col-md-12">
-                      <div class="pull-left">
-                        <button value="btnupd" type="submit" class="btn btn-default" name="accion">Update</button>
-                      </div>
                       <div class="pull-right">
-                        <button value="btndel" type="submit" class="btn btn-default" name="accion">Delete</button>
+                        <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                      </div>
+                      <div class="pull-left">
+                        <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
                       </div>
                     </div>               
                   </div>
@@ -188,12 +201,12 @@
     <!-- tabla Especialidades -->        
     <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <div class="box">
+            <div class="box box-secondary">
               
                  <div class="box-body">
                     <form method="post">
-                        <input type="hidden" name="r" value="spec-add">
-                        <input class="button btn btn-warning" type="submit" value="New Spec">
+                        <input type="hidden" name="r" value="center_admin-add">
+                        <input class="button btn btn-info" type="submit" value="NEW CENTER">
                     </form>
                   </div>
               
@@ -202,25 +215,31 @@
                 <table class="table table-bordered" id="datatable">
                   <thead>
                     <tr role="row">
-                        <th class="text-center" colspan="1" style="width: 30px"><h4><strong>#</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 140px"><h4><strong>Especialidad</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 50px"><h4><strong>Tiempo</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 30px"><h4><strong>Action</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 20px"><h4><strong>#</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 90px"><h4><strong>Nombre</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 125px"><h4><strong>Dirección</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 35px"><h4><strong>Teléfono</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 10px"><h4><strong>Tipo</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 20px"><h4><strong>Action</strong></h4></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php for ($n=0; $n < count($specs); $n++) { ?>
+                    <?php for ($n=0; $n < count($centers); $n++) { ?>
                     <tr role="row">
-                      <td class="text-center"><h4> <?php echo $specs[$n]['idspec']; ?> </h4></td>
-                      <td class="text-center"><h4> <?php echo $specs[$n]['spec']; ?> </h4></td> 
-                      <td class="text-center"><h4> <?php echo $specs[$n]['sptime']; ?> </h4></td>
+                      <td class="text-center"><h4> <?php echo $centers[$n]['idce']; ?> </h4></td>
+                      <td class="text-center"><h4> <?php echo $centers[$n]['cname']; ?> </h4></td> 
+                      <td class="text-center"><h4> <?php echo $centers[$n]['direction']; ?> </h4></td>
+                      <td class="text-center"><h4> <?php echo $centers[$n]['telphone']; ?> </h4></td>
+                      <td class="text-center"><h4> <?php echo $centers[$n]['type']; ?> </h4></td>
                       <td class="text-center">
                         <form action="" method="post">
-                          <input type="hidden" name="txtid" value=" <?php echo $specs[$n]['idspec']; ?> " >
-                          <input type="hidden" name="txtspec" value=" <?php echo $specs[$n]['spec']; ?> " >
-                          <input type="hidden" name="txtsptime" value=" <?php echo $specs[$n]['sptime']; ?> " >
+                          <input type="hidden" name="txtid" value=" <?php echo $centers[$n]['idce']; ?> " >
+                          <input type="hidden" name="txtcname" value=" <?php echo $centers[$n]['cname']; ?> " >
+                          <input type="hidden" name="txtdirection" value=" <?php echo $centers[$n]['direction']; ?> " >
+                          <input type="hidden" name="txttelphone" value=" <?php echo $centers[$n]['telphone']; ?> " >
+                          <input type="hidden" name="txttype" value=" <?php echo $centers[$n]['type']; ?> " >
                           <div>
-                            <input type="submit" class="btn btn-default" name="accion" value="Select">
+                            <input type="submit" class="btn btn-warning" name="accion" value="Select">
                           </div>
                         </form>
                       </td>
@@ -234,6 +253,7 @@
             <!-- /.box -->
           </div>
     </div>
+    
     <!-- fin tabla Especialidades --> 
 
   

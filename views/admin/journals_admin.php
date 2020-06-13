@@ -241,11 +241,11 @@
                 </div>
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
-                    <div class="pull-left">
-                      <button value="btnupd" type="submit" class="btn btn-default" name="accion">Update</button>
-                    </div>
                     <div class="pull-right">
-                      <button value="btndel" type="submit" class="btn btn-default" name="accion">Delete</button>
+                      <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                    </div>
+                    <div class="pull-left">
+                      <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
                     </div>
                   </div>               
                 </div>
@@ -275,8 +275,8 @@
                     <div class="dataTables_length" id="tjournals_length">
                       <div class="box-body">
                         <form method="post">
-                          <input type="hidden" name="r" value="journal-add">
-                          <input class="button btn btn-default" type="submit" value="New Registry">
+                          <input type="hidden" name="r" value="journal_admin-add">
+                          <input class="button btn btn-info" type="submit" value="New Registry">
                         </form>
                       </div>
                     </div>
@@ -314,7 +314,7 @@
                                   <input type="hidden" name="txtPASS" value=" <?php echo $users[$n]['pass']; ?> " >
                                   <input type="hidden" name="txtROLL" value=" <?php echo $users[$n]['roll']; ?> " >
                                   <div class="text-center">
-                                    <input type="submit" class="btn btn-default" name="accion" value="Select">
+                                    <input type="submit" class="btn btn-warning" name="accion" value="Select">
                                   </div>
                               </form>
                             </td>

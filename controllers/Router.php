@@ -29,41 +29,41 @@ class Router {
 					switch ($this->route) {
 						
 						case 'home':
-							$controller->load_view('homeAd');
+							$controller->load_view('home_admin');
 							break;
 
-						case 'users':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('users');
-							else if( $_POST['r'] == 'user-add' )  $controller->load_view('user-add');
+						case 'users_admin':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('users_admin');
+							else if( $_POST['r'] == 'user_admin-add' )  $controller->load_view('user_admin-add');
 							break;
 
-						case 'centers':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('centers');
-							else if( $_POST['r'] == 'center-add' )  $controller->load_view('center-add');
+						case 'centers_admin':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('centers_admin');
+							else if( $_POST['r'] == 'center_admin-add' )  $controller->load_view('center_admin-add');
 							break;
 
-						case 'journals':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('journals');
-							else if( $_POST['r'] == 'journal-add' )  $controller->load_view('journal-add');
+						case 'journals_admin':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('journals_admin');
+							else if( $_POST['r'] == 'journal_admin-add' )  $controller->load_view('journal_admin-add');
 							break;
 
-						case 'specs':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('specs');
-							else if( $_POST['r'] == 'spec-add' )  $controller->load_view('spec-add');
+						case 'specs_admin':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('specs_admin');
+							else if( $_POST['r'] == 'spec_admin-add' )  $controller->load_view('spec_admin-add');
 							break;
 
-						case 'doctors':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors');
-							else if( $_POST['r'] == 'doctor-add' )  $controller->load_view('doctor-add');
+						case 'doctors_admin':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors_admin');
+							else if( $_POST['r'] == 'doctor_admin-add' )  $controller->load_view('doctor_admin-add');
 							break;
 
-						case 'out':
+						case 'out_admin':
 							$user_session = new SessionsController();
 							$user_session->logout();
 							break;
 								
 						default:
-							$controller->load_view('error404');
+							$controller->load_view('error404_admin');
 							break;
 					}
 
@@ -72,21 +72,21 @@ class Router {
 					switch ($this->route) {
 					
 						case 'home':
-							$controller->load_view('homePr');
+							$controller->load_view('home_professional');
 							break;
 
-						case 'patients':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('patients');
-							else if( $_POST['r'] == 'patient-add' )  $controller->load_view('patient-add');
+						case 'patients_professional':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('patients_professional');
+							else if( $_POST['r'] == 'patient_professional-add' )  $controller->load_view('patient_professional-add');
 							break;
 
-						case 'out':
+						case 'out_professional':
 							$user_session = new SessionsController();
 							$user_session->logout();
 							break;
 								
 						default:
-							$controller->load_view('error404');
+							$controller->load_view('error404_professional');
 							break;
 					}
 
@@ -95,31 +95,31 @@ class Router {
 					switch ($this->route) {
 						
 						case 'home':
-							$controller->load_view('homeAs');
+							$controller->load_view('home_assistant');
 							break;
 
-						case 'shifts':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts');
+						case 'shifts_assistant':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts_assistant');
 							else if( $_POST['r'] == 'movieserie-add' )  $controller->load_view('movieserie-add');
 							else if( $_POST['r'] == 'movieserie-edit' )  $controller->load_view('movieserie-edit');
 							else if( $_POST['r'] == 'movieserie-delete' )  $controller->load_view('movieserie-delete');
 							else if( $_POST['r'] == 'movieserie-show' )  $controller->load_view('movieserie-show');
 							break;
 
-						case 'patients':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('patients');
-							else if( $_POST['r'] == 'patient-add' )  $controller->load_view('patient-add');
+						case 'patients_assistant':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('patients_assistant');
+							else if( $_POST['r'] == 'patient_assistan-add' )  $controller->load_view('patient_assistan-add');
 							break;
 
-						case 'agenda':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('dochascen');
+						case 'jopurnals_assistant':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('journas_assistant');
 							else if( $_POST['r'] == 'status-add' )  $controller->load_view('status-add');
 							else if( $_POST['r'] == 'status-edit' )  $controller->load_view('status-edit');
 							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
 							break;
 
-						case 'medicos':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors');
+						case 'doctors_assistant':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors_assistant');
 							else if( $_POST['r'] == 'status-add' )  $controller->load_view('status-add');
 							else if( $_POST['r'] == 'status-edit' )  $controller->load_view('status-edit');
 							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
@@ -132,13 +132,13 @@ class Router {
 							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
 							break;
 
-						case 'out':
+						case 'out_assistant':
 							$user_session = new SessionsController();
 							$user_session->logout();
 							break;
 								
 						default:
-							$controller->load_view('error404');
+							$controller->load_view('error404_assistant');
 							break;
 					}	
 				}

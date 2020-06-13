@@ -4,7 +4,7 @@
 	$modalshow = 0;
 	$modaljournal = 0;
 
-	if( $_POST['r'] == 'center-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) { ?>
+	if( $_POST['r'] == 'center_admin-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) { ?>
 
 		<div class="content-wrapper">
     		<section class="content">
@@ -46,13 +46,13 @@
 						                </div>
 					                </div>
 					                <div class="box-footer">
-					            		<div class="pull-left">
-							                <button type="submit" class="btn btn-default">Agegar</button>
-							                <input type="hidden" name="r" value="center-add">
+					            		<div class="pull-right">
+							                <button type="submit" class="btn btn-success">CREATE</button>
+							                <input type="hidden" name="r" value="center_admin-add">
 											<input type="hidden" name="crud" value="set">
 										</div>
-										<div class="pull-right">
-											<a class="btn btn-default" href="centers">back</a>
+										<div class="pull-left">
+											<a class="btn btn-default" href="centers_admin">BACK</a>
 										</div>
 									</div>
 					            </form>
@@ -65,7 +65,7 @@
 		
 	<?php
 
-	} else if( $_POST['r'] == 'center-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
+	} else if( $_POST['r'] == 'center_admin-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
 
 		$centers_controller = new CentersController();
 
@@ -96,7 +96,7 @@
 									</div>
 									<div class="row">
 										<div class="text-center">
-											<a href="centers" class="btn btn-default">Back</a>
+											<a href="centers_admin" class="btn btn-default">BACK</a>
 										</div>	
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 	} else {
 
 		$controller = new ViewsController();
-		$controller->load_view('error401');
+		$controller->load_view('error401_admin');
 	}
 ?>
 	
