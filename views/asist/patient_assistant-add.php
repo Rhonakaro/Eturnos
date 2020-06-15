@@ -4,7 +4,9 @@ $modaljournal = false;
 $showmodal = false;
 $modalshow = false;
 
-	if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
+echo 'hello';
+
+	/*if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
 		
 		$specs_controller = new SpecsController();
 
@@ -184,5 +186,5 @@ $modalshow = false;
 
 		$controller = new ViewsController();
 		$controller->load_view('error401');
-	}
+	}*/
 ?>

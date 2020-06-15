@@ -107,7 +107,7 @@
                       ?></strong></p>
                   </li>
                   <li class="user-footer">
-                    <div class="pull-left">
+                    <div class="pull-right">
                       <div class="box-body">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile_user">
@@ -115,7 +115,7 @@
                         </button>
                       </div>
                     </div>
-                    <div class="pull-right">
+                    <div class="pull-left">
                       <div class="box-body">
                         <a href="out_admin" class="btn bg-yellow"><font color="black"><strong>SALIR</strong></font></a>
                       </div>

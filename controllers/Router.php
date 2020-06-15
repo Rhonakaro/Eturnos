@@ -99,36 +99,16 @@ class Router {
 
 						case 'shifts_assistant':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts_assistant');
-							else if( $_POST['r'] == 'movieserie-add' )  $controller->load_view('movieserie-add');
-							else if( $_POST['r'] == 'movieserie-edit' )  $controller->load_view('movieserie-edit');
-							else if( $_POST['r'] == 'movieserie-delete' )  $controller->load_view('movieserie-delete');
-							else if( $_POST['r'] == 'movieserie-show' )  $controller->load_view('movieserie-show');
+							else if( $_POST['r'] == 'shifts_assistant-add' )  $controller->load_view('shifts_assistant-add');
 							break;
 
 						case 'patients_assistant':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('patients_assistant');
-							else if( $_POST['r'] == 'patient_assistan-add' )  $controller->load_view('patient_assistan-add');
+							else if( $_POST['r'] == 'patient_assistant-add' )  $controller->load_view('patient_assistant-add');
 							break;
 
-						case 'jopurnals_assistant':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('journas_assistant');
-							else if( $_POST['r'] == 'status-add' )  $controller->load_view('status-add');
-							else if( $_POST['r'] == 'status-edit' )  $controller->load_view('status-edit');
-							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
-							break;
-
-						case 'doctors_assistant':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors_assistant');
-							else if( $_POST['r'] == 'status-add' )  $controller->load_view('status-add');
-							else if( $_POST['r'] == 'status-edit' )  $controller->load_view('status-edit');
-							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
-							break;
-
-						case 'lista':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('list');
-							else if( $_POST['r'] == 'status-add' )  $controller->load_view('status-add');
-							else if( $_POST['r'] == 'status-edit' )  $controller->load_view('status-edit');
-							else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
+						case 'calendars_assistant':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('calendar_assistant');
 							break;
 
 						case 'out_assistant':

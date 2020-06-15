@@ -102,64 +102,12 @@
 
     break;
 
-    case 'Select':
+    case 'Editar':
 
           $showmodal = true;
 
     break;
-
-    case 'Password':
-
-          $modalshow = true;          
-
-    break;
-
-    case 'pass':
-
-          $pass_user = array(
-
-            'idus' => $_POST['txtID'],
-            'pass' => $_POST['txtPASS']
-          );
-            
-          $user = $users_controller->password($pass_user);
-
-          $showmessage = true;
-
-          print ('
-                  <!-- modal message-->
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <form action="" method="post" >
-                        <!-- Modal -->
-                        <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="changepass_Label" aria-hidden="true">
-                          <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                              <div class="modal-body">
-                                <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <div class="form-group col-md-12">
-                                  <div class="row">
-                                    <div class="text-center">
-                                      <a href="users" class="btn btn-default">Back</a>
-                                    </div>
-                                  </div>
-                                </div>               
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Button trigger modal -->
-                      </form>
-                    </div>
-                  </div>
-                  <!-- fin modal message-->
-                ');
-
-    break;
+        
     
   }
    
@@ -172,7 +120,7 @@
   <!-- content header -->
   <section class="content-header text-center">
     <div class="row" style="margin-top: -10px; margin-bottom: -10px">
-      <h3><strong>Pacientes</strong></h3>
+      <br><h3><strong>Pacientes</strong></h3><br>
     </div>
   </section>
   <!-- fin content header -->
@@ -290,11 +238,10 @@
         <div class="box box-info">
               <div class="box-header with-border">
                   <div class="box-body">
-                    <h3 class="box-title">Busqueda de Paciente</h3>
-                    <div class="pull-right">
+                    <div class="pull-left">
                       <form method="post">
-                        <input type="hidden" name="r" value="patient-add">
-                        <input class="button btn bg-purple" type="submit" value="Agregar"> 
+                        <input type="hidden" name="r" value="patient_assistant-add">
+                        <input class="button btn bg-purple" type="submit" value="AGREGAR"> 
                       </form>
                     </div>
                   </div>
@@ -319,17 +266,17 @@
                       <tbody>
                         <?php for ($n=0; $n < count($patients); $n++) { ?>
                         <tr role="row">
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['idpa']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['dni']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['lname']; ?> </h5></td> 
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['name']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['age']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['sex']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['blood']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['mail']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['direction']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['city']; ?> </h5></td>
-                          <td class="text-center" ><h5> <?php echo $patients[$n]['telphone']; ?> </h5></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['idpa']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['dni']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['lname']; ?> </h4></td> 
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['name']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['age']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['sex']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['blood']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['mail']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['direction']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['city']; ?> </h4></td>
+                          <td class="text-center" ><h4> <?php echo $patients[$n]['telphone']; ?> </h4></td>
                           <td class="text-center">
                             <form action="" method="post">
                               <input type="hidden" name="txtidpa" value="<?php echo $patients[$n]['idpa']; ?>" >
@@ -344,7 +291,7 @@
                               <input type="hidden" name="txtsex" value="<?php echo $patients[$n]['sex']; ?>" >
                               <input type="hidden" name="txtblood" value="<?php echo $patients[$n]['blood']; ?>" >
                               <div>
-                                <input type="submit" class="btn btn-warning" name="accion" value="Select" id="search">
+                                <input type="submit" class="btn bg-orange" name="accion" value="Editar" id="search" style="color:black">
                               </div>
                             </form>
                           </td>

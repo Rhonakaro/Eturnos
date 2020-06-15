@@ -18,7 +18,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>eturnos</title>
+    <title >eturnos</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="http://localhost/eturnos/public/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/eturnos/public/bower_components/font-awesome/css/font-awesome.css">
@@ -41,39 +41,39 @@
                   
   <!-- Modal Profile -->
   <!-- Modal -->
-<div class="modal fade" id="profile_user" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="ModalLabel">Change Password for <strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></h5>
-      </div>
-      <div class="modal-body">
-        <form action="" method="post">
-          <div class="form-group">
-            <div class="form-group col-6">
-              <label for="" class="">New Password</label> 
-                <div class="input-group">
-                  <input type="hidden" name="txtID" value=" <?php echo ($_SESSION['idus']); ?> ">
-                  <input type="password" class="form-control pwd" name="txtPASS" value=" <?php echo ($_SESSION['pass']); ?> ">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
-                  </span>          
-                </div>
-            </div>   
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <div class="pull-left">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <div class="modal fade" id="profile_user" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center" id="ModalLabel">Cambio de Contraseña para: <br><strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></h4>
         </div>
-        <div class="pull-right">
-          <button type="button" class="btn btn-default">Save changes</button>
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="form-group">
+              <div class="form-group col-6">
+                <label for="" class=""><h4>Nuevo Password</h4></label> 
+                  <div class="input-group">
+                    <input type="hidden" name="txtID" value=" <?php echo ($_SESSION['idus']); ?> ">
+                    <input type="password" class="form-control pwd" name="txtPASS" value=" <?php echo ($_SESSION['pass']); ?> ">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+                    </span>          
+                  </div>
+              </div>   
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="pull-left">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><strong>CERRAR</strong></button>
+          </div>
+          <div class="pull-right">
+            <button type="button" class="btn btn-success"><strong>GUARDAR</strong></button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <!-- fin Modal Profile -->
 
 
@@ -82,7 +82,7 @@
       <header class="main-header">
         <a href="./" class="logo">
          <span class="logo-mini"><font color="black"><b>E</b></font></span>
-         <span class="logo-lg"><font color="black"><b>eturnos</b></font></span>
+         <span class="logo-lg"><font color="teal"><b>eturnos</b></font></span>
         </a>
         <nav class="navbar navbar-static-top">
           <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="color: black; ">
@@ -112,17 +112,17 @@
                       ?></font></strong></p>
                   </li>
                   <li class="user-footer">
-                    <div class="pull-left">
+                    <div class="pull-right">
                       <div class="box-body">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#profile_user"><font color="black">
-                          Profile</font>
+                          <strong>PERFIL</strong></font>
                         </button>
                       </div>
                     </div>
-                    <div class="pull-right">
+                    <div class="pull-left">
                       <div class="box-body">
-                        <a href="out" type="button" class="btn btn-warning btn-flat"><font color="black">Sign out</font></a>
+                        <a href="out_assistant" type="button" class="btn bg-teal"><font color="black"><strong>SALIR</strong></font></a>
                       </div>
                     </div>
                   </li>
