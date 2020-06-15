@@ -14,6 +14,7 @@ class PatientsModel extends Model
 		$this->set_query();
 	}
 
+
 	public function get( $search = '' ) {
 
 		$this->query = ($search != '')
@@ -34,12 +35,14 @@ class PatientsModel extends Model
 		return $data;
 	}
 
+
 	public function del( $search = '' ) {
 
 		$this->query = "DELETE FROM patients WHERE idpa = '$search'";
 		
 		$this->set_query();
 	}
+	
 
 	public function __destruct() {
 		

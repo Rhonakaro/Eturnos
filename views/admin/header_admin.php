@@ -6,9 +6,7 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
+  $showmodal = $modalshow = $showmessage = false;  
 
 ?>
 
@@ -45,16 +43,16 @@
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-center" id="ModalLabel">Change Password for <strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></h5>
+        <h4 class="modal-title text-center" id="ModalLabel">Cambio de Contraseña para: <br><strong><?php echo ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></strong></h4>
       </div>
       <div class="modal-body">
         <form action="" method="post">
           <div class="form-group">
             <div class="form-group col-6">
-              <label for="" class="">New Password</label> 
+              <label for="" class=""><h4>Nuevo Password</h4></label> 
                 <div class="input-group">
-                  <input type="hidden" name="txtID" value=" <?php echo ($_SESSION['idus']); ?> ">
-                  <input type="password" class="form-control pwd" name="txtPASS" value=" <?php echo ($_SESSION['pass']); ?> ">
+                  <input type="hidden" name="txtID" value="<?php echo ($_SESSION['idus']); ?>">
+                  <input type="password" class="form-control pwd" name="txtPASS" value="<?php echo ($_SESSION['pass']); ?>">
                   <span class="input-group-btn">
                     <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
                   </span>          
@@ -65,10 +63,10 @@
       </div>
       <div class="modal-footer">
         <div class="pull-left">
-          <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><strong>CERRAR</strong></button>
         </div>
         <div class="pull-right">
-          <button type="button" class="btn btn-success">SAVE CHANGES</button>
+          <button type="button" class="btn btn-success"><strong>GUARDAR</strong></button>
         </div>
       </div>
     </div>
@@ -113,13 +111,13 @@
                       <div class="box-body">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile_user">
-                          <strong>PROFILE</strong>
+                          <strong>PERFIL</strong>
                         </button>
                       </div>
                     </div>
                     <div class="pull-right">
                       <div class="box-body">
-                        <a href="out_admin" class="btn bg-yellow"><font color="black"><strong>SING OUT</strong></font></a>
+                        <a href="out_admin" class="btn bg-yellow"><font color="black"><strong>SALIR</strong></font></a>
                       </div>
                     </div>
                   </li>

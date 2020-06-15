@@ -4,132 +4,139 @@
 
 	$centers = $centers_controller->get();
 
-	$doctors_controller = new DoctorsController();
+	$professionals_controller = new ProfessionalsController();
 	    
-	$doctors = $doctors_controller->get();
+	$professionals = $professionals_controller->get();
 
 	$journas_controller = new JournalsController();
 
 	$journals = $journas_controller->get();
 
-	$showmodal = 0;
-	$modalshow = 0;
-	$modaljournal = 0;
+	$showmodal = $modalshow = $modaljournal = false;
+		
 
-	if( $_POST['r'] == 'journal-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) { ?>
+	if( $_POST['r'] == 'journal_admin-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) { ?>
 		
 		<div class="content-wrapper">
     		<section class="content">
     			<div class="col-md-10 col-md-offset-1">
-    				<div class="row">
-		    		    <div class="">
-							<div class="box box-default">
-					            <div class="text-center box-header with-border">
-					              <h3 class="box-title">Nuevo Registro de Agenda</h3>
-					            </div>
-					            <form method="post" action="">
-					            	<div class="box-body">
-					            		<div class="form-group col-md-2">
-						                    <label for="">Día</label>
-						                    <select class="form-control" id="search3" name="txtDAY" style=""  required>
-						                      <option value="Lunes">Lunes</option>
-						                      <option value="Martes">Martes</option>
-						                      <option value="Miércoles">Miércoles</option>
-						                      <option value="Jueves">Jueves</option>
-						                      <option value="Viernes">Viernes</option>
-						                    </select>
-						                </div>
-						                
-						                <div class="form-group col-md-3">
-						                    <label for="">Profesional</label>
-						                    <select class="form-control" id="search2" name="txtIDOC" style=""  required>
-						                      <?php for ($n=0; $n < count($doctors); $n++) { ?>
-						                      <option> <?php echo ($doctors[$n]['idoc'].'_'.$doctors[$n]['lname'].',  '.$doctors[$n]['name']); ?> </option>
-						                      <?php } ?>
-						                    </select>
-						                </div>
-						                
-					                	<div class="form-group col-md-3" >
-						                    <label for="">Centro</label>
-						                    <select class="form-control" id="search4" name="txtIDCE" style=""  required>
-						                      <?php for ($n=1; $n < count($centers); $n++) { ?>
-						                      <option> <?php echo ($centers[$n]['idce'] .'_'.$centers[$n]['cname']) ?> </option>
-						                      <?php } ?> 
-						                    </select>
-						                </div>
-
-					                	<div class="form-group col-md-1">
-						                    <label for="">H. Entrada</label>
-						                    <select class="form-control" id="search5" name="txtHOUR_IN" style=""  required>
-						                      <option value="07">07</option>
-						                      <option value="08">08</option>
-						                      <option value="09">09</option>
-						                      <option value="10">10</option>
-						                      <option value="11">11</option>
-						                      <option value="12">12</option>
-						                      <option value="13">13</option>
-						                      <option value="14">14</option>
-						                      <option value="15">15</option>
-						                      <option value="16">16</option>
-						                      <option value="17">17</option>
-						                      <option value="18">18</option>
-						                    </select>
-						                </div>
-
-						                <div class="form-group col-md-1">
-						                    <label for="">H. Salida</label>
-						                    <select class="form-control" id="search6" name="txtHOUR_OUT" style=""  required>
-						                      <option value="08">08</option>
-						                      <option value="09">09</option>
-						                      <option value="10">10</option>
-						                      <option value="11">11</option>
-						                      <option value="12">12</option>
-						                      <option value="13">13</option>
-						                      <option value="14">14</option>
-						                      <option value="15">15</option>
-						                      <option value="16">16</option>
-						                      <option value="17">17</option>
-						                      <option value="18">18</option>
-						                      <option value="19">19</option>
-						                    </select>
-						                </div>
-
-						                <div class="form-group col-md-2">
-						                    <label for="">Estado</label>
-						                    <select class="form-control" id="search7" name="txtSTATE" style=""  required>
-						                      <option value="Up">Up</option>
-						                      <option value="Down">Down</option>
-						                    </select>
-						                </div>
+    				<br><br><br>
+	    				<div class="row">
+			    		    <div class="">
+								<div class="box box-info">
+						            <div class="text-center box-header with-border">
+						              <h3>Nuevo Registro de Agenda</h3>
 						            </div>
-					            	<div class="box-footer">
-					            		<div class="pull-right">
-					            		    <button type="submit" class="btn btn-default">Add</button>
-							                <input type="hidden" name="r" value="journal-add">
-											<input type="hidden" name="crud" value="set">
+						            <form method="post" action="">
+						            	<div class="box-body">
+						            		<div class="form-group col-md-2">
+							                    <h4><label for="">Día</label></h4>
+							                    <h4>
+							                    	<select class="form-control" id="search3" name="txtDAY" required>
+							                      		<option value="Lunes">Lunes</option>
+							                      		<option value="Martes">Martes</option>
+							                      		<option value="Miércoles">Miércoles</option>
+							                      		<option value="Jueves">Jueves</option>
+							                      	<option value="Viernes">Viernes</option>
+							                    	</select>
+							                    </h4>
+							                </div>
+     						                <div class="form-group col-md-3">
+							                    <h4><label for="">Profesional</label></h4>
+							                    <h4>
+							                    	<select class="form-control" id="search2" name="txtIDPR" required>
+							                      		<?php for ($n=0; $n < count($professionals); $n++) { ?>
+							                      		<option><?php echo ($professionals[$n]['idpr'].'_'.$professionals[$n]['lname'].',  '.$professionals[$n]['name']); ?></option>
+							                      		<?php } ?>
+							                    	</select>
+							                    </h4>
+							                </div>
+							                <div class="form-group col-md-2" >
+							                    <h4><label for="">Centro</label></h4>
+							                    <h4>
+							                    	<select class="form-control" id="search4" name="txtIDCE" equired>
+							                      		<?php for ($n=1; $n < count($centers); $n++) { ?>
+							                      		<option><?php echo ($centers[$n]['idce'] .'_'.$centers[$n]['cname']) ?></option>
+							                      		<?php } ?> 
+							                    	</select>
+							                    </h4>
+							                </div>
+						                	<div class="form-group col-md-2">
+							                    <h4><label for="">Entrada</label></h4>
+							                    <h4>
+							                    	<select class="form-control" id="search5" name="txtHOUR_IN" required>
+								                      	<option value="07 am.">07 am.</option>
+								                      	<option value="08 am.">08 am.</option>
+								                      	<option value="09 am.">09 am.</option>
+								                      	<option value="10 am.">10 am.</option>
+								                      	<option value="11 am.">11 am.</option>
+								                      	<option value="12 m.">12 m.</option>
+								                      	<option value="13 pm.">13 pm.</option>
+								                      	<option value="14 pm.">14 pm.</option>
+								                      	<option value="15 pm.">15 pm.</option>
+								                      	<option value="16 pm.">16 pm.</option>
+								                      	<option value="17 pm.">17 pm.</option>
+								                      	<option value="18 pm.">18 pm.</option>
+							                    	</select>
+							                	</h4>
+							                </div>
+							                <div class="form-group col-md-2">
+							                    <h4><label for="">Salida</label></h4>
+							                    <h4>
+							                    	<select class="form-control" id="search6" name="txtHOUR_OUT" required>
+								                    	<option value="08 am.">08 am.</option>
+								                      	<option value="09 am.">09 am.</option>
+								                      	<option value="10 am.">10 am.</option>
+								                      	<option value="11 am.">11 am.</option>
+								                      	<option value="12 m.">12 m.</option>
+								                      	<option value="13 pm.">13 pm.</option>
+								                      	<option value="14 pm.">14 pm.</option>
+								                      	<option value="15 pm.">15 pm.</option>
+								                      	<option value="16 pm.">16 pm.</option>
+								                      	<option value="17 pm.">17 pm.</option>
+								                      	<option value="18 pm.">18 pm.</option>
+								                      	<option value="19 pm.">19 pm.</option>
+							                    	</select>
+							                    </h4>
+							                </div>
+							                <div class="form-group col-md-1">
+							                    <h4><label for="">Estado</label></h4>
+							                    <h4>
+								                    <select class="form-control" id="search7" name="txtSTATE" required>
+								                      <option value="Up">Up</option>
+								                      <option value="Down">Down</option>
+								                    </select>
+								                </h4>
+							                </div>
+							            </div>
+						            	<div class="box-footer">
+						            		<div class="pull-right">
+						            		    <button type="submit" class="btn btn-success"><strong>AGREGAR</strong></button>
+								                <input type="hidden" name="r" value="journal_admin-add">
+												<input type="hidden" name="crud" value="set">
+											</div>
+											<div class="pull-left">
+												<a class="btn btn-default" href="journals_admin"><strong>ATRAS</strong></a>
+											</div>
 										</div>
-										<div class="pull-left">
-											<a class="btn btn-default" href="journals">Back</a>
-										</div>
-									</div>
-					            </form>
-					        </div>
+						            </form>
+						        </div>
+							</div>
 						</div>
-					</div>
 				</div>
 			</section>
 		</div>
 		
 	<?php
 
-	} else if( $_POST['r'] == 'journal-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
+	} else if( $_POST['r'] == 'journal_admin-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
 
 		$journals_controller = new JournalsController();
 
 		$save_journals = array(
 
 		            'idjou' => 0,
-		            'idoc' => intval( $_POST['txtIDOC'] ),
+		            'idpr' => intval( $_POST['txtIDPR'] ),
 		            'day' => $_POST['txtDAY'],
 		            'idce' => intval( $_POST['txtIDCE'] ),
 		            'hour_in' => $_POST['txtHOUR_IN'],
@@ -140,24 +147,23 @@
 
         $journal = $journals_controller->set($save_journals);
 
-        var_dump($save_journals);
-		
-		print('
+        print('
 				<div class="content-wrapper">
 					<section class="content">
 						<div class="container">
-							<div class="row">
-								<div class="alert alert-success" role="alert">
-						       		<div class="text-center">
-						        		<h4 class="alert-heading"> Registro Agregado!</h4>
-						           	</div>
-						        </div>
-						    </div>
-							<div class="row">
-								<div class="text-center">
-									<a href="journals" class="btn btn-default">Back</a>
-								</div>	
-							</div>
+							<br><br><br><br><br>
+								<div class="row">
+									<div class="alert alert-success" role="alert">
+							       		<div class="text-center">
+							        		<h4 class="alert-heading">Registro Agregado!</h4>
+							           	</div>
+							        </div>
+							    </div>
+								<div class="row">
+									<div class="text-center">
+										<a href="journals_admin" class="btn btn-default">ATRAS</a>
+									</div>	
+								</div>
 						</div>
 					</section>
 				</div>   
@@ -166,6 +172,6 @@
 	} else {
 
 		$controller = new ViewsController();
-		$controller->load_view('error401');
+		$controller->load_view('error401_admin');
 	}
 ?>

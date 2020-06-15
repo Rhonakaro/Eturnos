@@ -7,10 +7,7 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
-  $modaljournal = false;
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
+  $modaljournal = $showmodal = $modalshow = $showmessage = false;  
   
  
   switch ($accion) {
@@ -39,14 +36,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="specs" class="btn btn-default">Back</a>
+                                      <a href="specs_admin" class="btn btn-default"><strong>ATRAS</strong></a>
                                     </div>
                                   </div>
                                 </div>               
@@ -80,14 +77,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="specs" class="btn btn-default">Back</a>
+                                      <a href="specs_admin" class="btn btn-default"><strong>ATRAS</strong></a>
                                     </div>
                                   </div>
                                 </div>               
@@ -122,7 +119,7 @@
   <!-- content header (page header) -->
   <section class="content-header text-center">
     <div class="row">
-      <h3><strong>Gestión de Especialidades</strong></h3>
+      <br><h3><strong>Gestión de Especialidades</strong></h3><br>
     </div>
   </section>
 
@@ -140,37 +137,50 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title text-center" id="modalLabel">Edición de Especialidad</h5>
+                  <h4 class="modal-title text-center" id="modalLabel"><strong>Edición de Especialidad</strong></h4>
                   <div class="pull-right">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">CERRAR</button>
                   </div>
                 </div>
                 <div class="modal-body">
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="">Id</label>
-                      <input type="text" class="form-control" name="txtid" placeholder="" id="txtid" value=" <?php echo $_POST['txtid']; ?> " disabled >
-                      <input type="hidden" name="txtid" id="txtid" value=" <?php echo $_POST['txtid']; ?> ">
+                      <label for=""><h4><strong>Id</strong></h4></label>
+                      <input type="text" class="form-control" name="txtid" id="txtid" value="<?php echo $_POST['txtid']; ?>" disabled style="font-size: 20px;">
+                      <input type="hidden" name="txtid" id="txtid" value="<?php echo $_POST['txtid']; ?>">
                       <br>
                     </div>
-                    <div class="form-group col-md-10">
-                      <label for="">Especialidad</label>
-                      <input type="text" class="form-control" name="txtspec" placeholder="" id="txtspec" value=" <?php echo $_POST['txtspec']; ?> " required >
+                    <div class="form-group col-md-8">
+                      <label for=""><h4><strong>Especialidad</strong></h4></label>
+                      <input type="text" class="form-control" name="txtspec" id="txtspec" value="<?php echo $_POST['txtspec']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label for="">Tiempo</label>
-                      <input type="text" class="form-control" name="txtsptime" placeholder="" id="txtsptime" value=" <?php echo $_POST['txtsptime']; ?> " required >
+                    <div class="form-group col-md-4">
+                      <label for=""><h4><strong>Tiempo</strong></h4></label>
+                      <select class="form-control col-md-3" name="txtsptime" required style="font-size: 20px; padding-bottom: 0px">
+                        <option value="<?php echo $_POST['txtsptime']; ?>" style="font-size: 20px;"><?php echo $_POST['txtsptime']; ?></option>
+                        <option value="10 am." style="font-size: 20px;">10 min.</option>
+                        <option value="15 am." style="font-size: 20px;">15 min.</option>
+                        <option value="20 am." style="font-size: 20px;">20 min.</option>
+                        <option value="25 min." style="font-size: 20px;">25 min.</option>
+                        <option value="30 min." style="font-size: 20px;">30 min.</option>
+                        <option value="35 min." style="font-size: 20px;">35 min.</option>
+                        <option value="40 min." style="font-size: 20px;">40 min.</option>
+                        <option value="45 min." style="font-size: 20px;">45 min.</option>
+                        <option value="50 min." style="font-size: 20px;">50 min.</option>
+                        <option value="55 min." style="font-size: 20px;">55 min.</option>
+                        <option value="60 min." style="font-size: 20px;">60 min.</option>
+                      </select>
                       <br>
                     </div>
                   </div>
                   <div class="modal-footer">
                     <div class="form-group col-md-12">
                       <div class="pull-right">
-                        <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                        <button value="btnupd" type="submit" class="btn btn-success" name="accion"><strong>GUARDAR</strong></button>
                       </div>
                       <div class="pull-left">
-                        <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
+                        <button value="btndel" type="submit" class="btn btn-danger" name="accion"><strong>ELIMINAR</strong></button>
                       </div>
                     </div>               
                   </div>
@@ -188,12 +198,12 @@
     <!-- tabla Especialidades -->        
     <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <div class="box box-warning">
+            <div class="box box-info">
               
                  <div class="box-body">
                     <form method="post">
                         <input type="hidden" name="r" value="spec_admin-add">
-                        <input class="button btn btn-info" type="submit" value="New Spec">
+                        <input class="button btn bg-purple" type="submit" value="NUEVA" >
                     </form>
                   </div>
               
@@ -205,22 +215,22 @@
                         <th class="text-center" colspan="1" style="width: 30px"><h4><strong>#</strong></h4></th>
                         <th class="text-center" colspan="1" style="width: 140px"><h4><strong>Especialidad</strong></h4></th>
                         <th class="text-center" colspan="1" style="width: 50px"><h4><strong>Tiempo</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 30px"><h4><strong>Action</strong></h4></th>
+                        <th class="text-center" colspan="1" style="width: 30px"><h4><strong>Accción</strong></h4></th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php for ($n=0; $n < count($specs); $n++) { ?>
                     <tr role="row">
-                      <td class="text-center"><h4> <?php echo $specs[$n]['idspec']; ?> </h4></td>
-                      <td class="text-center"><h4> <?php echo $specs[$n]['spec']; ?> </h4></td> 
-                      <td class="text-center"><h4> <?php echo $specs[$n]['sptime']; ?> </h4></td>
+                      <td class="text-center"><h4><?php echo $specs[$n]['idspec']; ?></h4></td>
+                      <td class="text-center"><h4><?php echo $specs[$n]['spec']; ?></h4></td> 
+                      <td class="text-center"><h4><?php echo $specs[$n]['sptime']; ?></h4></td>
                       <td class="text-center">
                         <form action="" method="post">
-                          <input type="hidden" name="txtid" value=" <?php echo $specs[$n]['idspec']; ?> " >
-                          <input type="hidden" name="txtspec" value=" <?php echo $specs[$n]['spec']; ?> " >
-                          <input type="hidden" name="txtsptime" value=" <?php echo $specs[$n]['sptime']; ?> " >
+                          <input type="hidden" name="txtid" value="<?php echo $specs[$n]['idspec']; ?>">
+                          <input type="hidden" name="txtspec" value="<?php echo $specs[$n]['spec']; ?>">
+                          <input type="hidden" name="txtsptime" value="<?php echo $specs[$n]['sptime']; ?>">
                           <div>
-                            <input type="submit" class="btn btn-warning" name="accion" value="Select">
+                            <input type="submit" class="btn bg-orange" name="accion" value="Select">
                           </div>
                         </form>
                       </td>

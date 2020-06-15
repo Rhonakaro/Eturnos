@@ -19,25 +19,25 @@
         <a href="login"><b>eturnos</b></a>
       </div>
       <div class="login-box-body">
-        <p class="login-box-msg">Start your session</p>
+        <h4><p class="login-box-msg">Iniciar Sesión</p></h4>
         <form class="login" method="post">
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" name="mail" placeholder="Email" required>
+            <input type="email" class="form-control" name="mail" placeholder="correo" required>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" id="mypassword" name="pass" placeholder="Password" required>
+            <input type="password" class="form-control" id="mypassword" name="pass" placeholder="contraseña" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group ">
             <div class="row">
               <div class="col-xs-7 col-xs-offset-1">
                 <div class="checkbox icheck">
-                  <input type="checkbox" onclick="myFunction()">Show Password
+                  <input type="checkbox" onclick="myFunction()">mostrar contraseña
                 </div>
               </div>
               <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                <button type="submit" class="btn btn-info btn-block"><strong>Login</strong></button>
               </div>
             </div>
           </div>

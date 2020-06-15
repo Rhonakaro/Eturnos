@@ -1,8 +1,6 @@
 <?php
 
-$modaljournal = false;
-$showmodal = false;
-$modalshow = false;
+	$showmodal = $modalshow = $modaljournal = false;
 
 	if( $_POST['r'] == 'user_admin-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
 		
@@ -13,72 +11,73 @@ $modalshow = false;
 		<div class="content-wrapper">
     		<section class="content">
     			<div class="container">
-    				<div class="row">
-		    		    <div class="col-sm-offset-3 col-sm-6">
-							<div class="box box-info">
-					            <div class="text-center box-header with-border">
-					              <h3 class="box-title">Nuevo Usuario</h3>
-					            </div>
-					            <form method="post" class="form-horizontal">
-					            	<div class="box-body">
-						                <div class="form-group">
-						                	<label for="inputlname" class="col-sm-2 control-label">Apellido</label>
-						                	<div class="col-sm-8">
-						                    	<input type="text" class="form-control" id="inputlname" name="lname" placeholder="lname" required>
-				                			</div>
-					               		</div>
-					                	<div class="form-group">
-					                		<label for="inputname" class="col-sm-2 control-label">Nombre</label>
-					                		<div class="col-sm-8">
-					                    		<input type="txt" class="form-control" id="inputname" name="name" placeholder="name" required>
-					                  		</div>
-					                	</div>
-					                	<div class="form-group">
-					                		<label for="inputmail" class="col-sm-2 control-label">Correo</label>
-					                		<div class="col-sm-8">
-					                    		<input type="email" class="form-control" id="inputmail" name="mail" placeholder="mail" required>
-					                  		</div>
-					                	</div>
-					                	<div class="form-group">
-					                		<label for="inputpass" class="col-sm-2 control-label">Contraseña</label>
-					                		<div class="col-sm-8">
-					                    		<input type="password" class="form-control" id="inputpass"  onmouseover="this.type='text'" name="pass" onmouseout="this.type='password'" placeholder="pass" required/>
-					                    	</div>
-					                	</div>
-					                	<div class="form-group">
-											<div class="container col-sm-offset-2">
-												<input type="radio" name="roll" id="dba" value="dba" required>
-													<label for="dba">Administrator &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
-												<input type="radio" name="roll" id="doc" value="prof" onchange="javascript:showContent()" required>
-													<label for="prof">Professional &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
-												<input type="radio" name="roll" id="aux" value="aux" required>
-													<label for="aux">Assistant</label>
-											</div>	
+    				<br><br><br>
+	    				<div class="row">
+			    		    <div class="col-sm-offset-3 col-sm-6">
+								<div class="box box-info">
+						            <div class="text-center box-header with-border">
+						              	<h3>Nuevo Usuario</h3>
+						            </div>
+						            <form method="post" class="form-horizontal">
+						            	<div class="box-body">
+							                <div class="form-group">
+							                	<h4><label for="inputlname" class="col-sm-3 control-label">Apellido</label></h4>
+							                	<div class="col-sm-7">
+							                    	<input type="text" class="form-control" id="inputlname" name="lname" placeholder="apellido" required style="font-size: 20px;">
+					                			</div>
+						               		</div>
+						                	<div class="form-group">
+						                		<h4><label for="inputname" class="col-sm-3 control-label">Nombre</label></h4>
+						                		<div class="col-sm-7">
+						                    		<input type="txt" class="form-control" id="inputname" name="name" placeholder="nombres" required style="font-size: 20px;">
+						                  		</div>
+						                	</div>
+						                	<div class="form-group">
+						                		<h4><label for="inputmail" class="col-sm-3 control-label">Correo</label></h4>
+						                		<div class="col-sm-7">
+						                    		<input type="email" class="form-control" id="inputmail" name="mail" placeholder="correo" required style="font-size: 20px;">
+						                  		</div>
+						                	</div>
+						                	<div class="form-group">
+						                		<h4><label for="inputpass" class="col-sm-3 control-label">Contraseña</label></h4>
+						                		<div class="col-sm-7">
+						                    		<input type="password" class="form-control" id="inputpass"  onmouseover="this.type='text'" name="pass" onmouseout="this.type='password'" placeholder="contraseña" required/ style="font-size: 20px;">
+						                    	</div>
+						                	</div>
+						                	<div class="form-group">
+												<div class="container col-sm-offset-3">
+													<input type="radio" name="roll" id="dba" value="dba" required>
+														<label for="dba">&nbsp; Administrador &nbsp; &nbsp; </label>
+													<input type="radio" name="roll" id="doc" value="prof" onchange="javascript:showContent()" required>
+														<label for="prof">&nbsp; Profesional &nbsp; &nbsp; </label>
+													<input type="radio" name="roll" id="aux" value="aux" required>
+														<label for="aux">&nbsp; Assistente</label>
+												</div>	
+											</div>
+						                </div>
+						                <div class="form-group text-center">
+											<div id="content" style="display: none;">
+												<select text-center name="idspec" placeholder="especialidad" required>
+													<?php for ($n=0; $n < count($specs); $n++) { ?>
+													<option style="font-size: 17px"><?php echo ($specs[$n]['idspec'].' . '.$specs[$n]['spec']) ?></option>
+													<?php } ?>
+												</select>
+											</div>
 										</div>
-					                </div>
-					                <div class="form-group text-center">
-										<div id="content" style="display: none;">
-											<select text-center name="idspec" placeholder="especialidad" required>
-												<?php for ($n=0; $n < count($specs); $n++) { ?>
-												<option><?php echo ($specs[$n]['idspec'].' . '.$specs[$n]['spec']) ?></option>
-												<?php } ?>
-											</select>
+						            	<div class="box-footer">
+						            		<div class="pull-right">
+								                <button type="submit" class="btn btn-success"><strong>AGREGAR</strong></button>
+								                <input type="hidden" name="r" value="user_admin-add">
+												<input type="hidden" name="crud" value="set">
+											</div>
+											<div class="pull-left">
+												<a class="btn btn-default" href="users_admin"><strong>ATRAS</strong></a>
+											</div>
 										</div>
-									</div>
-					            	<div class="box-footer">
-					            		<div class="pull-left">
-							                <button type="submit" class="btn btn-info">CREATE</button>
-							                <input type="hidden" name="r" value="user_admin-add">
-											<input type="hidden" name="crud" value="set">
-										</div>
-										<div class="pull-right">
-											<a class="btn btn-default" href="users_admin">BACK</a>
-										</div>
-									</div>
-					            </form>
-					        </div>
+						            </form>
+						        </div>
+							</div>
 						</div>
-					</div>
 				</div>
 			</section>
 		</div>
@@ -88,8 +87,6 @@ $modalshow = false;
 	} else if( $_POST['r'] == 'user_admin-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
 
 		$users_controller = new UsersController();
-
-		
 
 		$new_user = array(
 			'idus' => 0,
@@ -103,7 +100,6 @@ $modalshow = false;
 		$user = $users_controller->set($new_user);
 
 		
-
 		if ( $_POST['roll'] == 'prof' ) {
 
 			
@@ -121,35 +117,34 @@ $modalshow = false;
 			
 			$idus = intval($$key); //ultimo ID roll DOC insertado
 
-			$doctors_controller = new DoctorsController();
+			$professionals_controller = new ProfessionalsController();
 			
-		        $new_doctor = array(
+		    $new_professional = array(
 
-		            'idoc' => 0,
+		            'idpr' => 0,
 		            'idus' => $idus,
 		            'idspec' => intval($_POST['idspec'])
-		        );
+		    );
 		        
-		    print_r($new_doctor);
-
-		    $save_doctor = $doctors_controller->set($new_doctor);
+		    $save_professional = $professionals_controller->set($new_professional);
 
 			print('
 				<div class="content-wrapper">
 					<section class="content">
 						<div class="container">
-							<div class="row">
-								<div class="alert alert-success" role="alert">
-						       		<div class="text-center">
-						        		<h4 class="alert-heading"> Usuario Guardado!</h4>
-						           	</div>
-						        </div>
-						    </div>
-							<div class="row">
-								<div class="text-center">
-									<a href="users_admin" class="btn btn-default">Back</a>
-								</div>	
-							</div>
+							<br><br><br><br><br>
+								<div class="row">
+									<div class="alert alert-success" role="alert">
+							       		<div class="text-center">
+							        		<h4 class="alert-heading"> Professional Guardado!</h4>
+							           	</div>
+							        </div>
+							    </div>
+								<div class="row">
+									<div class="text-center">
+										<a href="professionals_admin" class="btn btn-default">ATRAS</a>
+									</div>	
+								</div>
 						</div>
 					</section>
 				</div>   
@@ -161,18 +156,19 @@ $modalshow = false;
 				<div class="content-wrapper">
 					<section class="content">
 						<div class="container">
-							<div class="row">
-								<div class="alert alert-success" role="alert">
-						       		<div class="text-center">
-						           		<h4 class="alert-heading"> Usuario Guardado!</h4>
-						            </div>
+							<br><br><br><br><br>
+								<div class="row">
+									<div class="alert alert-success" role="alert">
+							       		<div class="text-center">
+							           		<h4 class="alert-heading"> Usuario Guardado!</h4>
+							            </div>
+									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="text-center">
-									<a href="users_admin" class="btn btn-default">Back</a>
-								</div>
-							</div>	
+								<div class="row">
+									<div class="text-center">
+										<a href="users_admin" class="btn btn-default">ATRAS</a>
+									</div>
+								</div>	
 						</div>
 					</section>
 				</div>   

@@ -13,6 +13,7 @@ class CentersModel extends Model
 		$this->set_query();
 	}
 
+
 	public function get( $search = '' ) {
 		
 		$this->query = ($search != '')
@@ -33,11 +34,13 @@ class CentersModel extends Model
 		return $data;
 	}
 
+
 	public function del( $search = '' ) {
 		
 		$this->query = "DELETE FROM centers WHERE idce = '$search'";
 		$this->set_query();
 	}
+
 
 	public function __destruct() {
 		

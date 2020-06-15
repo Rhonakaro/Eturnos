@@ -6,60 +6,60 @@ USE DBeturnos;
 
 	
 	CREATE TABLE centers(
-		idce INTEGER (2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-		cname VARCHAR (30) UNIQUE NOT NULL,
-		direction VARCHAR (30),
-		telphone VARCHAR (15),
-		type CHAR (3) /*'' CIC CAP*/
+		idce INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		cname VARCHAR (40) UNIQUE NOT NULL,
+		direction VARCHAR (40),
+		telphone VARCHAR (20),
+		type VARCHAR (3)
 	);
 
 	INSERT INTO centers (idce, cname, direction, telphone, type) VALUES
 		(1, 'home', '', '', ''),
-		(2, 'San Cayetano', 'Zarate 3245', '03489 431084', 'cic'),
-		(3, '9 de Julio', 'Paso 1446','03489 437550', 'cap'),
-		(4, 'Ariel del Plata', 'Aguiar 3245', '03489 440050', 'cap'),
-		(5, 'Acacias', 'Echeverria 952', '03489 437555', 'cap'),
-		(6, 'Villa Nueva', 'San Lorenzo 1352', '03489 437549', 'cic'),
-		(7, 'San Felipe', 'Dorrego 1322', '03489 437551', 'cap'),
-		(8, 'Siderca', 'Lavezzari 11', '03489 448720', 'cap'),
-		(9, 'San Jacinto', 'Fernandez 3013', '03489 447503', 'cap'),
-		(10, 'Lubo', 'Modarelli 684', '03489 441393', 'cic'),
-		(11, 'Las praderas', 'Verdier 508', '03489 441451', 'cap'),
-		(12, 'La Josefa', 'Martino 501', '03489 436754', 'cic'),
-		(13, 'Los Pioneros', 'Maffeis 566', '03489 15660347', 'cap'),
-		(14, 'Rio Lujan', 'Quinquinela Martin 114', '03489 15668317', 'cap'),
-		(15, 'Otamendi', 'Cordero 154', '03489 447489', 'cap'),
-		(16, 'Las Campanas', 'De Marco 101', '03489 444367', 'cap');
+		(2, 'San Cayetano', 'Zarate 3245', '03489 431084', 'CIC'),
+		(3, '9 de Julio', 'Paso 1446','03489 437550', 'CAP'),
+		(4, 'Ariel del Plata', 'Aguiar 3245', '03489 440050', 'CAP'),
+		(5, 'Acacias', 'Echeverria 952', '03489 437555', 'CAP'),
+		(6, 'Villa Nueva', 'San Lorenzo 1352', '03489 437549', 'CIC'),
+		(7, 'San Felipe', 'Dorrego 1322', '03489 437551', 'CAP'),
+		(8, 'Siderca', 'Lavezzari 11', '03489 448720', 'CAP'),
+		(9, 'San Jacinto', 'Fernandez 3013', '03489 447503', 'CAP'),
+		(10, 'Lubo', 'Modarelli 684', '03489 441393', 'CIC'),
+		(11, 'Las praderas', 'Verdier 508', '03489 441451', 'CAP'),
+		(12, 'La Josefa', 'Martino 501', '03489 436754', 'CIC'),
+		(13, 'Los Pioneros', 'Maffeis 566', '03489 15660347', 'CAP'),
+		(14, 'Rio Lujan', 'Quinquinela Martin 114', '03489 15668317', 'CAP'),
+		(15, 'Otamendi', 'Cordero 154', '03489 447489', 'CAP'),
+		(16, 'Las Campanas', 'De Marco 101', '03489 444367', 'CAP');
 
 
 	CREATE TABLE specs(
-		idspec INTEGER (2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-		spec VARCHAR (25) NOT NULL,
-		sptime CHAR (2)
+		idspec INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		spec VARCHAR (40) NOT NULL,
+		sptime VARCHAR (7)
 	);
 
 	INSERT INTO specs (idspec, spec, sptime) VALUES
-		(1, 'Clínica Médica', 20),    /* time in minutes*/
-		(2, 'Pediatría', 30),
-		(3, 'Odontología', 20),
-		(4, 'Psicología', 30),
-		(5, 'Ginecología', 30),
-		(6, 'Cardiología', 15),
-		(7, 'Fonoaudiología', 20),
-		(8, 'Nutrición', 20),
-		(9, 'Infectología', 15),
-		(10, 'Oftalmología', 20),
-		(11, 'Psiquiatría de Adultos', 30),
-		(12, 'Psiquiatría de Niños', 30);
+		(1, 'Clínica Médica', '30 min.'),    
+		(2, 'Pediatría', '30 min.'),
+		(3, 'Odontología', '30 min.'),
+		(4, 'Psicología', '40 min.'),
+		(5, 'Ginecología', '30 min.'),
+		(6, 'Cardiología', '20 min.'),
+		(7, 'Fonoaudiología', '30 min.'),
+		(8, 'Nutrición', '20 min.'),
+		(9, 'Infectología', '20 min.'),
+		(10, 'Oftalmología', '20 min.'),
+		(11, 'Psiquiatría de Adultos', '40 min.'),
+		(12, 'Psiquiatría de Niños', '40 min.');
 
 
 	CREATE TABLE users(
-		idus INTEGER (3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-		lname VARCHAR (30) NOT NULL,
-		name VARCHAR (30) NOT NULL,
-		mail VARCHAR (30) UNIQUE NOT NULL,
+		idus INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		lname VARCHAR (40) NOT NULL,
+		name VARCHAR (40) NOT NULL,
+		mail VARCHAR (40) UNIQUE NOT NULL,
 		pass CHAR (32) NOT NULL,
-		roll CHAR (4) NOT NULL /*dba doc aux*/
+		roll VARCHAR (4) NOT NULL
 		
 
 		/*photo VARCHAR (100)*/
@@ -84,17 +84,17 @@ USE DBeturnos;
 		(16, 'Marquez', 'Julio', 'eljoyta69@hotmail.com', MD5('eldiegote'), 'prof');
 
 
-	CREATE TABLE doctors(
-		idoc INTEGER (3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	CREATE TABLE professionals(
+		idpr INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		idus INTEGER NOT NULL,
-		idspec INTEGER (2) NOT NULL,
+		idspec INTEGER NOT NULL,
 		FOREIGN KEY (idus) REFERENCES users(idus)
 			ON DELETE CASCADE ON UPDATE CASCADE,
 		FOREIGN KEY (idspec) REFERENCES specs(idspec)
 			ON DELETE CASCADE ON UPDATE CASCADE
 	);
 
-	INSERT INTO doctors	(idoc, idus, idspec) VALUES
+	INSERT INTO professionals (idpr, idus, idspec) VALUES
 		(1, 2, 1),
 		(2, 3, 8),
 		(3, 4, 4),
@@ -111,63 +111,63 @@ USE DBeturnos;
 
 	CREATE TABLE journals(
 		idjou INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-		idoc INTEGER NOT NULL,
+		idpr INTEGER NOT NULL,
 		day VARCHAR (10) NOT NULL,
-		idce INTEGER (2) NOT NULL,
-		hour_in CHAR (2) NOT NULL,
-		hour_out CHAR (2) NOT NULL,
-		state CHAR (4) NOT NULL,
-		FOREIGN KEY (idoc) REFERENCES doctors(idoc)
+		idce INTEGER NOT NULL,
+		hour_in VARCHAR (6) NOT NULL,
+		hour_out VARCHAR (6) NOT NULL,
+		state VARCHAR (4) NOT NULL,
+		FOREIGN KEY (idpr) REFERENCES professionals(idpr)
 			ON DELETE CASCADE ON UPDATE CASCADE,
 		FOREIGN KEY (idce) REFERENCES centers(idce)
 			ON DELETE CASCADE ON UPDATE CASCADE
 		
 	);
 
-	INSERT INTO journals (idjou, idoc, day, idce, hour_in, hour_out, state) VALUES
-		(1, 1, 'Lunes', 2,'08', '16', 'up'),
-		(2, 1, 'Miércoles', 6, '10', '17', 'up'),
-		(3, 1, 'Jueves', 10, '12', '18', 'up'),
-		(4, 1, 'Viernes', 5, '10', '15', 'up'),
-		(5, 2, 'Martes', 2, '12', '16', 'up'),
-		(6, 2, 'Miércoles', 12, '10', '15', 'up'),
-		(7, 2, 'Jueves', 3, '12', '16', 'up'),
-		(8, 3, 'Lunes', 2, '12', '17', 'up'),
-		(9, 3, 'Martes', 2, '13', '17', 'up'),
-		(10, 3, 'Miércoles', 7, '12', '16', 'up'),
-		(11, 3, 'Viernes', 10, '13', '17', 'up'),
-		(12, 4, 'Lunes', 10, '09', '12', 'up'),
-		(13, 4, 'Jueves', 6, '08', '12', 'up'),
-		(14, 5, 'Miércoles', 12, '08', '11', 'up'),
-		(15, 6, 'Lunes', 14, '10', '16', 'up'),
-		(16, 6, 'Martes', 2, '08', '14', 'up'),
-		(17, 6, 'Miércoles', 8, '12', '16', 'up'),
-		(18, 6, 'Jueves', 6, '08', '16', 'up'),
-		(19, 6, 'Viernes', 9, '10', '14', 'up'),
-		(20, 7, 'Lunes', 15, '08', '12', 'up'),
-		(21, 7, 'Miércoles', 16, '10', '16', 'up'),
-		(22, 7, 'Jueves', 11, '08', '15', 'up'),
-		(23, 7, 'viernes', 6, '08', '15', 'up'),
-		(24, 8, 'Martes', 13, '10', '12', 'up'),
-		(25, 8, 'Miércoles', 9, '08', '11', 'up'),
-		(26, 8, 'Jueves', 2, '08', '12', 'up'),
-		(27, 8, 'Viernes', 2, '08', '12', 'up'),
-		(28, 9, 'Lunes', 3, '08', '14', 'up'),
-		(29, 9, 'Martes', 5, '10', '16', 'up'),
-		(30, 9, 'Miércoles', 8, '08', '15', 'up'),
-		(31, 9, 'Jueves', 9, '10', '16', 'up'),
-		(32, 9, 'Viernes', 11, '12', '16', 'up'),
-		(33, 10, 'Miércoles', 6, '15', '18', 'up'),
-		(34, 11, 'Lunes', 15, '08', '12', 'up'),
-		(35, 11, 'Martes', 12, '08', '18', 'up'),
-		(36, 11, 'Miércoles', 8, '08', '12', 'up'),
-		(37, 11, 'Jueves', 4, '08', '15', 'up'),
-		(38, 11, 'Viernes', 3, '10', '16', 'up'),
-		(39, 12, 'Lunes', 6, '08', '17', 'up'),
-		(40, 12, 'Martes', 10, '10', '16', 'up'),
-		(41, 12, 'Miércoles', 2, '08', '12', 'up'),
-		(42, 12, 'Jueves', 8, '12', '16', 'up'),
-		(43, 12, 'Viernes', 3, '10', '16', 'up');
+	INSERT INTO journals (idjou, idpr, day, idce, hour_in, hour_out, state) VALUES
+		(1, 1, 'Lunes', 2,'08 am.', '16 pm.', 'Up'),
+		(2, 1, 'Miércoles', 6, '10 am.', '17 pm.', 'Up'),
+		(3, 1, 'Jueves', 10, '12 m.', '18 pm.', 'Up'),
+		(4, 1, 'Viernes', 5, '10 am.', '15 pm.', 'Up'),
+		(5, 2, 'Martes', 2, '12 m.', '16 pm.', 'Up'),
+		(6, 2, 'Miércoles', 12, '10 am.', '15 pm.', 'Up'),
+		(7, 2, 'Jueves', 3, '12 m.', '16 pm.', 'Up'),
+		(8, 3, 'Lunes', 2, '12 m.', '17 pm.', 'Up'),
+		(9, 3, 'Martes', 2, '13 pm.', '17 pm.', 'Up'),
+		(10, 3, 'Miércoles', 7, '12 m.', '16 pm.', 'Up'),
+		(11, 3, 'Viernes', 10, '13 pm.', '17 pm.', 'Up'),
+		(12, 4, 'Lunes', 10, '09 am.', '12 m.', 'Up'),
+		(13, 4, 'Jueves', 6, '08 am.', '12 m.', 'Up'),
+		(14, 5, 'Miércoles', 12, '08 am.', '11 am.', 'Up'),
+		(15, 6, 'Lunes', 14, '10 am.', '16 pm.', 'Up'),
+		(16, 6, 'Martes', 2, '08 am.', '14 pm.', 'Up'),
+		(17, 6, 'Miércoles', 8, '12 m.', '16 pm.', 'Up'),
+		(18, 6, 'Jueves', 6, '08 am.', '16 pm.', 'Up'),
+		(19, 6, 'Viernes', 9, '10 am.', '14 pm.', 'Up'),
+		(20, 7, 'Lunes', 15, '08 am.', '12 m.', 'Up'),
+		(21, 7, 'Miércoles', 16, '10 am.', '16 pm.', 'Up'),
+		(22, 7, 'Jueves', 11, '08 am.', '15 pm.', 'Up'),
+		(23, 7, 'viernes', 6, '08 am.', '15 pm.', 'Up'),
+		(24, 8, 'Martes', 13, '10 am.', '12 pm.', 'Up'),
+		(25, 8, 'Miércoles', 9, '08 am.', '11 am.', 'Up'),
+		(26, 8, 'Jueves', 2, '08 am.', '12 m.', 'Up'),
+		(27, 8, 'Viernes', 2, '08 am.', '12 m.', 'Up'),
+		(28, 9, 'Lunes', 3, '08 am.', '14 pm.', 'Up'),
+		(29, 9, 'Martes', 5, '10 am.', '16 pm.', 'Up'),
+		(30, 9, 'Miércoles', 8, '08 am.', '15 pm.', 'Up'),
+		(31, 9, 'Jueves', 9, '10 am.', '16 pm.', 'Up'),
+		(32, 9, 'Viernes', 11, '12 m.', '16', 'Up'),
+		(33, 10, 'Miércoles', 6, '15 pm.', '18 pm.', 'Up'),
+		(34, 11, 'Lunes', 15, '08 am.', '12 pm.', 'Up'),
+		(35, 11, 'Martes', 12, '08 am.', '18 pm.', 'Up'),
+		(36, 11, 'Miércoles', 8, '08 am.', '12 m.', 'Up'),
+		(37, 11, 'Jueves', 4, '08 am.', '15 pm.', 'Up'),
+		(38, 11, 'Viernes', 3, '10 am.', '16 pm.', 'Up'),
+		(39, 12, 'Lunes', 6, '08 am.', '17 pm.', 'Up'),
+		(40, 12, 'Martes', 10, '10 am.', '16 pm.', 'Up'),
+		(41, 12, 'Miércoles', 2, '08 am.', '12 m.', 'Up'),
+		(42, 12, 'Jueves', 8, '12 m.', '16 pm.', 'Up'),
+		(43, 12, 'Viernes', 3, '10 am.', '16 pm.', 'Up');
 
 
 	CREATE TABLE patients(
@@ -176,7 +176,7 @@ USE DBeturnos;
 		lname VARCHAR (50) NOT NULL,
 		name VARCHAR (50) NOT NULL,
 		age INTEGER (2) NOT NULL,
-		sex VARCHAR (1) NOT NULL,
+		sex VARCHAR (2) NOT NULL,
 		blood VARCHAR (4),
 		mail VARCHAR (50) NOT NULL UNIQUE,
 		direction VARCHAR (50),
@@ -187,11 +187,11 @@ USE DBeturnos;
 
 	INSERT INTO patients (idpa, dni, lname, name, age, sex, blood, mail, direction, city, telphone)
 		VALUES
-		(1, '28164718', 'Paciente', 'CERO', 39, 'M', 'A+', 'elvago@hotmail.com', 'Viale N° 51', 'Valle de Catamarca', '03489 15150262')
-		(2, '29143343', 'Tepacien', 'UNO', 38, 'F', '0+', 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Campana', ''),
-		(3, '94524177', 'El paciente', 'Yopo', 55, 'M', 'B+', 'correio@gmail.com', 'Juan marini 417', 'Zarate', ''),
-		(4, '47155495', 'Calabacin', 'Brian', 13, 'M', 'AB+', 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Lujan', ''),
-		(5, '12441573', 'Cruz', 'Juan', 55, 'M', 'A+', 'jcruz@hotmail.com', '', 'Lima', ''),
+		(1, '28164718', 'Paciente', 'Cero', 39, 'M', 'A+', 'elvago@hotmail.com', 'Viale N° 51', 'Valle de Catamarca', '03489 15150262'),
+		(2, '29143343', 'Tepacien', 'Uno', 38, 'F', '0+', 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Campana', ''),
+		(3, '94524177', 'Elpaciente', 'Dos', 55, 'M', 'B+', 'correio@gmail.com', 'Juan marini 417', 'Zarate', ''),
+		(4, '47155495', 'Calabacin', 'Cuatro', 13, 'M', 'AB+', 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Lujan', ''),
+		(5, '12441573', 'Cruz', 'Joan', 55, 'M', 'A+', 'jcruz@hotmail.com', '', 'Lima', ''),
 		(6, '95442153', 'Gonzales', 'Bonifacio', 61, 'M', '0-', 'elboni58@yahoo.com.ar', '', 'Asuncion', '2231144575'),
 		(7, '39155423', 'Britos', 'Braian', 19, 'M', '0+', 'elbrayan2000@gmail.com', '', 'Escobar', '');
 
@@ -203,8 +203,8 @@ USE DBeturnos;
 		idoc INTEGER NOT NULL,
 		idce INTEGER (2) NOT NULL,
 		sdate DATE,
-		hour CHAR (5),
-		state CHAR (4) NOT NULL,
+		hour VARCHAR (10),
+		state VARCHAR (4) NOT NULL,
 		FOREIGN KEY (idpa) REFERENCES patients(idpa)
 			ON DELETE RESTRICT ON UPDATE CASCADE,
 		FOREIGN KEY (idce) REFERENCES centers(idce)
@@ -217,17 +217,17 @@ USE DBeturnos;
 		idmr INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		mdate DATE NOT NULL,
 		idpa INTEGER NOT NULL,
-		idoc INTEGER NOT NULL,
+		idpr INTEGER NOT NULL,
 		query TEXT NOT NULL,
 		background TEXT,
 		diagnosis TEXT,
 		treatment TEXT,
 		FOREIGN KEY (idpa) REFERENCES patients(idpa)
 			ON DELETE RESTRICT ON UPDATE CASCADE,
-		FOREIGN KEY (idoc) REFERENCES doctors(idoc)
+		FOREIGN KEY (idpr) REFERENCES professionals(idpr)
 			ON DELETE RESTRICT ON UPDATE CASCADE
 	);
 
-	INSERT INTO medrecord (idmr, mdate, idpa, idoc, query, background, diagnosis, treatment)
+	INSERT INTO medrecord (idmr, mdate, idpa, idpr, query, background, diagnosis, treatment)
 		 VALUES
 		(1, '2020-04-12', 1, 3, 'problemas de sueño', 'crisis de ansiedad', 'Ansiedad generalizada', 'Psicoterapia');

@@ -3,7 +3,7 @@
   $users_controller = new UsersController();
 
   $users = $users_controller->get();
-
+  
   $rows_users = count($users);
 
   $specs_controller = new SpecsController();
@@ -12,11 +12,11 @@
 
   $rows_specs = count($specs);
 
-  $doctors_controller = new DoctorsController();
+  $professionals_controller = new ProfessionalsController();
   
-  $docs = $doctors_controller->get();
+  $professionals = $professionals_controller->get();
 
-  $rows_docs = count($docs);
+  $rows_professionals = count($professionals);
 
   $centers_controller = new CentersController();
   
@@ -24,9 +24,8 @@
 
   $rows_centers = count($centers);
  
-  $showmodal = false;
-  $modaljournal = false;
-  $modalshow = false;
+  $showmodal = $modaljournal = $modalshow = false;
+  
 
 ?>
 <!-- Central section -->
@@ -44,7 +43,7 @@
           $template = '
             <div class="row">
               
-                <h2 class="text-primary">Hola %s, bienvenid@</h2>
+                <br><br><br><br><h2 class="text-primary">Hola %s, bienvenid@</h2><br><br><br><br>
              
             </div>
           ';
@@ -67,7 +66,7 @@
           <div class="small-box bg-primary">
             <div class="inner">
               <h1><strong> <?php echo $rows_users ?> </h1></strong>
-                <p><strong>Usuarios Registrados</strong></p>
+                <h4><p>Usuarios Registrados</p></h4>
             </div>
             <div class="icon">
               <small><i class="ion ion-person-add"></i></small>
@@ -83,7 +82,7 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <h1><strong> <?php echo $rows_specs ?> </strong></h1>
-                <p><strong>Specs Registradas</strong></p>
+                <h4><p>Specs Registradas</p></h4>
             </div>
             <div class="icon">
               <small><i class="glyphicon glyphicon-eye-open"></i></small>  
@@ -98,8 +97,8 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h1><strong> <?php echo $rows_docs ?> </strong></h1>
-                <p><strong>Profesionales Registrados</strong></p>
+              <h1><strong> <?php echo $rows_professionals ?> </strong></h1>
+                <h4><p>Profesionales Registrados</p></h4>
             </div>
             <div class="icon">
               <small><i class="ion ion-person-add"></i></small>  
@@ -115,7 +114,7 @@
           <div class="small-box bg-red">
             <div class="inner">
               <h1><strong> <?php echo ($rows_centers - 1) ?> </strong></h1>
-                <p><strong>Centros Registrados</strong></p>
+                <h4><p>Centros Registrados</p></h4>
             </div>
             <div class="icon">
               <small><i class="glyphicon glyphicon-home"></i></small>  
@@ -128,6 +127,7 @@
 
     <div class="row">
       <div align="center">
+        <br>
         <img src="http://localhost/eturnos/public/plugins/assets/img/suport.gif">
       </div>
     </div>

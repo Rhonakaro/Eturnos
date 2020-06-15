@@ -15,6 +15,7 @@ class UsersModel extends Model
 
 	}
 
+
 	public function get( $search = '' ) {
 
 		$this->query = ($search != '')
@@ -35,6 +36,7 @@ class UsersModel extends Model
 		return $data;
 
 	}
+
 
 	public function del( $search = '' ) {
 
@@ -71,6 +73,7 @@ class UsersModel extends Model
 
 	}
 
+
 	public function validate_user($mail, $pass) {
 
 		$this->query = "SELECT * FROM users WHERE mail = '$mail' AND pass = MD5('$pass')";
@@ -86,6 +89,7 @@ class UsersModel extends Model
 		return $data;
 
 	}
+	
 
 	public function __destruct() {
 	

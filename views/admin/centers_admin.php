@@ -7,10 +7,7 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
-  $modaljournal = false;
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
+  $modaljournal = $showmodal = $modalshow = $showmessage = false;  
   
  
   switch ($accion) {
@@ -21,9 +18,11 @@
 
           $save_center = array(
 
-            'idspec' => $_POST['txtid'],
-            'spec' => $_POST['txtspec'],
-            'sptime' => $_POST['txtsptime']
+            'idce' => $_POST['txtIDCE'],
+            'cname' => $_POST['txtCNAME'],
+            'direction' => $_POST['txtDIRECTION'],
+            'telphone' => $_POST['txtTELPHONE'],
+            'type' => $_POST['txtTYPE']
           );
 
           $center = $centers_controller->set($save_center);
@@ -39,14 +38,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading"> Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="centers_admin" class="btn btn-default">BACK</a>
+                                      <a href="centers_admin" class="btn btn-default">ATRAS</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -67,7 +66,7 @@
 
           $showmessage = true;
             
-          $center = $centers_controller->del($_POST['txtid']);
+          $center = $centers_controller->del($_POST['txtIDCE']);
 
           print ('
                   <!-- modal message-->
@@ -80,14 +79,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading"> Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="centers_admin" class="btn btn-default">BACK</a>
+                                      <a href="centers_admin" class="btn btn-default">ATRAS</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -122,14 +121,13 @@
   <!-- content header (page header) -->
   <section class="content-header text-center">
     <div class="row">
-      <h3><strong>Gestión de Centros</strong></h3>
+      <br><h3><strong>Gestión de Centros</strong></h3><br>
     </div>
   </section>
 
   <!-- main content -->
   <section class="content">
   
-
 
     <!-- Inicio modal edicion spec -->
     <div class="row">
@@ -140,50 +138,50 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title text-center" id="modalLabel">Edición de Centros</h5>
+                  <h4 class="modal-title text-center" id="modalLabel"><strong>Edición de Centros</strong></h4>
                   <div class="pull-right">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">CERRAR</button>
                   </div>
                 </div>
                 <div class="modal-body">
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="">Id</label>
-                      <input type="text" class="form-control" name="txtid" placeholder="" id="txtid" value=" <?php echo $_POST['txtid']; ?> " disabled >
-                      <input type="hidden" name="txtid" id="txtid" value=" <?php echo $_POST['txtid']; ?> ">
+                      <label for=""><h4><strong>Id</strong></h4></label>
+                      <input type="text" class="form-control" name="txtIDCE" value="<?php echo $_POST['txtidce']; ?>" disabled style="font-size: 20px;">
+                      <input type="hidden" name="txtIDCE" value="<?php echo $_POST['txtidce']; ?>">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Nombre</label>
-                      <input type="text" class="form-control" name="txtcname" placeholder="" id="txtcname" value=" <?php echo $_POST['txtcname']; ?> " required >
+                      <label for=""><h4><strong>Nombre</strong></h4></label>
+                      <input type="text" class="form-control" name="txtCNAME" value="<?php echo $_POST['txtcname']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Dirección</label>
-                      <input type="text" class="form-control" name="txtdirection" placeholder="" id="txtdirection" value=" <?php echo $_POST['txtdirection']; ?> " required >
+                      <label for=""><h4><strong>Dirección</strong></h4></label>
+                      <input type="text" class="form-control" name="txtDIRECTION" value="<?php echo $_POST['txtdirection']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Teléfono</label>
-                      <input type="text" class="form-control" name="txttelphone" placeholder="" id="txttelphone" value=" <?php echo $_POST['txttelphone']; ?> " required >
+                      <label for=""><h4><strong>Teléfono</strong></h4></label>
+                      <input type="text" class="form-control" name="txtTELPHONE" value="<?php echo $_POST['txttelphone']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
                     <div class="form-group col-md-3">
-                      <label for="">Tipo</label>
-                      <select class="form-control col-md-3" name="txttype" required>
-                        <option value="<?php echo $_POST['txttype']; ?>"> <?php echo $_POST['txttype']; ?> </option>
-                        <option value="cic">cic</option>
-                        <option value="cap">cap</option>
+                      <label for=""><h4><strong>Tipo</strong></h4></label>
+                      <select class="form-control col-md-3" name="txtTYPE" required style="font-size: 20px padding-bottom: 0px">
+                        <option value="<?php echo $_POST['txttype']; ?>" style="font-size: 20px"> <?php echo $_POST['txttype']; ?> </option>
+                        <option value="CIC" style="font-size: 20px;">CIC</option>
+                        <option value="CAP" style="font-size: 20px;">CAP</option>
                       </select>
                     </div>
                   </div>
                   <div class="modal-footer">
                     <div class="form-group col-md-12">
                       <div class="pull-right">
-                        <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                        <button value="btnupd" type="submit" class="btn btn-success" name="accion"><strong>GUARDAR</strong></button>
                       </div>
                       <div class="pull-left">
-                        <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
+                        <button value="btndel" type="submit" class="btn btn-danger" name="accion"><strong>ELIMINAR</strong></button>
                       </div>
                     </div>               
                   </div>
@@ -200,13 +198,13 @@
 
     <!-- tabla Especialidades -->        
     <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <div class="box box-secondary">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="box box-info">
               
                  <div class="box-body">
                     <form method="post">
                         <input type="hidden" name="r" value="center_admin-add">
-                        <input class="button btn btn-info" type="submit" value="NEW CENTER">
+                        <input class="button btn bg-purple" type="submit" value="NUEVO" >
                     </form>
                   </div>
               
@@ -215,31 +213,31 @@
                 <table class="table table-bordered" id="datatable">
                   <thead>
                     <tr role="row">
-                        <th class="text-center" colspan="1" style="width: 20px"><h4><strong>#</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 90px"><h4><strong>Nombre</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 125px"><h4><strong>Dirección</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 35px"><h4><strong>Teléfono</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 10px"><h4><strong>Tipo</strong></h4></th>
-                        <th class="text-center" colspan="1" style="width: 20px"><h4><strong>Action</strong></h4></th>
+                        <th class="text-center" colspan="1" ><h4><strong>#</strong></h4></th>
+                        <th class="text-center" colspan="1" ><h4><strong>Nombre</strong></h4></th>
+                        <th class="text-center" colspan="1" ><h4><strong>Dirección</strong></h4></th>
+                        <th class="text-center" colspan="1" ><h4><strong>Teléfono</strong></h4></th>
+                        <th class="text-center" colspan="1" ><h4><strong>Tipo</strong></h4></th>
+                        <th class="text-center" colspan="1" ><h4><strong>Acción</strong></h4></th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php for ($n=0; $n < count($centers); $n++) { ?>
                     <tr role="row">
-                      <td class="text-center"><h4> <?php echo $centers[$n]['idce']; ?> </h4></td>
-                      <td class="text-center"><h4> <?php echo $centers[$n]['cname']; ?> </h4></td> 
-                      <td class="text-center"><h4> <?php echo $centers[$n]['direction']; ?> </h4></td>
-                      <td class="text-center"><h4> <?php echo $centers[$n]['telphone']; ?> </h4></td>
-                      <td class="text-center"><h4> <?php echo $centers[$n]['type']; ?> </h4></td>
+                      <td class="text-center"><h4><?php echo $centers[$n]['idce']; ?></h4></td>
+                      <td class="text-center"><h4><?php echo $centers[$n]['cname']; ?></h4></td> 
+                      <td class="text-center"><h4><?php echo $centers[$n]['direction']; ?></h4></td>
+                      <td class="text-center"><h4><?php echo $centers[$n]['telphone']; ?></h4></td>
+                      <td class="text-center"><h4><?php echo $centers[$n]['type']; ?></h4></td>
                       <td class="text-center">
                         <form action="" method="post">
-                          <input type="hidden" name="txtid" value=" <?php echo $centers[$n]['idce']; ?> " >
-                          <input type="hidden" name="txtcname" value=" <?php echo $centers[$n]['cname']; ?> " >
-                          <input type="hidden" name="txtdirection" value=" <?php echo $centers[$n]['direction']; ?> " >
-                          <input type="hidden" name="txttelphone" value=" <?php echo $centers[$n]['telphone']; ?> " >
-                          <input type="hidden" name="txttype" value=" <?php echo $centers[$n]['type']; ?> " >
+                          <input type="hidden" name="txtidce" value="<?php echo $centers[$n]['idce']; ?>" >
+                          <input type="hidden" name="txtcname" value="<?php echo $centers[$n]['cname']; ?>" >
+                          <input type="hidden" name="txtdirection" value="<?php echo $centers[$n]['direction']; ?>" >
+                          <input type="hidden" name="txttelphone" value="<?php echo $centers[$n]['telphone']; ?>" >
+                          <input type="hidden" name="txttype" value="<?php echo $centers[$n]['type']; ?>" >
                           <div>
-                            <input type="submit" class="btn btn-warning" name="accion" value="Select">
+                            <input type="submit" class="btn bg-orange" name="accion" value="Select">
                           </div>
                         </form>
                       </td>

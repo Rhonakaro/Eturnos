@@ -37,14 +37,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users_admin" class="btn btn-default">Back</a>
+                                      <a href="users_admin" class="btn btn-default"><strong>ATRAS</strong></a>
                                     </div>
                                   </div>
                                 </div>               
@@ -78,14 +78,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users_admin" class="btn btn-default">Back</a>
+                                      <a href="users_admin" class="btn btn-default"><strong>ATRAS</strong></a>
                                     </div>
                                   </div>
                                 </div>               
@@ -137,14 +137,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="users_admin" class="btn btn-default">Back</a>
+                                      <a href="users_admin" class="btn btn-default"><strong>ATRAS</strong></a>
                                     </div>
                                   </div>
                                 </div>               
@@ -172,7 +172,7 @@
   <!-- content header -->
   <section class="content-header text-center">
     <div class="row">
-      <h3><strong>Gestión de Usuarios</strong></h3>
+      <br><h3><strong>Gestión de Usuarios</strong></h3><br>
     </div>
   </section>
   <!-- fin content header -->
@@ -191,41 +191,41 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title text-center" id="user_modalLabel">Perfil de Usuario</h5>
+                  <h4 class="modal-title text-center" id="user_modalLabel"><strong>Perfil de Usuario</strong></h4>
                   <div class="pull-right">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">CERRAR</button>
                   </div>
                 </div>
                 <div class="modal-body">
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="">Id</label>
-                      <input type="text" class="form-control" name="txtID" placeholder="" id="txtID" value="<?php echo $_POST['txtID']; ?>" disabled >
+                      <label for=""><h4><strong>Id</strong></h4></label>
+                      <input type="text" class="form-control" name="txtID" id="txtID" value="<?php echo $_POST['txtID']; ?>" disabled style="font-size: 20px;">
                       <input type="hidden" name="txtID" value="<?php echo $_POST['txtID']; ?>">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Apellido</label>
-                      <input type="text" class="form-control" name="txtLNAME" placeholder="" id="txtLNAME" value="<?php echo $_POST['txtLNAME']; ?>" required>
+                      <label for=""><h4><strong>Apellido</strong></h4></label>
+                      <input type="text" class="form-control" name="txtLNAME" id="txtLNAME" value="<?php echo $_POST['txtLNAME']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Nombre</label>
-                      <input type="text" class="form-control" name="txtNAME" placeholder="" id="txtNAME" value="<?php echo $_POST['txtNAME']; ?>" required>
+                      <label for=""><h4><strong>Nombre</strong></h4></label>
+                      <input type="text" class="form-control" name="txtNAME" id="txtNAME" value="<?php echo $_POST['txtNAME']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
                     <div class="form-group col-md-3">
-                      <label for="">Roll</label>
-                      <select class="form-control col-md-3" name="txtROLL" required>
-                        <option value="<?php echo $_POST['txtROLL']; ?>"><?php echo $_POST['txtROLL']; ?></option>
-                        <option value="dba">dba</option>
-                        <option value="prof">prof</option>
-                        <option value="aux">aux</option>
+                      <label for=""><h4><strong>Roll</strong></h4></label>
+                      <select class="form-control col-md-3" name="txtROLL" required style="font-size: 20px; padding-bottom: 0px">
+                        <option value="<?php echo $_POST['txtROLL']; ?>" style="font-size: 20px;"><?php echo $_POST['txtROLL']; ?></option>
+                        <option value="dba" style="font-size: 20px;">dba</option>
+                        <option value="prof" style="font-size: 20px;">prof</option>
+                        <option value="aux" style="font-size: 20px;">aux</option>
                       </select>
                     </div>
                     <div class="form-group col-md-9">
-                      <label for="">Email</label>
-                      <input type="email" class="form-control" name="txtMAIL" placeholder="" id="txtMAIL"  value="<?php echo $_POST['txtMAIL']; ?>" required>
+                      <label for=""><h4><strong>Email</strong></h4></label>
+                      <input type="email" class="form-control" name="txtMAIL" id="txtMAIL"  value="<?php echo $_POST['txtMAIL']; ?>" required style="font-size: 20px;">
                       <br>
                     </div>
                   </div>
@@ -233,10 +233,10 @@
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
                     <div class="pull-right">
-                      <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                      <button value="btnupd" type="submit" class="btn btn-success" name="accion"><strong>GUARDAR</strong></button>
                     </div>
                     <div class="pull-left">
-                      <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
+                      <button value="btndel" type="submit" class="btn btn-danger" name="accion"><strong>ELIMINAR</strong></button>
                     </div>
                   </div>               
                 </div>
@@ -259,15 +259,15 @@
             <div class="modal-dialog modal-sm">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title text-center" id="changepass_Label">Changing Password for <?php echo ($_POST['txtLNAME'].', ' .$_POST['txtNAME']); ?></h5>
+                  <h4 class="modal-title text-center" id="changepass_Label">Cambio de Contraseña para: <br><strong><?php echo ($_POST['txtLNAME'].', ' .$_POST['txtNAME']); ?></strong></h4>
                 </div>
                 <div class="modal-body">
                   <div class="form-row">
                     <div class="form-group col-6">
-                      <label for="" class="">New Password</label> 
+                      <label for="" class=""><h4>Nueva Contraseña</h4></label> 
                         <div class="input-group">
                           <input type="hidden" name="txtID" value="<?php echo ($_POST['txtID']); ?>">
-                          <input type="password" class="form-control pwd" name="txtPASS" value="<?php echo ($_POST['txtPASS']); ?>">
+                          <input type="password" class="form-control pwd" name="txtPASS" value="<?php echo ($_POST['txtPASS']); ?>" style="font-size: 20px;">
                           <span class="input-group-btn">
                             <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
                           </span>          
@@ -278,10 +278,10 @@
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
                     <div class="pull-right">
-                      <button value="pass" type="submit" class="btn btn-success" name="accion">Save</button>
+                      <button value="pass" type="submit" class="btn btn-success" name="accion"><strong>GUARDAR</strong></button>
                     </div>
                     <div class="pull-left">
-                      <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close"><strong>CERRAR</strong></button>
                     </div>
                   </div>               
                 </div>
@@ -309,7 +309,7 @@
                     <div class="box-body">
                       <form method="post">
                         <input type="hidden" name="r" value="user_admin-add">
-                        <input class="button btn btn-info" type="submit" value="New User">
+                        <input class="button btn bg-purple" type="submit" value="NUEVO" >
                       </form>
                     </div>
                   </div>
@@ -325,17 +325,17 @@
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 200px;"><h4><strong>Nombre</strong></h4></th>
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 300px;"><h4><strong>Correo</strong></h4></th>
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 150px;"><h4><strong>Roll</strong></h4></th>
-                        <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 200px;"><h4><strong>Actions</strong></h4></th>
+                        <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 200px;"><h4><strong>Acciones</strong></h4></th>
                       </tr>
                     </thead>
                     <tbody>  
                       <?php for ($n=0; $n < count($users); $n++) { ?>
                         <tr role="row" class="odd">
-                          <td class="text-center"><h4> <?php echo $users[$n]['idus'] ?> </h4></td>
-                          <td class="text-center"><h4> <?php echo $users[$n]['lname'] ?> </h4></td>
-                          <td class="text-center"><h4> <?php echo $users[$n]['name'] ?> </h4></td>
-                          <td class="text-center"><h4> <?php echo $users[$n]['mail'] ?> </h4></td>
-                          <td class="text-center"><h4> <?php echo $users[$n]['roll'] ?> </h4></td>
+                          <td class="text-center"><h4><?php echo $users[$n]['idus'] ?></h4></td>
+                          <td class="text-center"><h4><?php echo $users[$n]['lname'] ?></h4></td>
+                          <td class="text-center"><h4><?php echo $users[$n]['name'] ?></h4></td>
+                          <td class="text-center"><h4><?php echo $users[$n]['mail'] ?></h4></td>
+                          <td class="text-center"><h4><?php echo $users[$n]['roll'] ?></h4></td>
                           <td class="text-center">
                             <form action="" method="post">
                                 <input type="hidden" name="txtID" value="<?php echo $users[$n]['idus']; ?>" >
@@ -370,7 +370,6 @@
           <!-- /.box -->
     </div>
     <!-- fin tabla Usuarios -->
-    
 
   
   </section>

@@ -1,8 +1,8 @@
 <?php 
 
-  $doctors_controller = new DoctorsController();
+  $professionals_controller = new ProfessionalsController();
 
-  $doctors = $doctors_controller->get();
+  $professionals = $professionals_controller->get();
 
   $specs_controller = new SpecsController();
 
@@ -10,17 +10,23 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
-  $modaljournal = false;
-  
+  $showmodal = $modalshow = $showmessage = $modaljournal = false;
+
 
   switch ($accion) {
 
     case 'btnupd':
 
           $showmessage = true;
+
+          $save_professional = array(
+
+            'idpr' => intval( $_POST['txtidpr'] ),
+            'idspec' => intval( $_POST['txtspec'] )
+            
+          );
+
+          $professional = $professionals_controller->specedit($save_professional);
 
           print ('
                   <!-- modal message-->
@@ -33,14 +39,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="doctors" class="btn btn-default">Back</a>
+                                      <a href="professionals_admin" class="btn btn-default">ATRÁS</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -61,7 +67,7 @@
 
           $showmessage = true;
            
-          $user = $users_controller->del($_POST['txtID']);
+          $professional = $professionals_controller->del($_POST['txtidpr']);
 
           print ('
                   <!-- modal message-->
@@ -74,14 +80,14 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="text-center">
-                                  <h4 class="alert-heading"> Successful Action</h4>
+                                  <h4 class="alert-heading">Actualización Exitosa!</h4>
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <div class="form-group col-md-12">
                                   <div class="row">
                                     <div class="text-center">
-                                      <a href="doctors" class="btn btn-default">Back</a>
+                                      <a href="professionals_admin" class="btn btn-default">ATRÁS</a>
                                     </div>
                                   </div>
                                 </div>               
@@ -116,7 +122,7 @@
   <!-- content header -->
   <section class="content-header text-center">
     <div class="row">
-      <h3><strong>Gestión de Profesionales</strong></h3>
+      <br><h3><strong>Gestión de Profesionales</strong></h3><br>
     </div>
   </section>
   <!-- fin content header -->
@@ -135,47 +141,49 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title text-center" id="user_modalLabel">Perfil de Profesional</h5>
+                  <h4 class="modal-title text-center" id="user_modalLabel"><strong>Perfil de Profesional</strong></h4>
                   <div class="pull-right">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">CERRAR</button>
                   </div>
                 </div>
                 <div class="modal-body">
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="">Id</label>
-                      <input type="text" class="form-control" name="txtID" placeholder="" id="txtID" value=" <?php echo $_POST['txtID']; ?> " disabled >
-                      <input type="hidden" name="txtID" value="<?php echo $_POST['txtID']; ?>">
+                      <label for=""><h4><strong>Id</strong></h4></label>
+                      <input type="text" class="form-control" name="txtidpr" value="<?php echo $_POST['txtIDPR']; ?>" disabled style="font-size: 20px;">
+                      <input type="hidden" name="txtidpr" value="<?php echo $_POST['txtIDPR']; ?>">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Apellido</label>
-                      <input type="text" class="form-control" name="txtLNAME" placeholder="" id="txtLNAME" value=" <?php echo $_POST['txtLNAME']; ?> " required>
+                      <label for=""><h4><strong>Apellido</strong></h4></label>
+                      <input type="text" class="form-control" name="txtlname" value="<?php echo $_POST['txtLNAME']; ?>" required style="font-size: 20px;" disabled>
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Nombre</label>
-                      <input type="text" class="form-control" name="txtNAME" placeholder="" id="txtNAME" value=" <?php echo $_POST['txtNAME']; ?> " required>
+                      <label for=""><h4><strong>Nombre</strong></h4></label>
+                      <input type="text" class="form-control" name="txtname" value="<?php echo $_POST['txtNAME']; ?>" required style="font-size: 20px;" disabled>
                       <br>
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="">Spec</label>
-                      <select class="form-control" id="search4" name="txtIDCE" style=""  required>
-                          <option value="<?php echo $_POST['txtSPEC']; ?>"> <?php echo $_POST['txtSPEC']; ?> </option>
-                          <?php for ($n=0; $n < count($specs); $n++) { ?>
-                          <option> <?php echo ($specs[$n]['idspec'] .'_'.$specs[$n]['spec']) ?> </option>
-                          <?php } ?> 
-                      </select>
+                      <label for=""><h4><strong>Especialidad</strong></h4></label>
+                      <h4>
+                        <select class="form-control" id="search4" name="txtspec" required>
+                            <option value="<?php echo $_POST['txtSPEC']; ?>" ><?php echo $_POST['txtSPEC']; ?></option>
+                            <?php for ($n=0; $n < count($specs); $n++) { ?>
+                            <option ><?php echo ($specs[$n]['idspec'] .'_'.$specs[$n]['spec']) ?></option>
+                            <?php } ?> 
+                        </select>
+                      </h4>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
                   <div class="form-group col-md-12">
                     <div class="pull-right">
-                      <button value="btnupd" type="submit" class="btn btn-success" name="accion">Update</button>
+                      <button value="btnupd" type="submit" class="btn btn-success" name="accion"><strong>GUARDAR</strong></button>
                     </div>
                     <div class="pull-left">
-                      <button value="btndel" type="submit" class="btn btn-danger" name="accion">Delete</button>
+                      <button value="btndel" type="submit" class="btn btn-danger" name="accion"><strong>ELIMINAR</strong></button>
                     </div>
                   </div>               
                 </div>
@@ -189,11 +197,11 @@
     <!-- fin modal profile-->
 
   
-    <!-- tabla Usuarios -->        
+    <!-- tabla profesionales -->        
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <!-- /.box -->
-        <div class="box box-success">
+        <div class="box box-info">
           <!-- /.box-header -->
           <div class="box-body">
             <div id="tusers_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -201,10 +209,7 @@
                 <div class="col-sm-2">
                   <div class="dataTables_length" id="tusers_length">
                     <div class="box-body">
-                      <form method="post">
-                        <input type="hidden" name="r" value="user-add">
-                        <input class="button btn btn-info" type="submit" value="New User">
-                      </form>
+                      
                     </div>
                   </div>
                 </div>
@@ -217,23 +222,23 @@
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 100px;"><h4><strong>#</strong></h4></th>
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 300px;"><h4><strong>Profesional</strong></h4></th>
                         <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 200px;"><h4><strong>Especialidad</strong></h4></th>
-                        <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 150px;"><h4><strong>Action</strong></h4></th>
+                        <th class="text-center" aria-controls="tusers" rowspan="1" colspan="1" style="width: 150px;"><h4><strong>Accción</strong></h4></th>
                       </tr>
                     </thead>
                     <tbody>  
-                      <?php for ($n=0; $n < count($doctors); $n++) { ?>
+                      <?php for ($n=0; $n < count($professionals); $n++) { ?>
                         <tr role="row" class="odd">
-                          <td class="text-center"><h4> <?php echo $doctors[$n]['idoc'] ?> </h4></td>
-                          <td class="text-center"><h4> <?php echo ( $doctors[$n]['lname']. ', '. $doctors[$n]['name'] );?> </h4></td>
-                          <td class="text-center"><h4> <?php echo $doctors[$n]['spec'] ?> </h4></td>
+                          <td class="text-center"><h4><?php echo $professionals[$n]['idpr'] ?></h4></td>
+                          <td class="text-center"><h4><?php echo ( $professionals[$n]['lname']. ', '. $professionals[$n]['name'] );?></h4></td>
+                          <td class="text-center"><h4><?php echo $professionals[$n]['spec'] ?></h4></td>
                           <td class="text-center">
                             <form action="" method="post">
-                                <input type="hidden" name="txtID" value=" <?php echo $doctors[$n]['idoc']; ?> " >
-                                <input type="hidden" name="txtLNAME" value=" <?php echo $doctors[$n]['lname']; ?> " >
-                                <input type="hidden" name="txtNAME" value=" <?php echo $doctors[$n]['name']; ?> " >
-                                <input type="hidden" name="txtSPEC" value=" <?php echo $doctors[$n]['spec']; ?> " >
+                                <input type="hidden" name="txtIDPR" value="<?php echo $professionals[$n]['idpr']; ?>" >
+                                <input type="hidden" name="txtLNAME" value="<?php echo $professionals[$n]['lname']; ?>" >
+                                <input type="hidden" name="txtNAME" value="<?php echo $professionals[$n]['name']; ?>" >
+                                <input type="hidden" name="txtSPEC" value="<?php echo $professionals[$n]['spec']; ?>" >
                                 <div class="">
-                                  <input type="submit" class="btn btn-warning" name="accion" value="Select">
+                                  <input type="submit" class="btn bg-orange" name="accion" value="Select">
                                 </div>
                             </form>
                             

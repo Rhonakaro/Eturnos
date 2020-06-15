@@ -52,9 +52,8 @@ class Router {
 							else if( $_POST['r'] == 'spec_admin-add' )  $controller->load_view('spec_admin-add');
 							break;
 
-						case 'doctors_admin':
-							if( !isset( $_POST['r'] ) )  $controller->load_view('doctors_admin');
-							else if( $_POST['r'] == 'doctor_admin-add' )  $controller->load_view('doctor_admin-add');
+						case 'professionals_admin':
+							if( !isset( $_POST['r'] ) )  $controller->load_view('professionals_admin');
 							break;
 
 						case 'out_admin':

@@ -9,10 +9,11 @@ class SpecsModel extends Model
 		}
 
 		$this->query = "REPLACE INTO specs (idspec, spec, sptime) 
-						VALUES ($idspec, '$spec', $sptime)";
+						VALUES ($idspec, '$spec', '$sptime')";
 		
 		$this->set_query();
 	}
+
 
 	public function get( $search = '' ) {
 
@@ -34,12 +35,14 @@ class SpecsModel extends Model
 		return $data;
 	}
 
+
 	public function del( $search = '' ) {
 
 		$this->query = "DELETE FROM specs WHERE idspec = '$search'";
 		
 		$this->set_query();
 	}
+	
 
 	public function __destruct() {
 		
