@@ -1,15 +1,15 @@
 <?php 
 
-  $patients_controller = new PatientsController();
+  $shifts_controller = new ShiftsController();
 
-  $patients = $patients_controller->get();
+  $shifts = $shifts_controller->get();
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
   $showmodal = $modalshow = $showmessage = $modaljournal = false;
+
   
- 
-  switch ($accion) {
+  /*switch ($accion) {
 
     case 'btnupd':
 
@@ -19,8 +19,8 @@
 
             'idpa' => $_POST['txtIDPA'],
             'dni' => $_POST['txtDNI'],
-            'lnamepa' => $_POST['txtLNAMEPA'],
-            'namepa' => $_POST['txtNAMEPA'],
+            'lname' => $_POST['txtLNAME'],
+            'name' => $_POST['txtNAME'],
             'age' => intval( $_POST['txtAGE'] ),
             'sex' => $_POST['txtSEX'],
             'blood' => $_POST['txtBLOOD'],
@@ -73,7 +73,7 @@
 
           $showmodal = true;
        
-  }
+  }*/
    
 ?>
 
@@ -84,7 +84,7 @@
   <!-- content header -->
   <section class="content-header text-center">
     <div class="row">
-      <br><h2>Listado de Pacientes</h2>
+      <br><h2>Sistema de Turnos</h2>
     </div>
   </section>
   <!-- fin content header -->
@@ -94,7 +94,7 @@
   <section class="content">
 
 
-    <!-- Inicio modal profile -->
+    <!-- Inicio modal modificacion de turno -->
     <div class="row">
       <div class="col-xs-12">
         <form action="" method="post">
@@ -103,8 +103,8 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title text-center" id="user_modalLabel"><strong>Información del Paciente</strong></h4>
-                  <input type="checkbox" name="checkbox" id="checkbox" class="chkAgree" > &nbsp; &nbsp; Habilitar para editar Paciente.
+                  <h4 class="modal-title text-center" id="user_modalLabel"><strong>Perfil de Usuario</strong></h4>
+                  <input type="checkbox" name="checkbox" id="checkbox" class="chkAgree"> &nbsp; &nbsp; Desea editar Paciente?
                   <div class="pull-right">
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-label="Close">CERRAR</button>
                   </div>
@@ -114,11 +114,11 @@
                       <input type="hidden" class="form-control" name="txtIDPA" value="<?php echo $_POST['txtidpa']; ?>">
                       <div class="form-group col-md-5">
                         <h4><label><strong>Apellido</strong></label></h4>
-                        <input type="text" class="form-control" id="submit" name="txtLNAMEPA" value="<?php echo $_POST['txtlnamepa']; ?>" required disabled style="font-size: 20px;">
+                        <input type="text" class="form-control" id="submit" name="txtLNAME" value="<?php echo $_POST['txtlname']; ?>" required disabled style="font-size: 20px;">
                       </div>
                       <div class="form-group col-md-5">
                         <h4><label><strong>Nombres</strong></label></h4>
-                        <input type="text" class="form-control" id="submit" name="txtNAMEPA" value="<?php echo $_POST['txtnamepa']; ?>" required disabled style="font-size: 20px;">
+                        <input type="text" class="form-control" id="submit" name="txtNAME" value="<?php echo $_POST['txtname']; ?>" required disabled style="font-size: 20px;">
                       </div>
                       <div class="form-group col-md-2 ">
                         <h4><label><strong>Edad</strong></label></h4>
@@ -192,13 +192,13 @@
         </form>
       </div>
     </div>
-    <!-- fin modal profile-->
+    <!-- fin modal modificacion de turno-->
 
     
     
     
 
-    <!-- tabla pacientes -->        
+    <!-- tabla turnos -->        
     <div class="row">
       <div class="col-md-12">
         <!-- /.box -->
@@ -207,8 +207,8 @@
                   <div class="box-body">
                     <div class="pull-left">
                       <form method="post">
-                        <input type="hidden" name="r" value="patient_assistant-add">
-                        <input class="button btn bg-purple" type="submit" value="AGREGAR"> 
+                        <input type="hidden" name="r" value="shift_assistant-add">
+                        <input class="button btn btn-info btn-sm" type="submit" value="NUEVO"> 
                       </form>
                     </div>
                   </div>
@@ -216,48 +216,49 @@
                     <table class="table table-bordered" id="datatable">
                       <thead>
                         <tr role="row">
-                            <th class="text-center" colspan="1" ><h4><strong>Dni</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Apellido y Nombres</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Edad</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Sexo</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Gr. Sanguineo</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Correo</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Dirección</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Barrio</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Ciudad</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Teléfono</strong></h4></th>
-                            <th class="text-center" colspan="1" ><h4><strong>Action</strong></h4></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Dni</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Paciente</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Correo</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Especialidad</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Profesional</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Centro</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Fecha</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Hora</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Estado</strong></h5></th>
+                            <th class="text-center" colspan="1" ><h5><strong>Acción</strong></h5></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php for ($n=0; $n < count($patients); $n++) { ?>
+                        <?php for ($n=0; $n < count($shifts); $n++) { ?>
                         <tr role="row">
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['dni']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo ( $patients[$n]['lnamepa'].',  '.$patients[$n]['namepa'] ); ?> </h4></td> 
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['age']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['sex']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['blood']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['mail']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['direction']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['district']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['city']; ?> </h4></td>
-                          <td class="text-center" ><h4> <?php echo $patients[$n]['telphone']; ?> </h4></td>
+                          <!--<td class="text-center" ><h4><?php echo $shifts[$n]['idsf']; ?></h4></td>-->
+                          <!--<td class="text-center" ><h4><?php echo $shifts[$n]['registry']; ?></h4></td>-->
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['dni']; ?></h5></td>
+                          <td class="text-center" ><h5><?php echo ($shifts[$n]['lnamepa'].',  '.$shifts[$n]['namepa']); ?></h5></td>
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['mail']; ?></h5></td>
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['spec']; ?></h5></td>
+                          <td class="text-center" ><h5><?php echo ($shifts[$n]['lname'].', '.$shifts[$n]['name']); ?></h5></td>
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['cname']; ?></h5></td>
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['sdate']; ?></h5></td>
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['hour']; ?></h5></td>
+                          <td class="text-center" ><h5><?php echo $shifts[$n]['state']; ?></h5></td>
                           <td class="text-center">
                             <form action="" method="post">
-                              <input type="hidden" name="txtidpa" value="<?php echo $patients[$n]['idpa']; ?>" >
-                              <input type="hidden" name="txtdni" value="<?php echo $patients[$n]['dni']; ?>" >
-                              <input type="hidden" name="txtlnamepa" value="<?php echo $patients[$n]['lnamepa']; ?>" >
-                              <input type="hidden" name="txtnamepa" value="<?php echo $patients[$n]['namepa']; ?>" >
-                              <input type="hidden" name="txtage" value="<?php echo $patients[$n]['age']; ?>" >
-                              <input type="hidden" name="txtmail" value="<?php echo $patients[$n]['mail']; ?>" >
-                              <input type="hidden" name="txtdirection" value="<?php echo $patients[$n]['direction']; ?>" >
-                              <input type="hidden" name="txtdistrict" value="<?php echo $patients[$n]['district']; ?>" >
-                              <input type="hidden" name="txtcity" value="<?php echo $patients[$n]['city']; ?>" >
-                              <input type="hidden" name="txttelphone" value="<?php echo $patients[$n]['telphone']; ?>" >
-                              <input type="hidden" name="txtsex" value="<?php echo $patients[$n]['sex']; ?>" >
-                              <input type="hidden" name="txtblood" value="<?php echo $patients[$n]['blood']; ?>" >
+                              <input type="hidden" name="txtidsf" value="<?php echo $shifts[$n]['idsf']; ?>" >
+                              <input type="hidden" name="txtregistry" value="<?php echo $shifts[$n]['registry']; ?>" >
+                              <input type="hidden" name="txtdni" value="<?php echo $shifts[$n]['dni']; ?>" >
+                              <input type="hidden" name="txtlnamepa" value="<?php echo $shifts[$n]['lnamepa']; ?>" >
+                              <input type="hidden" name="txtnamepa" value="<?php echo $shifts[$n]['namepa']; ?>" >
+                              <input type="hidden" name="txtmail" value="<?php echo $shifts[$n]['mail']; ?>" >
+                              <input type="hidden" name="txtspec" value="<?php echo $shifts[$n]['spec']; ?>" >
+                              <input type="hidden" name="txtlname" value="<?php echo $shifts[$n]['lname']; ?>" >
+                              <input type="hidden" name="txtname" value="<?php echo $shifts[$n]['name']; ?>" >
+                              <input type="hidden" name="txtcname" value="<?php echo $shifts[$n]['cname']; ?>" >
+                              <input type="hidden" name="txtstate" value="<?php echo $shifts[$n]['state']; ?>" >
+                              <input type="hidden" name="txthour" value="<?php echo $shifts[$n]['hour']; ?>" >
+                              <input type="hidden" name="txtstate" value="<?php echo $shifts[$n]['state']; ?>" >
                               <div>
-                                <input type="submit" class="btn bg-orange" name="accion" value="Editar" textarea="black" >
+                                <input type="submit" class="btn bg-orange btn-sm" name="accion" value="Cancelar" textarea="black" >
                               </div>
                             </form>
                           </td>

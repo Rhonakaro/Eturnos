@@ -1,85 +1,95 @@
 <?php
 
-$modaljournal = false;
-$showmodal = false;
-$modalshow = false;
+$modaljournal = $showmodal = $modalshow = false;
 
-echo 'hello';
-
-	/*if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && !isset($_POST['crud']) ) {
+	if( $_POST['r'] == 'patient_assistant-add' && $_SESSION['roll'] == 'aux' && !isset($_POST['crud']) ) {
 		
-		$specs_controller = new SpecsController();
-
-		$specs = $specs_controller->get(); ?>
+	?>
 
 		<div class="content-wrapper">
     		<section class="content">
     			<div class="container">
-    				<div class="row">
-		    		    <div class="col-sm-offset-3 col-sm-6">
-							<div class="box box-primary">
-					            <div class="text-center box-header with-border">
-					              <h3 class="box-title">Nuevo Usuario</h3>
-					            </div>
-					            <form method="post" class="form-horizontal">
-					            	<div class="box-body">
-						                <div class="form-group">
-						                	<label for="inputlname" class="col-sm-2 control-label">Apellido</label>
-						                	<div class="col-sm-8">
-						                    	<input type="text" class="form-control" id="inputlname" name="lname" placeholder="lname" required>
-				                			</div>
-					               		</div>
-					                	<div class="form-group">
-					                		<label for="inputname" class="col-sm-2 control-label">Nombre</label>
-					                		<div class="col-sm-8">
-					                    		<input type="txt" class="form-control" id="inputname" name="name" placeholder="name" required>
-					                  		</div>
-					                	</div>
-					                	<div class="form-group">
-					                		<label for="inputmail" class="col-sm-2 control-label">Correo</label>
-					                		<div class="col-sm-8">
-					                    		<input type="email" class="form-control" id="inputmail" name="mail" placeholder="mail" required>
-					                  		</div>
-					                	</div>
-					                	<div class="form-group">
-					                		<label for="inputpass" class="col-sm-2 control-label">Contraseña</label>
-					                		<div class="col-sm-8">
-					                    		<input type="password" class="form-control" id="inputpass"  onmouseover="this.type='text'" name="pass" onmouseout="this.type='password'" placeholder="pass" required/>
-					                    	</div>
-					                	</div>
-					                	<div class="form-group">
-											<div class="container col-sm-offset-4">
-												<input type="radio" name="roll" id="dba" value="dba" required>
-													<label for="dba">dba</label>
-												<input type="radio" name="roll" id="doc" value="prof" onchange="javascript:showContent()" required>
-													<label for="prof">prof</label>
-												<input type="radio" name="roll" id="aux" value="aux" required>
-													<label for="aux">aux</label>
-											</div>	
+    				<br><br><br>
+	    				<div class="row">
+			    		    <div class="col-sm-offset-3 col-sm-6">
+								<div class="box box-info">
+						            <div class="text-center box-header with-border">
+						              <h3>Nuevo Paciente</h3>
+						            </div>
+						            <form method="post" >
+						            	<div class="box-body">
+						                    <div class="form-group col-md-6">
+						                        <label for=""><h4><strong>N° de Dni</strong></h4></label>
+						                        <input type="text" class="form-control" name="txtDNI" placeholder="ingrese n° de dni"  required style="font-size: 20px;">
+						                    </div>
+					                      	<div class="form-group col-md-6">
+					                        	<label for=""><h4><strong>Apellido</strong></h4></label>
+					                        	<input type="text" class="form-control" name="txtLNAMEPA" placeholder="ingrese apellido" required style="font-size: 20px;">
+						                    </div>
+						                    <div class="form-group col-md-6">
+						                        <label for=""><h4><strong>Nombres</strong></h4></label>
+						                        <input type="text" class="form-control" name="txtNAMEPA" placeholder="ingrese nombres" required style="font-size: 20px;">
+						                    </div>
+						                    <div class="form-group col-md-3">
+						                        <label for=""><h4><strong>Edad</strong></h4></label>
+						                        <input type="text" class="form-control" name="txtAGE" placeholder="edad" required style="font-size: 20px;">
+						                    </div>
+					                        <div class="form-group col-md-3">
+						                        <label for=""><h4><strong>Sexo</strong></h4></label>
+						                        <select class="form-control" name="txtSEX" required style="font-size: 20px; padding-bottom: 0px">
+						                            <option style="font-size: 20px;" value="F">F</option>
+						                          	<option style="font-size: 20px;" value="M">M</option>
+						                          	<option style="font-size: 20px;" value="O">O</option>
+					                        	</select>
+					                        </div>
+						                    <div class="form-group col-md-4">
+						                        <label for=""><h4><strong>Factor S.</strong></h4></label>
+						                        <select class="form-control col-md-3" name="txtBLOOD" required style="font-size: 20px; padding-bottom: 0px">
+							                        <option value="0-">0-</option>
+							                        <option value="0+">0+</option>
+							                        <option value="A-">A-</option>
+							                        <option value="A+">A+</option>
+							                        <option value="B-">B-</option>
+							                        <option value="B+">B+</option>
+							                        <option value="AB-">AB-</option>
+							                        <option value="AB+">AB+</option>
+						                        </select>
+						                    </div>
+						                    <div class="form-group col-md-12">
+						                        <label for=""><h4><strong>Correo</strong></h4></label>
+						                        <input type="mail" class="form-control" name="txtMAIL" placeholder="ingrese correo" required style="font-size: 20px;">
+						                    </div>
+						                    <div class="form-group col-md-6">
+						                        <label for=""><h4><strong>Dirección</strong></h4></label>
+						                        <input type="mail" class="form-control" name="txtDIRECTION" placeholder="ingrese dirección" required style="font-size: 20px;">
+						                    </div>
+						                    <div class="form-group col-md-6">
+						                        <label for=""><h4><strong>Barrio</strong></h4></label>
+						                        <input type="mail" class="form-control" name="txtDISTRIC" placeholder="ingrese barrio" required style="font-size: 20px;">
+						                    </div>
+						                    <div class="form-group col-md-6">
+						                        <label for=""><h4><strong>Ciudad</strong></h4></label>
+						                        <input type="mail" class="form-control" name="txtCITY" placeholder="ingrese ciudad" required style="font-size: 20px;">
+						                    </div>
+						                    <div class="form-group col-md-6">
+						                        <label for=""><h4><strong>Teléfono</strong></h4></label>
+						                        <input type="text" class="form-control" name="txtTELPHONE" placeholder="ingrese numero de teléfono" style="font-size: 20px;">
+						                    </div>
+					                  	</div>
+						                
+						            	<div class="box-footer">
+						            		<div class="pull-right">
+								                <button type="submit" class="btn btn-success"><strong>GUARDAR</strong></button>
+								                <input type="hidden" name="r" value="patient_assistant-add">
+												<input type="hidden" name="crud" value="set">
+											</div>
+											<div class="pull-left">
+												<a class="btn btn-default" href="patients_assistant"><strong>CANCELAR</strong></a>
+											</div>
 										</div>
-					                </div>
-					                <div class="form-group text-center">
-										<div id="content" style="display: none;">
-											<select text-center name="idspec" placeholder="especialidad" required>
-												<?php for ($n=0; $n < count($specs); $n++) { ?>
-												<option> <?php echo ($specs[$n]['idspec'].' . '.$specs[$n]['spec']) ?> </option>
-												<?php } ?>
-											</select>
-										</div>
-									</div>
-					            	<div class="box-footer">
-					            		<div class="pull-left">
-							                <button type="submit" class="btn btn-default">New User</button>
-							                <input type="hidden" name="r" value="user-add">
-											<input type="hidden" name="crud" value="set">
-										</div>
-										<div class="pull-right">
-											<a class="btn btn-default" href="users">Back</a>
-										</div>
-									</div>
-					            </form>
-					        </div>
-						</div>
+						            </form>
+						        </div>
+							</div>
 					</div>
 				</div>
 			</section>
@@ -87,92 +97,43 @@ echo 'hello';
 		
 	<?php
 
-	} else if( $_POST['r'] == 'user-add' && $_SESSION['roll'] == 'dba' && $_POST['crud'] == 'set' ) {
+	} else if( $_POST['r'] == 'patient_assistant-add' && $_SESSION['roll'] == 'aux' && $_POST['crud'] == 'set' ) {
 
-		$users_controller = new UsersController();
+		$patients_controller = new PatientsController();
 
-		
+		$new_patient = array(
 
-		$new_user = array(
-			'idus' => 0,
-			'lname' => $_POST['lname'],
-			'name' => $_POST['name'],
-			'mail' => $_POST['mail'],
-			'pass' => $_POST['pass'],
-			'roll' => $_POST['roll']
+			'idpa' => 0,
+			'dni' => $_POST['txtDNI'],
+			'lnamepa' => $_POST['txtLNAMEPA'],
+			'namepa' => $_POST['txtNAMEPA'],
+			'age' => $_POST['txtAGE'],
+			'sex' => $_POST['txtSEX'],
+			'blood' => $_POST['txtBLOOD'],
+			'mail' => $_POST['txtMAIL'],
+			'direction' => $_POST['txtDIRECTION'],
+			'district' => $_POST['txtDISTRIC'],
+			'city' => $_POST['txtCITY'],
+			'telphone' => $_POST['txtTELPHONE']	
+
 		);
 		
-		$user = $users_controller->set($new_user);
+		$patient = $patients_controller->set($new_patient);
 
-		
-
-		if ( $_POST['roll'] == 'prof' ) {
-
-			
-			$users_count = $users_controller->get('prof');
-
-			foreach ($users_count as $key => $value) {
-				$$key = $value;
-			}
-
-			$reverse_array = array_reverse($$key);
-
-			foreach ($reverse_array as $key => $value) {
-				$$key = $value;
-			}
-			
-			$idus = intval($$key); //ultimo ID roll DOC insertado
-
-			$doctors_controller = new DoctorsController();
-			
-		        $new_doctor = array(
-
-		            'idoc' => 0,
-		            'idus' => $idus,
-		            'idspec' => intval($_POST['idspec'])
-		        );
-		        
-		    print_r($new_doctor);
-
-		    $save_doctor = $doctors_controller->set($new_doctor);
-
-			print('
+		print('
 				<div class="content-wrapper">
 					<section class="content">
 						<div class="container">
 							<div class="row">
 								<div class="alert alert-success" role="alert">
 						       		<div class="text-center">
-						        		<h4 class="alert-heading"> Usuario Guardado!</h4>
-						           	</div>
-						        </div>
-						    </div>
-							<div class="row">
-								<div class="text-center">
-									<a href="users" class="btn btn-default">Back</a>
-								</div>	
-							</div>
-						</div>
-					</section>
-				</div>   
-			');
-
-		} else {
-
-			print('
-				<div class="content-wrapper">
-					<section class="content">
-						<div class="container">
-							<div class="row">
-								<div class="alert alert-success" role="alert">
-						       		<div class="text-center">
-						           		<h4 class="alert-heading"> Usuario Guardado!</h4>
+						           		<h4 class="alert-heading"> Paciente Guardado!</h4>
 						            </div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="text-center">
-									<a href="users" class="btn btn-default">Back</a>
+									<a href="patients_assistant" class="btn btn-default">ATRAS</a>
 								</div>
 							</div>	
 						</div>
@@ -180,11 +141,9 @@ echo 'hello';
 				</div>   
 			');
 
-		}
-
 	} else {
 
 		$controller = new ViewsController();
-		$controller->load_view('error401');
-	}*/
+		$controller->load_view('error401_assistant');
+	}
 ?>

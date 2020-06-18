@@ -71,7 +71,7 @@ USE DBeturnos;
 		(3, 'Reboir', 'Irina', 'reboiri@gmail.com', MD5('irina82'), 'prof'),
 		(4, 'Volpi Grassi', 'Lorena', 'lorevg81@gmail.com', MD5('luismi315'), 'prof'),
 		(5, 'García', 'Misael', 'gmisael91@gmail.com', MD5('misa12345'), 'aux'),
-		(6, 'Ayos', 'Mónica',  'mayos63@hotmail.com', MD5('moni28039'), 'prof'),
+		(6, 'Alcantara', 'Mónica',  'maalcan3@hotmail.com', MD5('moni28039'), 'prof'),
 		(7, 'Robles', 'Paula', 'paulita1983@yahoo.com.ar', MD5('fonoes15'), 'prof'),
 		(8, 'Enjuto', 'Ariel', 'enjuto@hotmail.com', MD5('ajuntox'), 'prof'),
 		(9, 'Lopez', 'Betiana', 'blopez@hotmail.com', MD5('betilop01'), 'aux'),
@@ -80,7 +80,7 @@ USE DBeturnos;
 		(12, 'Barlongo', 'Analía', 'barcelona320@gmail.com', MD5('leomateoli'), 'prof'),
 		(13, 'Simbionti', 'Federico', 'micorreo@micorreo.com', MD5('eldibujante'), 'prof'),
 		(14, 'Katz', 'Patricia', 'kantzpato@yahoo.com.ar', MD5('joungcarl'), 'prof'),
-		(15, 'Branca', 'Avril', 'brapril@gmail.com', MD5('capril4'), 'aux'),
+		(15, 'Brancos', 'Avril', 'brapril@gmail.com', MD5('capril4'), 'aux'),
 		(16, 'Marquez', 'Julio', 'eljoyta69@hotmail.com', MD5('eldiegote'), 'prof');
 
 
@@ -127,15 +127,15 @@ USE DBeturnos;
 	INSERT INTO journals (idjou, idpr, day, idce, hour_in, hour_out, state) VALUES
 		(1, 1, 'Lunes', 2,'08 am.', '16 pm.', 'Up'),
 		(2, 1, 'Miércoles', 6, '10 am.', '17 pm.', 'Up'),
-		(3, 1, 'Jueves', 10, '12 m.', '18 pm.', 'Up'),
+		(3, 1, 'Jueves', 10, '12 m.', '17 pm.', 'Up'),
 		(4, 1, 'Viernes', 5, '10 am.', '15 pm.', 'Up'),
 		(5, 2, 'Martes', 2, '12 m.', '16 pm.', 'Up'),
 		(6, 2, 'Miércoles', 12, '10 am.', '15 pm.', 'Up'),
 		(7, 2, 'Jueves', 3, '12 m.', '16 pm.', 'Up'),
-		(8, 3, 'Lunes', 2, '12 m.', '17 pm.', 'Up'),
+		(8, 3, 'Lunes', 2, '12 m.', '16 pm.', 'Up'),
 		(9, 3, 'Martes', 2, '13 pm.', '17 pm.', 'Up'),
 		(10, 3, 'Miércoles', 7, '12 m.', '16 pm.', 'Up'),
-		(11, 3, 'Viernes', 10, '13 pm.', '17 pm.', 'Up'),
+		(11, 3, 'Viernes', 10, '13 pm.', '16 pm.', 'Up'),
 		(12, 4, 'Lunes', 10, '09 am.', '12 m.', 'Up'),
 		(13, 4, 'Jueves', 6, '08 am.', '12 m.', 'Up'),
 		(14, 5, 'Miércoles', 12, '08 am.', '11 am.', 'Up'),
@@ -157,9 +157,9 @@ USE DBeturnos;
 		(30, 9, 'Miércoles', 8, '08 am.', '15 pm.', 'Up'),
 		(31, 9, 'Jueves', 9, '10 am.', '16 pm.', 'Up'),
 		(32, 9, 'Viernes', 11, '12 m.', '16', 'Up'),
-		(33, 10, 'Miércoles', 6, '15 pm.', '18 pm.', 'Up'),
+		(33, 10, 'Miércoles', 3, '15 pm.', '17 pm.', 'Up'),
 		(34, 11, 'Lunes', 15, '08 am.', '12 pm.', 'Up'),
-		(35, 11, 'Martes', 12, '08 am.', '18 pm.', 'Up'),
+		(35, 11, 'Martes', 12, '08 am.', '17 pm.', 'Up'),
 		(36, 11, 'Miércoles', 8, '08 am.', '12 m.', 'Up'),
 		(37, 11, 'Jueves', 4, '08 am.', '15 pm.', 'Up'),
 		(38, 11, 'Viernes', 3, '10 am.', '16 pm.', 'Up'),
@@ -173,43 +173,40 @@ USE DBeturnos;
 	CREATE TABLE patients(
 		idpa INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		dni VARCHAR (8) NOT NULL UNIQUE,
-		lname VARCHAR (50) NOT NULL,
-		name VARCHAR (50) NOT NULL,
+		lnamepa VARCHAR (50) NOT NULL,
+		namepa VARCHAR (50) NOT NULL,
 		age INTEGER (2) NOT NULL,
 		sex VARCHAR (2) NOT NULL,
 		blood VARCHAR (4),
-		mail VARCHAR (50) NOT NULL UNIQUE,
+		mail VARCHAR (50),
 		direction VARCHAR (50),
+		district VARCHAR (50) NOT NULL,
 		city VARCHAR (50) NOT NULL,
 		telphone VARCHAR (15)
 		
 	);
 
-	INSERT INTO patients (idpa, dni, lname, name, age, sex, blood, mail, direction, city, telphone)
+	INSERT INTO patients (idpa, dni, lnamepa, namepa, age, sex, blood, mail, direction, district, city, telphone)
 		VALUES
-		(1, '28164718', 'Paciente', 'Cero', 39, 'M', 'A+', 'elvago@hotmail.com', 'Viale N° 51', 'Valle de Catamarca', '03489 15150262'),
-		(2, '29143343', 'Tepacien', 'Uno', 38, 'F', '0+', 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Campana', ''),
-		(3, '94524177', 'Elpaciente', 'Dos', 55, 'M', 'B+', 'correio@gmail.com', 'Juan marini 417', 'Zarate', ''),
-		(4, '47155495', 'Calabacin', 'Cuatro', 13, 'M', 'AB+', 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Lujan', ''),
-		(5, '12441573', 'Cruz', 'Joan', 55, 'M', 'A+', 'jcruz@hotmail.com', '', 'Lima', ''),
-		(6, '95442153', 'Gonzales', 'Bonifacio', 61, 'M', '0-', 'elboni58@yahoo.com.ar', '', 'Asuncion', '2231144575'),
-		(7, '39155423', 'Britos', 'Braian', 19, 'M', '0+', 'elbrayan2000@gmail.com', '', 'Escobar', '');
+		(1, '28164718', 'Paciente', 'Prueba1', 39, 'M', 'A+', 'elvago@hotmail.com', 'Viale N° 51', 'Otamendi', 'Valle de Catamarca', '03489 15150262'),
+		(2, '29143343', 'Tepacien', 'Prueba2', 38, 'F', '0+', 'loreley@gmail.com', 'J. C. Dellepiane 599', 'Acacias', 'Campana', ''),
+		(3, '94524177', 'Elpaciente', 'Ella', 55, 'F', 'B+', 'correio@gmail.com', 'Juan marini 417', 'Las Campanas', 'Zarate', ''),
+		(4, '47155495', 'Calabacin', 'Cuatro', 13, 'M', 'AB+', 'nocorreo@yahoo.com', 'Los Nogales 1055', 'Río Lujan', 'Lujan', ''),
+		(5, '12441573', 'Cruz', 'Joan', 55, 'M', 'A+', 'jcruz@hotmail.com', '', 'LA Josefa', 'Lima', ''),
+		(6, '95442153', 'Gonzales', 'Bonifacio', 61, 'M', '0-', 'elboni58@yahoo.com.ar', '', 'San Cayetano', 'Asuncion', '2231144575'),
+		(7, '39155423', 'Britos', 'Camila', 19, 'F', '0+', 'elbrayan2000@gmail.com', '', 'Siderca', 'Escobar', '');
 
 
 	CREATE TABLE shifts(
 		idsf INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		registry DATETIME,
 		idpa INTEGER NOT NULL,
-		idoc INTEGER NOT NULL,
+		idpr INTEGER NOT NULL,
 		idce INTEGER (2) NOT NULL,
 		sdate DATE,
 		hour VARCHAR (10),
-		state VARCHAR (4) NOT NULL,
-		FOREIGN KEY (idpa) REFERENCES patients(idpa)
-			ON DELETE RESTRICT ON UPDATE CASCADE,
-		FOREIGN KEY (idce) REFERENCES centers(idce)
-			ON DELETE RESTRICT ON UPDATE CASCADE
-		
+		state VARCHAR (4) NOT NULL
+				
 	);
 
 

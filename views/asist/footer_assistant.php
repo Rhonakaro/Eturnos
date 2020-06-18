@@ -1,10 +1,3 @@
-<?php 
-    
-    $showmodal = $modalshow = $modaljournal = $modalpatient = false;
-
-?>
-
-
      <!-- Footer -->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
@@ -43,27 +36,35 @@
 
     
     <script type="text/javascript">
-              $(function () {
-                  $('#datetimepicker1').datetimepicker();
-              });
-    </script>
-
-    
-    <script type="text/javascript">
       $(document).ready(function(){
         $('form input[id="submit"]').prop("disabled", true);
         $('form select[id="submit"]').prop("disabled", true);
-        
+
         $(".chkAgree").click(function(){
           if($(this).prop("checked") == true){
               $('form input[id="submit"]').prop("disabled", false);
               $('form select[id="submit"]').prop("disabled", false);
+              
           }
           else if($(this).prop("checked") == false){
               $('form input[id="submit"]').prop("disabled", true);
               $('form select[id="submit"]').prop("disabled", true);
+              
           }
         });
+      });
+    </script>
+
+
+    <script>
+      $('#buttonsend').prop("disabled", true);
+      $('input:checkbox').click(function() {
+       if ($(this).is(':checked')) {
+       $('#buttonsend').prop("disabled", false);
+       } else {
+         if ($('.checks').filter(':checked').length < 1){
+         $('#buttonsend').attr('disabled',true);}
+         }
       });
     </script>
 
@@ -84,22 +85,13 @@
     <script>
         $(document).ready( function () {
           $('#datatable').DataTable({
-            lengthMenu: [ [8, 10, 12, 14, 16, 20, 24, 32, -1], [8, 10, 12, 14, 16, 20, 24, 32, "All"] ],
+            lengthMenu: [ [7, 10, 12, 14, 16, 20, 24, 32, -1], [7, 10, 12, 14, 16, 20, 24, 32, "All"] ],
           });
             
         } );
     </script>
 
     
-    <?php if ( $modalpatient ) {  ?>
-        <script type="text/javascript"> 
-                 
-             $('#patient').modal('show');
-              
-        </script>
-    <?php } ?>
-
-
     <?php if ( $modaljournal ) {  ?>
         <script type="text/javascript"> 
                  

@@ -19,9 +19,9 @@ class ProfessionalsModel extends Model
 
 		$this->query = ($search != '')
 			
-			?"SELECT pr.idpr, us.lname, us.name, sp.spec FROM professionals AS pr 
-				INNER JOIN users AS us ON us.idus = pr.idus
-				INNER JOIN specs AS sp ON pr.idspec = sp.idspec WHERE pr.idpr = '$search'"
+			?"SELECT pr.idpr, us.lname, us.name, pr.idspec FROM professionals AS pr 
+				INNER JOIN users AS us ON us.idus = pr.idus 
+				WHERE pr.idspec = '$search'"				 
 			:"SELECT pr.idpr, us.lname, us.name, sp.spec FROM professionals AS pr 
 				INNER JOIN users AS us ON us.idus = pr.idus
 				INNER JOIN specs AS sp ON pr.idspec = sp.idspec";

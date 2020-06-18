@@ -125,7 +125,7 @@
   <!-- content header (page header) -->
   <section class="content-header text-center">
     <div class="row">
-      <br><h3><strong>Gestión de Agenda</strong></h3><br>
+      <br><h3><strong>Gestión de Agenda</strong></h3>
     </div>
   </section>
   <!-- fin content header (page header) -->
@@ -144,7 +144,7 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title text-center" id="modal_modalLabel"><strong>Modificación de Agennda de Profesionales</strong></h4>
+                    <h4 class="modal-title text-center" id="modal_modalLabel"><strong>Modificación de Agenda de Profesionales</strong></h4>
                     <div class="pull-right">
                       <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">CERRAR</button>
                     </div>

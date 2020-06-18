@@ -13,21 +13,31 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="error-page">
-        <h2 class="headline text-yellow">404</h2>
-
-        <div class="error-content">
-          <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
-
-          <p>
-            We could not find the page you were looking for.
-            Meanwhile, you may <a href="./"><h3>Back to Home</h3></a>
-          </p>
-
-          
+      <div class="row">
+        <div class="col-md-12">
+          <div class="error-page">
+            <h2 class="headline text-yellow"> Error 404</h2>
+          </div>
+          <div class="error-content" style="padding-top: 38px;">
+              <h3 style=""> &nbsp; &nbsp; Oops! Page not found! <i class="fa fa-warning text-yellow"></i></h3>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We could not find the page you were looking for.</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meanwhile, you may </p>
+          </div>
         </div>
-        <!-- /.error-content -->
       </div>
+        
+      
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="error-content text-center">
+            <p>
+             <a href="./"><h3>Back to Home</h3></a>
+            </p>
+          </div>
+        </div>
+      </div>
+
       <!-- /.error-page -->
     </section>
     <!-- /.content -->

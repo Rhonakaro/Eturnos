@@ -227,7 +227,7 @@
 
 /*Crear pacientes*/
 
-	INSERT INTO patients (idpa, dni, lname, name, age, mail, direction, city, telphone, sex, blood) VALUES	
+	INSERT INTO patients (idpa, dni, lnamepa, namepa, age, mail, direction, city, telphone, sex, blood) VALUES	
 		(0, '12441573', 'Cruz', 'Juan', 55, 'jcruz@hotmail.com', '', '', '', 'M', 'A+'),
 		(0, '95442153', 'Gonzales', 'Bonifacio', 61, 'elboni58@yahoo.com.ar', '', 'Asuncion', '2231144575', 'M', '0--'),
 		(0, '39155423', 'Britos', 'Braian', 19, 'elbrayan2000@gmail.com', '', '', '', 'M', '0+');
@@ -262,11 +262,20 @@
 
 /*Crear turnos*/
 
-	INSERT INTO shifts (ids, reg, idpa, idoc, idce, fech, hs, sts) VALUES
-		(0, now(), 2, 7, 5, '2020-04-12', '10:20', 'ok'),
-		(0, now(), 4, 4, 2, '2020-04-17', '15:40', 'ok'),
-		(0, now(), 1, 1, 6, '2020-04-20', '16:00', 'ok'),
-		(0, now(), 5, 6, 3, '2020-05-02', '08:00', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES
+		(0, now(), 2, 7, 6, '2020-04-12', '10:30', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES	
+		(0, now(), 4, 4, 10, '2020-04-17', '09:00', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES	
+		(0, now(), 1, 1, 6, '2020-04-20', '16:00', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES	
+		(0, now(), 5, 10, 3, '2020-05-02', '15:00', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES	
+		(0, now(), 3, 5, 11, '2020-05-02', '08:00', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES	
+		(0, now(), 6, 6, 14, '2020-05-02', '14:00', 'ok');
+	INSERT INTO shifts (idsf, registry, idpa, idpr, idce, sdate, hour, state) VALUES	
+		(0, now(), 7, 2, 12, '2020-05-02', '12:00', 'ok');
 			
 /*Actualizar turnos*/  /*VER por ahi solo se eliminan*/
 	
@@ -278,13 +287,18 @@
 		ALTER TABLE shifts AUTO_INCREMENT = 1;
 
 /*Busqueda de Turnos VERRRRRR */
+	
 
-	SELECT sh.ids AS '', sh.reg AS Registro, CONCAT(pa.lname, ', ', pa.name) AS Paciente, sp.spec AS Especialidad,
-		CONCAT(do.lname, ', ', do.name) AS Médicos, ce.name AS Centro, sh.fech AS Fecha, sh.hs AS Hora
+
+
+
+	SELECT sh.idsf AS '', sh.registry AS Registro, CONCAT(pa.lname, ', ', pa.name) AS Paciente, sp.spec AS Especialidad,
+		CONCAT(us.lname, ', ', us.name) AS Profesional, ce.cname AS Centro, sh.sdate AS Fecha, sh.hour AS Hora, sh.state AS Estado
 		FROM shifts AS sh
 		INNER JOIN patients AS pa ON sh.idpa = pa.idpa
-		INNER JOIN spec AS sp ON sh.idspec = sp.idspec
-		INNER JOIN doctors AS do ON sh.idoc = do.idoc
+		INNER JOIN professionals AS pr ON sh.idpr = pr.idpr
+		INNER JOIN specs AS sp ON pr.idspec = sp.idspec
+		INNER JOIN users AS us ON pr.idus = us.idus
 		INNER JOIN centers AS ce ON sh.idce = ce.idce;
 
 	SELECT sh.ids AS '', sh.reg AS Registro, CONCAT(pa.lname, ', ', pa.name) AS Paciente, sp.spec AS Especialidad,

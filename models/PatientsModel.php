@@ -8,8 +8,8 @@ class PatientsModel extends Model
 			$$key = $value;
 		}
 
-		$this->query = "REPLACE INTO patients ( idpa, dni, lname, name, age,  sex, blood, mail, direction, city, telphone ) 
-						VALUES ($idpa, '$dni', '$lname', '$name', '$age', '$sex', '$blood', '$mail', '$direction', '$city', '$telphone')";
+		$this->query = "REPLACE INTO patients ( idpa, dni, lnamepa, namepa, age, sex, blood, mail, direction, district, city, telphone ) 
+						VALUES ($idpa, '$dni', '$lnamepa', '$namepa', '$age', '$sex', '$blood', '$mail', '$direction', '$district', '$city', '$telphone')";
 		
 		$this->set_query();
 	}

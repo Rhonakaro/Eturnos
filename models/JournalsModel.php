@@ -18,12 +18,11 @@ class JournalsModel extends Model
 		
 		$this->query = ($search != '')
 
-			?"SELECT js.idjou, us.lname, us.name, sp.spec, js.day, ce.cname, js.hour_in, js.hour_out, js.state
+			?"SELECT js.idjou, us.lname, us.name, pr.idspec, js.day, ce.cname, js.hour_in, js.hour_out, js.state
 				FROM journals AS js
 				INNER JOIN professionals AS pr ON js.idpr = pr.idpr
 				INNER JOIN users AS us ON pr.idus = us.idus
-				INNER JOIN specs AS sp ON pr.idspec = sp.idspec
-				INNER JOIN centers AS ce ON js.idce = ce.idce WHERE idjou = '$search'"
+				INNER JOIN centers AS ce ON js.idce = ce.idce WHERE pr.idspec = '$search'"
 			:"SELECT js.idjou, us.lname, us.name, sp.spec, js.day, ce.cname, js.hour_in, js.hour_out, js.state
 				FROM journals AS js
 				INNER JOIN professionals AS pr ON js.idpr = pr.idpr

@@ -6,9 +6,7 @@
 
   $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
-  $showmodal = false;
-  $modalshow = false;
-  $showmessage = false;
+  $showmodal = $modalshow = $showmessage = false;
 
 ?>
 
@@ -77,12 +75,12 @@
   <!-- fin Modal Profile -->
 
 
-  <body class="hold-transition skin-yellow sidebar-mini">
+  <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
       <header class="main-header">
         <a href="./" class="logo">
          <span class="logo-mini"><font color="black"><b>E</b></font></span>
-         <span class="logo-lg"><font color="teal"><b>eturnos</b></font></span>
+         <span class="logo-lg"><font color="black"><b>eturnos</b></font></span>
         </a>
         <nav class="navbar navbar-static-top">
           <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="color: black; ">
@@ -91,17 +89,17 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li>
-                  <h5 style="margin-top: 18px;"><strong><font color="black"><?php echo  ( ' Hola!,  Bienvenid@: ' ); ?></font></strong></h5>
+                  <h5 style="margin-top: 18px;"><strong><font color="white"><?php echo  ( ' Hola!,  Bienvenid@: ' ); ?></font></strong></h5>
               </li>
               <li class="dropdown user user-menu">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                  <span><strong><font color="black"><?php echo  ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></font></strong></span>
+                  <span><strong><font color="white"><?php echo  ($_SESSION['lname']. ', ' . $_SESSION['name']); ?></font></strong></span>
                   <img src="http://localhost/eturnos/public/plugins/assets/img/comonuser.png" class="user-image" alt="User Image">
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">
                     <img src="http://localhost/eturnos/public/plugins/assets/img/comonuser.png" class="img-circle">
-                    <p><strong><font color="black"><?php
+                    <p><strong><font color="white"><?php
                         if ( $_SESSION['roll'] == 'dba' ) {
                               echo "Administrador";
                         } elseif ( $_SESSION['roll'] == "prof" ) {

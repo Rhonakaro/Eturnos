@@ -122,7 +122,7 @@
   <!-- content header -->
   <section class="content-header text-center">
     <div class="row">
-      <br><h3><strong>Gestión de Profesionales</strong></h3><br>
+      <br><h3><strong>Gestión de Profesionales</strong></h3>
     </div>
   </section>
   <!-- fin content header -->

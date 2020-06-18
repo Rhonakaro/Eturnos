@@ -99,7 +99,7 @@ class Router {
 
 						case 'shifts_assistant':
 							if( !isset( $_POST['r'] ) )  $controller->load_view('shifts_assistant');
-							else if( $_POST['r'] == 'shifts_assistant-add' )  $controller->load_view('shifts_assistant-add');
+							else if( $_POST['r'] == 'shift_assistant-add' )  $controller->load_view('shift_assistant-add');
 							break;
 
 						case 'patients_assistant':
