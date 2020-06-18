@@ -124,18 +124,19 @@ $modaljournal = $showmodal = $modalshow = false;
 				<div class="content-wrapper">
 					<section class="content">
 						<div class="container">
-							<div class="row">
-								<div class="alert alert-success" role="alert">
-						       		<div class="text-center">
-						           		<h4 class="alert-heading"> Paciente Guardado!</h4>
-						            </div>
+							<br><br><br><br><br>
+								<div class="row">
+									<div class="alert alert-success" role="alert">
+							       		<div class="text-center">
+							           		<h4 class="alert-heading"> Paciente Guardado!</h4>
+							            </div>
+									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="text-center">
-									<a href="patients_assistant" class="btn btn-default">ATRAS</a>
-								</div>
-							</div>	
+								<div class="row">
+									<div class="text-center">
+										<a href="patients_assistant" class="btn btn-default">ATRAS</a>
+									</div>
+								</div>	
 						</div>
 					</section>
 				</div>   

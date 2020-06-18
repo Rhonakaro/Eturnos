@@ -169,7 +169,7 @@
                     <?php } ?>
                 </select></h4>
                 <span class="input-group-btn">
-                  <button value="select" type="submit" class="btn btn-info btn-xs" name="accion">Buscar</button>
+                  <button value="select" type="submit" class="btn btn-info btn-block btn-sm" name="accion">Buscar</button>
                   <input type="hidden" name="r" value="shift_assistant-add">
                 </span>
               </div>
